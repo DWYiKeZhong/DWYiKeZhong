@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.fragment;
+package com.example.yikezhong.ui.duanzi_fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,12 +12,15 @@ import com.example.yikezhong.R;
 /**
  * Created   by    Dewey
  */
+public class Duanzi_Fragment extends Fragment  {
 
-public class TuiJian_Fragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tuijian_fragment, container, false);
+        View view = inflater.inflate(R.layout.duanzi_fragment, container, false);
         return view;
+
     }
+
 }

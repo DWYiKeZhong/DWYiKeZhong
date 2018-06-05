@@ -12,6 +12,9 @@ import com.example.yikezhong.inter.IBase;
 
 import javax.inject.Inject;
 
+import com.example.yikezhong.inter.IBase;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -62,4 +65,5 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     public void dismissLoading() {
 
     }
+
 }
