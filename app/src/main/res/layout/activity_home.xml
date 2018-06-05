@@ -1,15 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_na"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
 
-    <com.hjm.bottomtabbar.BottomTabBar
-        android:id="@+id/bottom_tab_bar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"   >
-    </com.hjm.bottomtabbar.BottomTabBar>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:background="#0098fe"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/main_menu"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/raw_1500033586"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/main_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="推荐"
+                android:textColor="#fff"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:id="@+id/fabiao"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/raw_1500034665" />
+        </RelativeLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/text_view"
+            android:background="#f75959"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="网络未连接，请检查网络设置！"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <com.hjm.bottomtabbar.BottomTabBar
+            android:id="@+id/bottom_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+
+<!--    <android.support.design.widget.NavigationView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/head"
+        app:menu="@menu/new_menu" />-->
+
+</android.support.v4.widget.DrawerLayout>

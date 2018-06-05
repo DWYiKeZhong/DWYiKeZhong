@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<menu
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/raw_1499933216"
+        android:title="    我的关注" />
+    <item
+        android:id="@+id/wallet"
+        android:icon="@drawable/raw_1499947358"
+        android:title="    我的收藏" />
+    <item
+        android:id="@+id/photo"
+        android:icon="@drawable/raw_1499946865"
+        android:title="    搜索好友" />
+
+    <item
+        android:id="@+id/dress"
+        android:icon="@drawable/raw_1499947389"
+        android:title="    消息通知" />
+    <item
+        android:id="@+id/btn_theme"
+        android:icon="@drawable/yl"
+        android:title="    夜间模式" />
+    <item
+        android:id="@+id/wj"
+        android:icon="@drawable/raw_1499947056"
+        android:title="    我的文件" />
+    <item
+        android:id="@+id/sz"
+        android:icon="@drawable/raw_1499947157"
+        android:title="    设置" />
+</menu>
