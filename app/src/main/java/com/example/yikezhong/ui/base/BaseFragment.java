@@ -10,23 +10,28 @@ import android.view.ViewGroup;
 import com.example.yikezhong.inter.IBase;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import javax.inject.Inject;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements IBase,
         BaseContract.BaseView {
     @Inject
     protected T mPresenter;
-    private Unbinder bind;
 
+    @Nullable
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
+            savedInstanceState) {
         inject();
-        if (mPresenter != null) {
+
+        //初始化视图
+        View view = inflater.inflate(getContentLayout(), null);
+        initView(view);
+
+        //v层绑定p层
+        if (mPresenter != null ){
             mPresenter.attchView(this);
         }
 
+        return view;
     }
 
     @Override
@@ -35,20 +40,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         if (mPresenter != null) {
             mPresenter.detachView();
         }
-        if (bind != null) {
-            bind.unbind();
-        }
 
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
-            savedInstanceState) {
-        View view = inflater.inflate(getContentLayout(), null);
-        bind = ButterKnife.bind(getActivity(), view);
-        initView(view);
-        return view;
     }
 
     @Override

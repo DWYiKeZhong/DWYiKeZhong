@@ -1,8 +1,12 @@
 package com.example.yikezhong.module;
 
 import com.example.yikezhong.net.Api;
-import com.example.yikezhong.net.Tui_HotApi;
-import com.example.yikezhong.net.Tui_HotApiService;
+import com.example.yikezhong.net.Tui_LunBoApi;
+import com.example.yikezhong.net.Tui_LunBoApiService;
+import com.example.yikezhong.net.Tui_ReMenApi;
+import com.example.yikezhong.net.Tui_ReMenApiService;
+import com.example.yikezhong.ui.utils.MyInterceptor;
+
 import java.util.concurrent.TimeUnit;
 import dagger.Module;
 import dagger.Provides;
@@ -25,18 +29,30 @@ public class HttpModule {
                 .writeTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
                 .connectTimeout(10, TimeUnit.SECONDS)
-                .addInterceptor(httpLoggingInterceptor);
+                .addInterceptor(new MyInterceptor());
     }
 
-    @Provides     // 关键字，标明该方法提供依赖对象
-    Tui_HotApi provideHotApi(OkHttpClient.Builder builder) {
-        Tui_HotApiService service = new Retrofit.Builder()
+    @Provides     // 轮播图
+    Tui_LunBoApi provideHotApi(OkHttpClient.Builder builder) {
+        Tui_LunBoApiService service1 = new Retrofit.Builder()
                 .baseUrl(Api.BASEURL)
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
-                .create(Tui_HotApiService.class);
-        return Tui_HotApi.getHotApi(service);
+                .create(Tui_LunBoApiService.class);
+        return Tui_LunBoApi.getHotApi(service1);
+    }
+
+    @Provides     // 热门
+    Tui_ReMenApi provideReMenApi(OkHttpClient.Builder builder) {
+        Tui_ReMenApiService service2 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(Tui_ReMenApiService.class);
+        return Tui_ReMenApi.getReMenApi(service2);
     }
 }

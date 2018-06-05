@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
         if (workType == NetUtils.NETWORKTYPE_WIFI){
         }else if (workType == NetUtils.NETWORKTYPE_INVALID){    //没网
             text_net.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "网络连接失败，网络断开", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "网络连接失败，网络断开！", Toast.LENGTH_SHORT).show();
         }
 
         //初始化Fragment
