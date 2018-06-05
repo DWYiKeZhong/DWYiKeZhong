@@ -10,8 +10,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //王过借助
-        //123456789
-        //ersxtfguifcvn
+
     }
 }
