@@ -29,7 +29,7 @@ public class HotVideo_Fragment extends BaseFragment<HotVideoPresenter> implement
                 .build()
                 .inject(this);*/
     }
-
+    //000000
     @Override
     public void initView(View view) {
         rv=view.findViewById(R.id.Hot_Video_Rv);
