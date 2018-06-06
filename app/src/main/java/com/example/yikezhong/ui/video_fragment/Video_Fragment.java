@@ -46,8 +46,8 @@ public class Video_Fragment extends Fragment {
         tvtablayout.addTab(tvtablayout.newTab());
         tvtablayout.addTab(tvtablayout.newTab());
         tvtablayout.setupWithViewPager(tvviewpager);
-        tvtablayout.getTabAt(0).setText("头条");
-        tvtablayout.getTabAt(1).setText("热点");
+        tvtablayout.getTabAt(0).setText("热门");
+        tvtablayout.getTabAt(1).setText("附近");
         return view;
     }
 
