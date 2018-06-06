@@ -1,5 +1,6 @@
 package com.example.yikezhong.ui.tuijian_fragment;
 
+import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -12,8 +13,13 @@ import com.example.yikezhong.ui.base.BaseFragment;
 import com.example.yikezhong.ui.tuijian_fragment.adapter.ReMenAdapter;
 import com.example.yikezhong.ui.tuijian_fragment.contract.TuiJianContract;
 import com.example.yikezhong.ui.tuijian_fragment.presenter.TuiJianPresenter;
+import com.example.yikezhong.ui.utils.DialogUtil;
 import com.example.yikezhong.ui.utils.GlideImageLoader;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import java.util.ArrayList;
@@ -24,9 +30,12 @@ import java.util.List;
  * 热门
  */
 public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements TuiJianContract.View {
-    private Banner banner;
     int page = 1;
+    private Banner banner;
+    private Handler handler = new Handler();
     private ReMenAdapter adapter;
+    private XRecyclerView recyclerView;
+    private SmartRefreshLayout tuijian_smart;
 
     @Override
     public int getContentLayout() {
@@ -44,19 +53,46 @@ public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements 
     //初始化视图，加载数据
     @Override
     public void initView(View view) {
+        tuijian_smart = view.findViewById(R.id.tuijian_smart);
         banner = (Banner) view.findViewById(R.id.banner);
         mPresenter.getLunBoP();
 
         //添加参数
-        XRecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         List<HotBean.DataBean> list = new ArrayList<>();
+        mPresenter.getReMenP("46FB809A1FFEE06DEDED783742F363CA","1");
         LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
-        //recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         adapter = new ReMenAdapter(getActivity(),list);
         recyclerView.setAdapter(adapter);
 
-        mPresenter.getReMenP("46FB809A1FFEE06DEDED783742F363CA","1");
+        DialogUtil.getProgressDialog(getActivity());    //加载提示...
+
+        // Android 动态刷新 smart 的上拉刷新下拉加载更多
+        tuijian_smart.setOnLoadmoreListener(new OnLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.getReMenP("46FB809A1FFEE06DEDED783742F363CA",Integer.toString(page++));
+                    }
+                },1500);
+            }
+        });
+        tuijian_smart.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.getReMenP("46FB809A1FFEE06DEDED783742F363CA","1");
+                    }
+                },1500);
+            }
+        });
+
     }
 
     @Override
@@ -78,6 +114,11 @@ public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements 
         if (adapter != null){
             adapter.addData(dataBeans.getData());
         }
+    }
+
+    @Override
+    public void getGuanSuccess(HotBean hotBean) {
+
     }
 
     private void initBanner() {

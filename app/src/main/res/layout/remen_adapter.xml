@@ -76,14 +76,8 @@
         android:gravity="fill_vertical"
         android:layout_gravity="center_horizontal"/>
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/draweeView"
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/videoPlayer"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="10dp"
-        fresco:placeholderImage="@drawable/app_default"
-        fresco:placeholderImageScaleType="fitXY"
-        fresco:actualImageScaleType="fitXY"
-        fresco:failureImage="@drawable/load_error_image"
-        fresco:failureImageScaleType="fitXY" />
+        android:layout_height="320dp"/>
 </LinearLayout>

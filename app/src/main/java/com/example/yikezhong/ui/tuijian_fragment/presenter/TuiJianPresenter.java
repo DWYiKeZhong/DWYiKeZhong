@@ -2,6 +2,7 @@ package com.example.yikezhong.ui.tuijian_fragment.presenter;
 
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.bean.HotLunBoBean;
+import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_LunBoApi;
 import com.example.yikezhong.net.Tui_ReMenApi;
 import com.example.yikezhong.ui.base.BasePresenter;
@@ -20,11 +21,13 @@ import io.reactivex.schedulers.Schedulers;
 public class TuiJianPresenter  extends BasePresenter<TuiJianContract.View> implements TuiJianContract.Presenter{
     private Tui_LunBoApi hotApi;
     private Tui_ReMenApi reMenApi;
+    private Tui_GuanApi guanApi;
 
     @Inject
-    public TuiJianPresenter(Tui_LunBoApi hotApi, Tui_ReMenApi reMenApi) {
+    public TuiJianPresenter(Tui_LunBoApi hotApi, Tui_ReMenApi reMenApi, Tui_GuanApi guanApi) {
         this.hotApi = hotApi;
         this.reMenApi = reMenApi;
+        this.guanApi = guanApi;
     }
 
     @Override
@@ -86,5 +89,35 @@ public class TuiJianPresenter  extends BasePresenter<TuiJianContract.View> imple
                     }
                 });
     }
+
+//    @Override
+//    public void getGuanP(String token) {
+//        guanApi.getGuan(token)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.io())
+//                .subscribe(new Observer<HotBean>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(HotBean dataBeans) {
+//                        if (mView != null){
+//                            mView.getReMenSuccess(dataBeans);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//
+//                    }
+//                });
+//    }
 
 }

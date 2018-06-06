@@ -1,7 +1,6 @@
 package com.example.yikezhong.net;
 
 import com.example.yikezhong.bean.HotBean;
-import java.util.List;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -9,8 +8,8 @@ import retrofit2.http.POST;
 
 /**
  * Created   by   Dewey .
+ * 热门
  */
-
 public interface Tui_ReMenApiService {
 
     /**

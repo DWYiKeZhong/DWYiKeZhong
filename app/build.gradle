@@ -69,4 +69,7 @@ dependencies {
 
     //Android智能下拉刷新框架
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+
+    //视频
+    compile 'cn.jzvd:jiaozivideoplayer:6.2.3'
 }

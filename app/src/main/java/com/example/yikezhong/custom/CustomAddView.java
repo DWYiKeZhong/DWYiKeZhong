@@ -11,9 +11,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.example.yikezhong.R;
 
-
 /**
  * 自定义加号view
+ *
+ * 点击加号按钮,加号隐藏,减号旋转显示,另外4张图片也旋转一定角度显示
+ *
+ * 点击减号按钮,减号隐藏,加号旋转显示,另外4张图片也旋转一定角度隐藏
  */
 public class CustomAddView extends RelativeLayout {
     private ImageView image_show;

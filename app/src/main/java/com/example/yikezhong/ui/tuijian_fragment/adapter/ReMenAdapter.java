@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.HotBean;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created   by   Dewey .
@@ -27,13 +30,11 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         this.list = list;
     }
 
-
     //添加数据的方法
     public void addData(List<HotBean.DataBean> data) {
         if (this.list == null) {
             this.list = new ArrayList<>();
         }
-        list.clear();
         list.addAll(data);
         notifyDataSetChanged();
     }
@@ -53,7 +54,11 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         holder.name.setText(list.get(position).getUser().getNickname());
         holder.time.setText(list.get(position).getCreateTime());
         holder.headImage.setImageURI(list.get(position).getUser().getIcon());
-        holder.draweeView.setImageURI(list.get(position).getCover());
+
+        //普通页面播放视频，显示视频标题
+        holder.videoPlayer.setUp(list.get(position).getVideoUrl(), JZVideoPlayer.SCREEN_WINDOW_NORMAL);
+        //为播放视频设置封面图
+        Glide.with(context).load(list.get(position).getCover()).into(holder.videoPlayer.thumbImageView);
     }
 
     @Override
@@ -70,8 +75,8 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         TextView time;
         @BindView(R.id.biaoti)
         TextView title;
-        @BindView(R.id.draweeView)
-        SimpleDraweeView draweeView;
+        @BindView(R.id.videoPlayer)
+        JZVideoPlayerStandard videoPlayer;
 
         public ReMenViewHolder(View view) {
             super(view);
