@@ -42,7 +42,6 @@ public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHo
     public ViewHoilder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //引入布局
         View view = View.inflate(context, R.layout.hotvideo_item, null);
-        //01000000000000
         return new ViewHoilder(view);
     }
 
