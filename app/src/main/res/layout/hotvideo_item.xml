@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:failureImage="@drawable/load_error_image"
+        app:actualImageScaleType="focusCrop"
+        app:placeholderImageScaleType="fitCenter"
+        android:id="@+id/hotvideo_sdv"/>
+</LinearLayout>
