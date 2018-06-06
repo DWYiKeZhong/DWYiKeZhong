@@ -1,8 +1,6 @@
 package com.example.yikezhong.module;
 
 import com.example.yikezhong.net.Api;
-import com.example.yikezhong.net.HotVideoApi;
-import com.example.yikezhong.net.HotVideoApiService;
 import com.example.yikezhong.net.Tui_HotApi;
 import com.example.yikezhong.net.Tui_HotApiService;
 import java.util.concurrent.TimeUnit;
@@ -40,16 +38,5 @@ public class HttpModule {
                 .build()
                 .create(Tui_HotApiService.class);
         return Tui_HotApi.getHotApi(service);
-    }
-    @Provides     // 关键字，标明该方法提供依赖对象
-    HotVideoApi provideHotVideoApi(OkHttpClient.Builder builder) {
-        HotVideoApiService service = new Retrofit.Builder()
-                .baseUrl(Api.BASEURL)
-                .client(builder.build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
-                .create(HotVideoApiService.class);
-        return HotVideoApi.getAdApi(service);
     }
 }

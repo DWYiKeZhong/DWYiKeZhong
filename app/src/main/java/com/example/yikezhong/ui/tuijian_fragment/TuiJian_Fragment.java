@@ -35,7 +35,6 @@ public class TuiJian_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.tuijian_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-
         //添加Fragment
         list = new ArrayList<>();
         list.add(new Tui_Hot_Fragment());

@@ -117,5 +117,18 @@ public class HotLunBoBean {
         public void setUrl(String url) {
             this.url = url;
         }
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "aid=" + aid +
+                    ", createtime='" + createtime + '\'' +
+                    ", icon='" + icon + '\'' +
+                    ", productId=" + productId +
+                    ", title='" + title + '\'' +
+                    ", type=" + type +
+                    ", url='" + url + '\'' +
+                    '}';
+        }
     }
 }

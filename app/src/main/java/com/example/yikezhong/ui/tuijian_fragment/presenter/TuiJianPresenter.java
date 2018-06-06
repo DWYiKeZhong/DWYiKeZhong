@@ -1,0 +1,90 @@
+package com.example.yikezhong.ui.tuijian_fragment.presenter;
+
+import com.example.yikezhong.bean.HotBean;
+import com.example.yikezhong.bean.HotLunBoBean;
+import com.example.yikezhong.net.Tui_LunBoApi;
+import com.example.yikezhong.net.Tui_ReMenApi;
+import com.example.yikezhong.ui.base.BasePresenter;
+import com.example.yikezhong.ui.tuijian_fragment.contract.TuiJianContract;
+import java.util.List;
+import javax.inject.Inject;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
+/**
+ * Created   by   Dewey .
+ */
+
+public class TuiJianPresenter  extends BasePresenter<TuiJianContract.View> implements TuiJianContract.Presenter{
+    private Tui_LunBoApi hotApi;
+    private Tui_ReMenApi reMenApi;
+
+    @Inject
+    public TuiJianPresenter(Tui_LunBoApi hotApi, Tui_ReMenApi reMenApi) {
+        this.hotApi = hotApi;
+        this.reMenApi = reMenApi;
+    }
+
+    @Override
+    public void getLunBoP() {
+        hotApi.getLunBo()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<HotLunBoBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(HotLunBoBean lunBoBean) {
+                        if (mView != null){
+                            mView.getLunBoSuccess(lunBoBean);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void getReMenP(String token, String page) {
+        reMenApi.getReMen(token,page)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<HotBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(HotBean dataBeans) {
+                        if (mView != null){
+                            mView.getReMenSuccess(dataBeans);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+}

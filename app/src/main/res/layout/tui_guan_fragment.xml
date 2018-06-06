@@ -18,7 +18,7 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/raw_1500002643"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="218dp" />
 
             <com.jcodecraeer.xrecyclerview.XRecyclerView
                 android:id="@+id/recyclerView"
