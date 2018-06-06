@@ -6,8 +6,9 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:failureImage="@drawable/load_error_image"
+        app:failureImage="@drawable/touxiang"
         app:actualImageScaleType="focusCrop"
+        app:failureImageScaleType="fitXY"
         app:placeholderImageScaleType="fitCenter"
         android:id="@+id/hotvideo_sdv"/>
 </LinearLayout>
