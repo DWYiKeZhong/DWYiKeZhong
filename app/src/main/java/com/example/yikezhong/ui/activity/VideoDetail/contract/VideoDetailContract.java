@@ -13,6 +13,10 @@ public interface VideoDetailContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
+<<<<<<< HEAD
         void getVideoDetail(String token, String wid);
+=======
+        void getVideoDetail(String token,String wid);
+>>>>>>> origin/master
     }
 }
