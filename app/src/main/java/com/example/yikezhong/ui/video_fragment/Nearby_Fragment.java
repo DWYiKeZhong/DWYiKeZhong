@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.fragment;
+package com.example.yikezhong.ui.video_fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.hotvideo.contract;
+package com.example.yikezhong.ui.video_fragment.contract;
 
 import com.example.yikezhong.bean.HotVideoBean;
 import com.example.yikezhong.ui.base.BaseContract;

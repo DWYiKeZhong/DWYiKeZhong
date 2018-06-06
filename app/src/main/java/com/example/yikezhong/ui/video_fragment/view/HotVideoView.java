@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.hotvideo.view;
+package com.example.yikezhong.ui.video_fragment.view;
 
 import com.example.yikezhong.bean.HotVideoBean;
 

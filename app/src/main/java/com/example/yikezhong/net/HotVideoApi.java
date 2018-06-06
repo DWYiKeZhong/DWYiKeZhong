@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 
 public class HotVideoApi {
     private static HotVideoApi adApi;
-    private HotVideoApiService adApiService;
+    private static HotVideoApiService adApiService;
 
     private HotVideoApi(HotVideoApiService adApiService) {
         this.adApiService = adApiService;
