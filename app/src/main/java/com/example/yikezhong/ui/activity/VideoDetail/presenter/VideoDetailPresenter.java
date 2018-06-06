@@ -1,10 +1,12 @@
-package com.example.yikezhong.ui.video_fragment.nearby_fragment.presenter;
+package com.example.yikezhong.ui.activity.VideoDetail.presenter;
 
-import com.example.yikezhong.bean.NearbyBean;
-import com.example.yikezhong.net.NearbyApi;
+import com.example.yikezhong.bean.VideoDetailBean;
+import com.example.yikezhong.net.VideoDetailApi;
+import com.example.yikezhong.ui.activity.VideoDetail.contract.VideoDetailContract;
 import com.example.yikezhong.ui.base.BasePresenter;
-import com.example.yikezhong.ui.video_fragment.nearby_fragment.contract.NearbyContract;
+
 import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -12,31 +14,31 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by lenovo on 2018/6/6.
- * 视频 附近
  */
 
-public class NearbyPresenter extends BasePresenter<NearbyContract.View> implements NearbyContract.Presenter {
-    private NearbyApi nearbyApi;
+public class VideoDetailPresenter extends BasePresenter<VideoDetailContract.View> implements VideoDetailContract.Presenter{
+    private VideoDetailApi videoDetailApi;
+
     @Inject
-    public NearbyPresenter(NearbyApi nearbyApi) {
-        this.nearbyApi = nearbyApi;
+    public VideoDetailPresenter(VideoDetailApi videoDetailApi) {
+        this.videoDetailApi = videoDetailApi;
     }
 
     @Override
-    public void getNearby(String token, Double latitude , Double longitude) {
-        nearbyApi.getReMen(token,latitude,longitude)
+    public void getVideoDetail(String token, String wid) {
+        videoDetailApi.getReMen(token,wid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<NearbyBean>() {
+                .subscribe(new Observer<VideoDetailBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(NearbyBean hotVideoBean) {
+                    public void onNext(VideoDetailBean videoDetailBean) {
                         if (mView!=null){
-                            mView.getNearbySuccess(hotVideoBean);
+                            mView.getVideoDetailSuccess(videoDetailBean);
                         }
                     }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/duanzi_smart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="段子"
+            android:id="@+id/dzRecyclerview"
+            android:layout_gravity="center"/>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

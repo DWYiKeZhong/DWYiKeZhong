@@ -7,15 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.yikezhong.inter.IBase;
-
 import javax.inject.Inject;
-
-import com.example.yikezhong.inter.IBase;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
-import javax.inject.Inject;
 
+//抽取  Fragment 基类
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements IBase,
         BaseContract.BaseView {
     @Inject

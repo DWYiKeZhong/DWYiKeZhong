@@ -3,6 +3,7 @@ package com.example.yikezhong.ui.tuijian_fragment;
 import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.HotBean;
@@ -15,7 +16,6 @@ import com.example.yikezhong.ui.tuijian_fragment.contract.TuiJianContract;
 import com.example.yikezhong.ui.tuijian_fragment.presenter.TuiJianPresenter;
 import com.example.yikezhong.ui.utils.DialogUtil;
 import com.example.yikezhong.ui.utils.GlideImageLoader;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
@@ -34,7 +34,7 @@ public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements 
     private Banner banner;
     private Handler handler = new Handler();
     private ReMenAdapter adapter;
-    private XRecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private SmartRefreshLayout tuijian_smart;
 
     @Override
@@ -67,7 +67,8 @@ public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements 
         adapter = new ReMenAdapter(getActivity(),list);
         recyclerView.setAdapter(adapter);
 
-        DialogUtil.getProgressDialog(getActivity());    //加载提示...
+        //网络加载慢时，提示
+        DialogUtil.showProgressDialog(getActivity(),"提示", "正在加载......");
 
         // Android 动态刷新 smart 的上拉刷新下拉加载更多
         tuijian_smart.setOnLoadmoreListener(new OnLoadmoreListener() {
@@ -87,12 +88,11 @@ public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements 
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        mPresenter.getReMenP("46FB809A1FFEE06DEDED783742F363CA","1");
+                        tuijian_smart.finishRefresh();
                     }
                 },1500);
             }
         });
-
     }
 
     @Override
@@ -111,8 +111,11 @@ public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements 
 
     @Override
     public void getReMenSuccess(HotBean dataBeans) {
+        tuijian_smart.finishLoadmore();  //在此提示下拉加载完毕
+
         if (adapter != null){
             adapter.addData(dataBeans.getData());
+            DialogUtil.hideProgressDialog();     //在此提示数据加载完毕，隐藏提示框
         }
     }
 

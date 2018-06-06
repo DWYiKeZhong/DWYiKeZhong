@@ -46,7 +46,6 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-
             }
 
             @Override
@@ -104,6 +103,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main_menu:    //点击头像，跳出侧滑菜单
+                Toast.makeText(HomeActivity.this,"点老子干嘛！！！",Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.fabiao:

@@ -31,6 +31,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     compile 'com.jcodecraeer:xrecyclerview:1.5.9'     //较新
+    compile 'com.android.support:recyclerview-v7:27.+' //（27版本中的高版本）
 
     //图片加载框架
     compile 'com.youth.banner:banner:1.4.10'    //最新版本

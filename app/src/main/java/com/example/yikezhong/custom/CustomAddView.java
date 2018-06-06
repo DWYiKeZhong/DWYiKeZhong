@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.example.yikezhong.R;
 
 /**
@@ -21,9 +23,13 @@ import com.example.yikezhong.R;
 public class CustomAddView extends RelativeLayout {
     private ImageView image_show;
     private ImageView image_jian;
-    private ImageView image_report;
-    private ImageView image_copy;
-    private ImageView image_pingbi;
+    private LinearLayout image_report;
+    private LinearLayout image_copy;
+    private LinearLayout image_pingbi;
+    private TextView reportText;
+    private TextView copyText;
+    private TextView shiledText;
+
     public CustomAddView(Context context) {
         super(context);
     }
@@ -36,23 +42,32 @@ public class CustomAddView extends RelativeLayout {
         image_report = view.findViewById(R.id.image_report);
         image_copy = view.findViewById(R.id.image_copy);
         image_pingbi = view.findViewById(R.id.image_pingbi);
+        shiledText = view.findViewById(R.id.shiledText);
+        copyText = view.findViewById(R.id.copyText);
+        reportText = view.findViewById(R.id.reportText);
 
-        //加号按钮的点击事件,展示另外三张图片
+        //加号按钮的点击事件,展示另外三张图片 , 展示 图片下面的文本
         image_show.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 image_jian.setVisibility(View.VISIBLE);
                 image_show.setVisibility(View.GONE);
+                shiledText.setVisibility(View.VISIBLE);
+                copyText.setVisibility(View.VISIBLE);
+                reportText.setVisibility(View.VISIBLE);
                 showMenu();
             }
         });
 
-        //减号的点击事件,隐藏另外三张图片
+        //减号的点击事件,隐藏另外三张图片 , 隐藏 图片下面的文本
         image_jian.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 image_jian.setVisibility(View.GONE);
                 image_show.setVisibility(View.VISIBLE);
+                shiledText.setVisibility(View.GONE);
+                copyText.setVisibility(View.GONE);
+                reportText.setVisibility(View.GONE);
                 hideMenu();
             }
         });

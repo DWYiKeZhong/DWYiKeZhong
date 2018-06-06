@@ -50,8 +50,17 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
     @Override
     public void onBindViewHolder(@NonNull ReMenViewHolder holder, int position) {
         //设置参数数据
-        holder.title.setText(list.get(position).getWorkDesc());
-        holder.name.setText(list.get(position).getUser().getNickname());
+        if (list.get(position).getWorkDesc() == null || list.get(position).getWorkDesc().length()<0 ){
+            holder.title.setText("此用户暂无评论");
+        }else {
+            holder.title.setText(list.get(position).getWorkDesc());
+        }
+
+        if (list.get(position).getUser().getNickname() == null || list.get(position).getUser().getNickname().length()<0 ){
+            holder.name.setText("匿名用户");
+        }else {
+            holder.name.setText(list.get(position).getUser().getNickname());
+        }
         holder.time.setText(list.get(position).getCreateTime());
         holder.headImage.setImageURI(list.get(position).getUser().getIcon());
 

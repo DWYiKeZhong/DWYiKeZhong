@@ -11,21 +11,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.ui.video_fragment.nearby_fragment.Nearby_Fragment;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
  * Created by lenovo on 2018/6/5.
+ * 视频
  */
-
 public class Video_Fragment extends Fragment {
     @BindView(R.id.tvtablayout)
     TabLayout tvtablayout;
@@ -38,9 +35,12 @@ public class Video_Fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = View.inflate(getActivity(), R.layout.video_fragment, null);
         unbinder = ButterKnife.bind(this, view);
+
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new HotVideo_Fragment());
         fragments.add(new Nearby_Fragment());
+
+        //添加 Fragment 及其 tab 选项卡
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getChildFragmentManager());
         myPagerAdapter.setFragments(fragments);
         tvviewpager.setAdapter(myPagerAdapter);
@@ -52,21 +52,16 @@ public class Video_Fragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
+    // 设置 Fragment 适配器
     public class MyPagerAdapter extends FragmentPagerAdapter {
-
         private List<Fragment> mFragmentList;
-
-        public void setFragments(ArrayList<Fragment> fragments) {
-            mFragmentList = fragments;
-        }
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
+        }
+
+        public void setFragments(ArrayList<Fragment> fragments) {
+            mFragmentList = fragments;
         }
 
         @Override
@@ -82,5 +77,11 @@ public class Video_Fragment extends Fragment {
 
             return mFragmentList.size();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

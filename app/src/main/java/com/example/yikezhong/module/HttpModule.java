@@ -1,6 +1,8 @@
 package com.example.yikezhong.module;
 
 import com.example.yikezhong.net.Api;
+import com.example.yikezhong.net.DuanApi;
+import com.example.yikezhong.net.DuanApiService;
 import com.example.yikezhong.net.HotVideoApi;
 import com.example.yikezhong.net.HotVideoApiService;
 import com.example.yikezhong.net.Tui_GuanApi;
@@ -14,7 +16,6 @@ import com.example.yikezhong.net.Tui_ReMenApiService;
 import com.example.yikezhong.net.VideoDetailApi;
 import com.example.yikezhong.net.VideoDetailApiService;
 import com.example.yikezhong.ui.utils.MyInterceptor;
-
 import java.util.concurrent.TimeUnit;
 import dagger.Module;
 import dagger.Provides;
@@ -53,7 +54,7 @@ public class HttpModule {
         return Tui_LunBoApi.getHotApi(service1);
     }
 
-    @Provides     // 热门
+    @Provides     // 推荐热门
     Tui_ReMenApi provideReMenApi(OkHttpClient.Builder builder) {
         Tui_ReMenApiService service2 = new Retrofit.Builder()
                 .baseUrl(Api.BASEURL)
@@ -89,7 +90,6 @@ public class HttpModule {
         return Tui_GuanApi.getGuanApi(service4);
     }
 
-
     @Provides     // 附近视频
     NearbyApi provideNearbyApi(OkHttpClient.Builder builder) {
         NearbyApiService service4 = new Retrofit.Builder()
@@ -101,6 +101,19 @@ public class HttpModule {
                 .create(NearbyApiService.class);
         return NearbyApi.getNearbyApi(service4);
     }
+
+    @Provides     // 段子
+    DuanApi provideDuanApi(OkHttpClient.Builder builder) {
+        DuanApiService service4 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(DuanApiService.class);
+        return DuanApi.getDuanApi(service4);
+    }
+
 
     @Provides     // 视频详情
     VideoDetailApi provideVideoDetailApi(OkHttpClient.Builder builder) {

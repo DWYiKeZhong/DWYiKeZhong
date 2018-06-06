@@ -4,9 +4,7 @@ import com.example.yikezhong.bean.HotVideoBean;
 import com.example.yikezhong.net.HotVideoApi;
 import com.example.yikezhong.ui.base.BasePresenter;
 import com.example.yikezhong.ui.video_fragment.contract.HotVideoContract;
-
 import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -14,6 +12,7 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by lenovo on 2018/6/5.
+ * 视频
  */
 
 public class HotVideoPresenter extends BasePresenter<HotVideoContract.View> implements HotVideoContract.Presenter {

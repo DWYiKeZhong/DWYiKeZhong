@@ -9,6 +9,7 @@ import com.example.yikezhong.inter.IBase;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import javax.inject.Inject;
 
+//抽取 Activity 基类
 public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends AppCompatActivity implements IBase,
         BaseContract.BaseView {
     @Inject

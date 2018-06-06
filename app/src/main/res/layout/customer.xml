@@ -1,38 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+
     <RelativeLayout
-        android:layout_marginRight="20dp"
         android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+
+        <LinearLayout
             android:id="@+id/image_pingbi"
-            android:src="@drawable/shiled"
-            />
+            android:orientation="vertical"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/shiled"
+                />
+            <TextView
+                android:text="举报"
+                android:gravity="center"
+                android:textSize="9sp"
+                android:visibility="gone"
+                android:layout_width="40dp"
+                android:id="@+id/shiledText"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/image_copy"
+            android:orientation="vertical"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/copylink"
+                />
+            <TextView
+                android:gravity="center"
+                android:text="复制链接"
+                android:textSize="9sp"
+                android:visibility="gone"
+                android:id="@+id/copyText"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/image_report"
+            android:orientation="vertical"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/report"
+                />
+            <TextView
+                android:text="屏蔽"
+                android:textSize="9sp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_width="40dp"
+                android:id="@+id/reportText"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/image_copy"
-            android:src="@drawable/copylink"
-            />
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/image_report"
-            android:src="@drawable/report"
-            />
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
             android:id="@+id/image_jian"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/packuphorizontal"
             />
+
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"

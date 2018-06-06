@@ -15,11 +15,10 @@ import com.example.yikezhong.ui.video_fragment.presenter.HotVideoPresenter;
 
 /**
  * Created by lenovo on 2018/6/5.
+ * 视频 热点
  */
-
 public class HotVideo_Fragment extends BaseFragment<HotVideoPresenter> implements HotVideoContract.View {
     private RecyclerView rv;
-
 
     @Override
     public int getContentLayout() {
@@ -38,11 +37,11 @@ public class HotVideo_Fragment extends BaseFragment<HotVideoPresenter> implement
     public void initView(View view) {
         rv=view.findViewById(R.id.Hot_Video_Rv);
         mPresenter.getHotVideo();
-
     }
 
     @Override
     public void getHotVideoSuccess(final HotVideoBean adBean) {
+        //设置视频列表适配器及布局管理器
         StaggeredGridLayoutManager manager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         rv.setLayoutManager(manager);
         HotVideoAdapter adapter=new HotVideoAdapter(getActivity(),adBean);

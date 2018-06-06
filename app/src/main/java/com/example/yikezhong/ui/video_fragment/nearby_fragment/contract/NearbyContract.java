@@ -5,6 +5,7 @@ import com.example.yikezhong.ui.base.BaseContract;
 
 /**
  * Created by lenovo on 2018/6/6.
+ * 视频 附近
  */
 
 public interface NearbyContract {
