@@ -1,6 +1,7 @@
 package com.example.yikezhong.component;
 
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
 import com.example.yikezhong.ui.video_fragment.HotVideo_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.Tui_Guan_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.Tui_Hot_Fragment;
@@ -20,4 +21,6 @@ public interface HttpComponent {
     void inject(HotVideo_Fragment hotVideoFragment);
 
     void inject(Nearby_Fragment nearbyFragment);
+
+    void inject(VideoDetailActivity videoDetailActivity);
 }

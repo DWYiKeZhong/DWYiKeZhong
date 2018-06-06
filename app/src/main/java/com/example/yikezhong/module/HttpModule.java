@@ -11,6 +11,8 @@ import com.example.yikezhong.net.Tui_LunBoApi;
 import com.example.yikezhong.net.Tui_LunBoApiService;
 import com.example.yikezhong.net.Tui_ReMenApi;
 import com.example.yikezhong.net.Tui_ReMenApiService;
+import com.example.yikezhong.net.VideoDetailApi;
+import com.example.yikezhong.net.VideoDetailApiService;
 import com.example.yikezhong.ui.utils.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -98,5 +100,17 @@ public class HttpModule {
                 .build()
                 .create(NearbyApiService.class);
         return NearbyApi.getNearbyApi(service4);
+    }
+
+    @Provides     // 视频详情
+    VideoDetailApi provideVideoDetailApi(OkHttpClient.Builder builder) {
+        VideoDetailApiService service5 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(VideoDetailApiService.class);
+        return VideoDetailApi.getVideoDetailApi(service5);
     }
 }

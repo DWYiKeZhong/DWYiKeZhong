@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * Created by lenovo on 2018/6/5.
  */
 
-public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHoilder> {
+public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHoilder> implements View.OnClickListener{
     private Context context;
     private HotVideoBean bean;
     private int itemWidth;
@@ -42,6 +42,7 @@ public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHo
     public ViewHoilder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //引入布局
         View view = View.inflate(context, R.layout.hotvideo_item, null);
+        view.setOnClickListener(this);
         return new ViewHoilder(view);
     }
 
@@ -59,11 +60,19 @@ public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHo
 
         holder.hotvideoSdv.setLayoutParams(params);
         holder.hotvideoSdv.setImageURI(bean.getData().get(position).getCover());
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return bean == null ? 0 : bean.getData().size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (mItemClickListener!=null){
+            mItemClickListener.onItemClick((Integer) view.getTag());
+        }
     }
 
     public class ViewHoilder extends RecyclerView.ViewHolder {
@@ -73,5 +82,15 @@ public class HotVideoAdapter extends RecyclerView.Adapter<HotVideoAdapter.ViewHo
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    private OnItemClickListener mItemClickListener;
+
+    public void setItemClickListener(OnItemClickListener itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
     }
 }

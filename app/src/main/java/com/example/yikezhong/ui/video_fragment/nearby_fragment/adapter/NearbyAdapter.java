@@ -11,6 +11,7 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.NearbyBean;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.util.Observable;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
  * Created by lenovo on 2018/6/6.
  */
 
-public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder> {
+public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder> implements View.OnClickListener{
     private Context context;
     private NearbyBean bean;
     private int itemWidth;
@@ -38,6 +39,7 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = View.inflate(context, R.layout.hotvideo_item, null);
+        view.setOnClickListener(this);
         return new ViewHolder(view);
     }
 
@@ -55,11 +57,19 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
 
         holder.hotvideoSdv.setLayoutParams(params);
         holder.hotvideoSdv.setImageURI(bean.getData().get(position).getCover());
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return bean == null ? 0 : bean.getData().size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (mItemClickListener!=null){
+            mItemClickListener.onItemClick((Integer) view.getTag());
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -69,5 +79,14 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    private OnItemClickListener mItemClickListener;
+
+    public void setItemClickListener(OnItemClickListener itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
+    public interface OnItemClickListener{
+        void onItemClick(int position);
     }
 }
