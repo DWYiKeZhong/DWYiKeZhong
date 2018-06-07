@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/timg"
     tools:context="com.example.yikezhong.ui.activity.OtherActivity">
+
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -20,22 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:src="@drawable/login"/>
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/other_WinXin"
-        android:src="@drawable/weixin"
-        android:layout_marginBottom="5dp"
-        android:layout_above="@id/other_QQ"
-        android:layout_centerHorizontal="true"/>
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/other_QQ"
-        android:src="@drawable/qqq"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@id/other_rl"
-        android:layout_centerHorizontal="true"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -49,4 +35,22 @@
             android:textColor="#ffffff"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/other_QQ"
+        android:src="@drawable/qqq"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/other_rl"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/other_WinXin"
+        android:src="@drawable/weixin"
+        android:layout_marginBottom="5dp"
+        android:layout_above="@id/other_QQ"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

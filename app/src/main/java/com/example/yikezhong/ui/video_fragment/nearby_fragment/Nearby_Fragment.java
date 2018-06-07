@@ -17,9 +17,8 @@ import com.example.yikezhong.ui.video_fragment.nearby_fragment.contract.NearbyCo
 import com.example.yikezhong.ui.video_fragment.nearby_fragment.presenter.NearbyPresenter;
 
 /**
- * Created by lenovo on 2018/6/6.
+ * 附近
  */
-
 public class Nearby_Fragment extends BaseFragment<NearbyPresenter> implements NearbyContract.View {
     private RecyclerView Nearby_Rv;
 

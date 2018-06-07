@@ -1,12 +1,7 @@
 package com.example.yikezhong.ui.tuijian_fragment;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.bean.HotLunBoBean;

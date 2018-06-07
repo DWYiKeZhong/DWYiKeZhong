@@ -10,7 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.yikezhong.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;

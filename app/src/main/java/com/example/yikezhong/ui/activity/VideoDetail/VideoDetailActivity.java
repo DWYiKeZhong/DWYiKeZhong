@@ -1,12 +1,7 @@
 package com.example.yikezhong.ui.activity.VideoDetail;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.JetPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,8 +15,6 @@ import com.example.yikezhong.ui.activity.VideoDetail.contract.VideoDetailContrac
 import com.example.yikezhong.ui.activity.VideoDetail.presenter.VideoDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 
-import butterknife.BindView;
-import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
 
 public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> implements VideoDetailContract.View {

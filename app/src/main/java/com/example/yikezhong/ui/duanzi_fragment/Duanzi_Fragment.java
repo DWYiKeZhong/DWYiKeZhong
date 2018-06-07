@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.DuanBean;
 import com.example.yikezhong.component.DaggerHttpComponent;

@@ -11,16 +11,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.example.yikezhong.R;
 
 /**
- * 自定义加号view
+ * 段子页面 自定义加号view
  *
  * 点击加号按钮,加号隐藏,减号旋转显示,另外4张图片也旋转一定角度显示
  *
  * 点击减号按钮,减号隐藏,加号旋转显示,另外4张图片也旋转一定角度隐藏
  */
-public class CustomAddView extends RelativeLayout {
+public class CustomDuan extends RelativeLayout {
     private ImageView image_show;
     private ImageView image_jian;
     private LinearLayout image_report;
@@ -30,13 +31,13 @@ public class CustomAddView extends RelativeLayout {
     private TextView copyText;
     private TextView shiledText;
 
-    public CustomAddView(Context context) {
+    public CustomDuan(Context context) {
         super(context);
     }
 
-    public CustomAddView(Context context, AttributeSet attrs) {
+    public CustomDuan(Context context, AttributeSet attrs) {
         super(context, attrs);
-        View view = LayoutInflater.from(context).inflate(R.layout.customer, this, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_duan, this, false);
         image_show = view.findViewById(R.id.image_show);
         image_jian = view.findViewById(R.id.image_jian);
         image_report = view.findViewById(R.id.image_report);
@@ -75,7 +76,7 @@ public class CustomAddView extends RelativeLayout {
         addView(view);
     }
 
-    public CustomAddView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomDuan(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
