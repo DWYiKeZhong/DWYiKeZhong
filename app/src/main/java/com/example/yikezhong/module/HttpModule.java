@@ -154,4 +154,6 @@ public class HttpModule {
                 .create(RegisterAPIService.class);
         return RegisterApi.getRegisterApi(service7);
     }
+
+
 }

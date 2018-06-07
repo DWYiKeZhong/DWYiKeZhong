@@ -1,7 +1,7 @@
 package com.example.yikezhong.net;
 
-import com.example.yikezhong.bean.HotBean;
-
+import com.example.yikezhong.bean.GuanBean;
+import com.example.yikezhong.bean.GuanListBean;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,13 +14,26 @@ import retrofit2.http.POST;
 public interface Tui_GuanApiService {
 
     /**
-     * 推荐 关注 数据 https://www.zhaoapi.cn/quarter/getHotVideos?source=android&appVersion=101&token=46FB809A1FFEE06DEDED783742F363CA&page=1
+     * 推荐 关注用户 数据 https://www.zhaoapi.cn/quarter/follow?source=android&appVersion=101&token=E3E7D261D59EC38EDDD000DB09CA42D4&uid=12761&followId=123
      * @return
      */
     @FormUrlEncoded
-    @POST("")
-    Observable<HotBean> getGuan(
-            @Field("token") String token
+    @POST("quarter/follow")
+    Observable<GuanBean> getGuan(
+            @Field("token") String token,
+            @Field("uid") String uid,
+            @Field("followId") String followId
+    );
+
+    /**
+     * 推荐 获取关注用户列表 数据 https://www.zhaoapi.cn/quarter/getFollowUsers?source=android&appVersion=101&token=E3E7D261D59EC38EDDD000DB09CA42D4&uid=12761
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("quarter/getFollowUsers")
+    Observable<GuanListBean> getGuanList(
+            @Field("token") String token,
+            @Field("uid") String uid
     );
 
 }

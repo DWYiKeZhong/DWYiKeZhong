@@ -1,8 +1,9 @@
 package com.example.yikezhong.ui.tuijian_fragment;
 
 import android.view.View;
-
 import com.example.yikezhong.R;
+import com.example.yikezhong.bean.GuanBean;
+import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.bean.HotLunBoBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
@@ -36,17 +37,21 @@ public class Tui_Guan_Fragment extends BaseFragment<TuiJianPresenter> implements
     }
 
     @Override
+    public void getGuanSuccess(GuanBean guanBean) {
+
+    }
+
+    @Override
+    public void getGuanListSuccess(GuanListBean guanListBean) {
+
+    }
+
+    @Override
     public void getLunBoSuccess(HotLunBoBean lunBoBean) {
 
     }
-
     @Override
     public void getReMenSuccess(HotBean hotBean) {
-
-    }
-
-    @Override
-    public void getGuanSuccess(HotBean hotBean) {
 
     }
 }

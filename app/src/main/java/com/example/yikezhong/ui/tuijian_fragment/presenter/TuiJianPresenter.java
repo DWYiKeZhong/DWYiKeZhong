@@ -1,5 +1,7 @@
 package com.example.yikezhong.ui.tuijian_fragment.presenter;
 
+import com.example.yikezhong.bean.GuanBean;
+import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.bean.HotLunBoBean;
 import com.example.yikezhong.net.Tui_GuanApi;
@@ -7,7 +9,6 @@ import com.example.yikezhong.net.Tui_LunBoApi;
 import com.example.yikezhong.net.Tui_ReMenApi;
 import com.example.yikezhong.ui.base.BasePresenter;
 import com.example.yikezhong.ui.tuijian_fragment.contract.TuiJianContract;
-import java.util.List;
 import javax.inject.Inject;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -18,7 +19,6 @@ import io.reactivex.schedulers.Schedulers;
  * Created   by   Dewey .
  * 推荐
  */
-
 public class TuiJianPresenter  extends BasePresenter<TuiJianContract.View> implements TuiJianContract.Presenter{
     private Tui_LunBoApi hotApi;
     private Tui_ReMenApi reMenApi;
@@ -91,34 +91,65 @@ public class TuiJianPresenter  extends BasePresenter<TuiJianContract.View> imple
                 });
     }
 
-//    @Override
-//    public void getGuanP(String token) {
-//        guanApi.getGuan(token)
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.io())
-//                .subscribe(new Observer<HotBean>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(HotBean dataBeans) {
-//                        if (mView != null){
-//                            mView.getReMenSuccess(dataBeans);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//                });
-//    }
+    @Override
+    public void getGuanP(String token, String uid, String followId) {
+        guanApi.getGuan(token, uid, followId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<GuanBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(GuanBean guanBean) {
+                        if (mView != null){
+                            mView.getGuanSuccess(guanBean);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void getGuanListP(String token, String uid) {
+        guanApi.getGuanList(token, uid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<GuanListBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(GuanListBean guanListBean) {
+                        if (mView != null){
+                            mView.getGuanListSuccess(guanListBean);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
 
 }
