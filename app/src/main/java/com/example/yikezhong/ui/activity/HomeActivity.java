@@ -1,13 +1,18 @@
 package com.example.yikezhong.ui.activity;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.yikezhong.R;
@@ -16,6 +21,7 @@ import com.example.yikezhong.ui.tuijian_fragment.TuiJian_Fragment;
 import com.example.yikezhong.ui.utils.net_util.NetUtils;
 import com.example.yikezhong.ui.video_fragment.Video_Fragment;
 import com.hjm.bottomtabbar.BottomTabBar;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -35,13 +41,26 @@ public class HomeActivity extends AppCompatActivity {
     TextView text_net;
     @BindView(R.id.activity_na)
     DrawerLayout drawerLayout;
+    @BindView(R.id.left)
+    LinearLayout left;
+    @BindView(R.id.rb1)
+    RadioButton rb1;
+    @BindView(R.id.rb2)
+    RadioButton rb2;
+    @BindView(R.id.rg)
+    RadioGroup rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-
+        Drawable drawableFirst = getResources().getDrawable(R.drawable.raw_1499947056);
+        drawableFirst.setBounds(0, 0, 50, 50);
+        rb1.setCompoundDrawables(null, drawableFirst, null, null);
+        Drawable drawableSearch = getResources().getDrawable(R.drawable.raw_1499947157);
+        drawableSearch.setBounds(0, 0, 50, 50);
+        rb2.setCompoundDrawables(null, drawableSearch, null, null);
         //侧滑菜单的实现
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -62,12 +81,13 @@ public class HomeActivity extends AppCompatActivity {
             public void onDrawerStateChanged(int newState) {
 
             }
+
         });
 
         //显示没网
         int workType = NetUtils.getNetWorkType(this);
-        if (workType == NetUtils.NETWORKTYPE_WIFI){
-        }else if (workType == NetUtils.NETWORKTYPE_INVALID){    //没网
+        if (workType == NetUtils.NETWORKTYPE_WIFI) {
+        } else if (workType == NetUtils.NETWORKTYPE_INVALID) {    //没网
             text_net.setVisibility(View.VISIBLE);
             Toast.makeText(this, "网络连接失败，网络断开！", Toast.LENGTH_SHORT).show();
         }
@@ -87,11 +107,11 @@ public class HomeActivity extends AppCompatActivity {
                     public void onTabChange(int position, String name) {
                         Log.i("TGA", "位置：" + position + "      选项卡：" + name);
 
-                        if (position == 0){
+                        if (position == 0) {
                             mainText.setText("推荐");
-                        }else if (position == 1){
+                        } else if (position == 1) {
                             mainText.setText("段子");
-                        }else if (position == 2){
+                        } else if (position == 2) {
                             mainText.setText("视频");
                         }
                     }
@@ -99,12 +119,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.main_menu, R.id.fabiao,R.id.text_view})
+    @OnClick({R.id.main_menu, R.id.fabiao, R.id.text_view})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main_menu:    //点击头像，跳出侧滑菜单
-                Toast.makeText(HomeActivity.this,"点老子干嘛！！！",Toast.LENGTH_SHORT).show();
-
+                drawerLayout.openDrawer(Gravity.LEFT);
                 break;
             case R.id.fabiao:
                 break;

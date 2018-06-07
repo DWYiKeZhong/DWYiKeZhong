@@ -73,4 +73,6 @@ dependencies {
 
     //视频
     compile 'cn.jzvd:jiaozivideoplayer:6.2.3'
+
+    compile 'com.kyleduo.switchbutton:library:1.4.1'
 }
