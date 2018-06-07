@@ -9,12 +9,11 @@ import android.widget.TextView;
 
 import com.example.yikezhong.R;
 import com.example.yikezhong.ui.activity.login.LoginActivity;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//其他登录方式
 public class OtherActivity extends AppCompatActivity {
-
     @BindView(R.id.other_back)
     ImageView otherBack;
     @BindView(R.id.other_WinXin)

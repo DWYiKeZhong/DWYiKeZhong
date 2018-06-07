@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.DuanBean;
 import com.facebook.drawee.view.SimpleDraweeView;

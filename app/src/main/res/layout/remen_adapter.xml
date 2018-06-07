@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -53,14 +54,36 @@
                 android:gravity="center_vertical"/>
         </LinearLayout>
 
-        <com.example.yikezhong.custom.CustomAddView
-            android:layout_marginRight="15dp"
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_alignParentRight="true"
+            android:id="@+id/talk_item_floating"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            app:fab_addButtonSize="mini"
+            app:fab_expandDirection="left">
 
-        </com.example.yikezhong.custom.CustomAddView>
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/talk_item_floating_love"
+                app:fab_icon="@drawable/raw_1499933216"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/talk_item_floating_talk"
+                app:fab_icon="@drawable/raw_1499933789"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/talk_item_floating_fenxiang"
+                app:fab_icon="@drawable/raw_1499995160"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini" />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     </RelativeLayout>
 
@@ -76,8 +99,99 @@
         android:gravity="fill_vertical"
         android:layout_gravity="center_horizontal"/>
 
-    <cn.jzvd.JZVideoPlayerStandard
-        android:id="@+id/videoPlayer"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"/>
+        android:layout_height="320dp">
+
+        <cn.jzvd.JZVideoPlayerStandard
+            android:id="@+id/videoPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:layout_marginRight="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:padding="5dp"
+                android:layout_width="60dp"
+                android:id="@+id/collection"
+                android:layout_height="60dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/star_kong"   />
+
+            <TextView
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="关闭弹幕"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="打开弹幕"
+                android:textColor="#ffffff" />
+
+            <ImageView
+                android:id="@+id/send_good"
+                android:src="@drawable/song"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_width="wrap_content"  />
+
+        </LinearLayout>
+        <com.example.yikezhong.custom.HeartLayout
+            android:id="@+id/heart_layout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            />
+
+        <master.flame.danmaku.ui.widget.DanmakuView
+            android:id="@+id/danmaku_view"
+            android:layout_height="320dp"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            />
+        <!-- 飘心的路径 -->
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/operation_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/videoplayer">
+        <EditText
+            android:id="@+id/edit_text"
+            android:hint="请输入评论内容"
+            android:layout_width="369dp"
+            android:layout_height="match_parent"
+            android:imeOptions="flagNoExtractUi"
+            android:background="@drawable/background_edit"/>
+
+        <Button
+            android:text="发送"
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_styles"/>
+    </LinearLayout>
+
 </LinearLayout>

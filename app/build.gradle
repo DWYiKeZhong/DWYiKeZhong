@@ -74,5 +74,15 @@ dependencies {
     //视频
     compile 'cn.jzvd:jiaozivideoplayer:6.2.3'
 
+    //设置页面switchbutton
     compile 'com.kyleduo.switchbutton:library:1.4.1'
+
+
+    //Android集成B站弹幕库Danmaku
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.8.3'
+
+    //FloatingActionButton浮动按钮动画效果
+    compile 'com.getbase:floatingactionbutton:1.9.0'
+
+
 }

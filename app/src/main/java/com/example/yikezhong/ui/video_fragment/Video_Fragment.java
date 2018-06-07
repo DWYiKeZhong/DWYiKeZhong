@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.yikezhong.R;
 import com.example.yikezhong.ui.video_fragment.nearby_fragment.Nearby_Fragment;
 import java.util.ArrayList;

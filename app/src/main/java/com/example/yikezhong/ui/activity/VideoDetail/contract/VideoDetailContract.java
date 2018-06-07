@@ -6,7 +6,6 @@ import com.example.yikezhong.ui.base.BaseContract;
 /**
  * Created by lenovo on 2018/6/6.
  */
-
 public interface VideoDetailContract {
     interface View extends BaseContract.BaseView {
         void getVideoDetailSuccess(VideoDetailBean Bean);
