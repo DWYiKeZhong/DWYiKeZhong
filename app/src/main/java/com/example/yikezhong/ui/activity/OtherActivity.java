@@ -23,12 +23,13 @@ public class OtherActivity extends AppCompatActivity {
     ImageView otherQQ;
     @BindView(R.id.other_tv)
     TextView otherTv;
-
+    public static OtherActivity instance = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other);
         ButterKnife.bind(this);
+        instance=this;
         otherBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
