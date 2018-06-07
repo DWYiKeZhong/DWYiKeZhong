@@ -28,7 +28,8 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.OtherActivity" />
-        <activity android:name=".ui.activity.login.LoginActivity"></activity>
+        <activity android:name=".ui.activity.login.LoginActivity" />
+        <activity android:name=".ui.activity.register.RegisterActivity"></activity>
     </application>
 
 </manifest>

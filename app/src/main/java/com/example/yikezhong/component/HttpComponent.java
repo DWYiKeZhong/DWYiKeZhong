@@ -2,6 +2,8 @@ package com.example.yikezhong.component;
 
 import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
+import com.example.yikezhong.ui.activity.login.LoginActivity;
+import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
 import com.example.yikezhong.ui.video_fragment.HotVideo_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.Tui_Guan_Fragment;
@@ -26,4 +28,8 @@ public interface HttpComponent {
     void inject(VideoDetailActivity videoDetailActivity);
 
     void inject(Duanzi_Fragment duanzi_fragment);
+
+    void inject(LoginActivity loginActivity);
+
+    void inject(RegisterActivity registerActivity);
 }

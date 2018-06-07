@@ -5,6 +5,10 @@ import com.example.yikezhong.net.DuanApi;
 import com.example.yikezhong.net.DuanApiService;
 import com.example.yikezhong.net.HotVideoApi;
 import com.example.yikezhong.net.HotVideoApiService;
+import com.example.yikezhong.net.LoginApi;
+import com.example.yikezhong.net.LoginApiService;
+import com.example.yikezhong.net.RegisterAPIService;
+import com.example.yikezhong.net.RegisterApi;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
 import com.example.yikezhong.net.NearbyApi;
@@ -125,5 +129,29 @@ public class HttpModule {
                 .build()
                 .create(VideoDetailApiService.class);
         return VideoDetailApi.getVideoDetailApi(service5);
+    }
+
+    @Provides     // 登录
+    LoginApi provideLoginApi(OkHttpClient.Builder builder) {
+        LoginApiService service6 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(LoginApiService.class);
+        return LoginApi.getLoginApi(service6);
+    }
+
+    @Provides     // 注册
+    RegisterApi provideRegisterApi(OkHttpClient.Builder builder) {
+        RegisterAPIService service7 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(RegisterAPIService.class);
+        return RegisterApi.getRegisterApi(service7);
     }
 }

@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/raw1499917357"
-    tools:context="com.example.yikezhong.ui.activity.login.LoginActivity">
+    tools:context="com.example.yikezhong.ui.activity.register.RegisterActivity">
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:id="@+id/login_back"
+        android:id="@+id/register_back"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/raw_1500023215"
@@ -17,8 +17,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/login_register"
-        android:text="注册账号"
+        android:id="@+id/register_register"
+        android:text="已有账号？"
         android:textColor="#ffffff"
         android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
@@ -28,24 +28,24 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-        android:id="@+id/login_image"
+        android:id="@+id/register_image"
         android:src="@drawable/login"/>
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:id="@+id/login_name"
+        android:id="@+id/register_name"
         android:hint="账号"
-        android:layout_below="@id/login_image"
+        android:layout_below="@id/register_image"
         android:layout_marginTop="20dp"
         android:textColor="#ffffff"/>
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:id="@+id/login_paw"
+        android:id="@+id/register_paw"
         android:hint="密码"
-        android:layout_below="@id/login_name"
+        android:layout_below="@id/register_name"
         android:layout_marginTop="10dp"
         android:textColor="#ffffff"/>
     <Button
@@ -53,27 +53,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
-        android:id="@+id/login"
-        android:hint="登录"
+        android:id="@+id/register"
+        android:hint="注册"
         android:background="@drawable/button_shape"
-        android:layout_below="@id/login_paw"
+        android:layout_below="@id/register_paw"
         android:layout_marginTop="10dp"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/login_my"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/login"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/login_forget"
-        android:text="忘记密码"
-        android:textColor="#ffffff"
-        android:layout_below="@id/login"
-        android:layout_toRightOf="@id/login_my"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="80dp"/>
 </RelativeLayout>
