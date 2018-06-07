@@ -1,6 +1,7 @@
 package com.example.yikezhong.net;
 
-import com.example.yikezhong.bean.HotBean;
+import com.example.yikezhong.bean.GuanBean;
+import com.example.yikezhong.bean.GuanListBean;
 import io.reactivex.Observable;
 
 /**
@@ -22,8 +23,12 @@ public class Tui_GuanApi {
         return hotApi;
     }
 
-    public Observable<HotBean> getGuan(String token){
-        return service.getGuan(token);
+    public Observable<GuanBean> getGuan(String token, String uid, String followId){
+        return service.getGuan(token,uid,followId);
+    }
+
+    public Observable<GuanListBean> getGuanList(String token, String uid){
+        return service.getGuanList(token,uid);
     }
 
 }

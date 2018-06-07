@@ -77,7 +77,6 @@ dependencies {
     //设置页面switchbutton
     compile 'com.kyleduo.switchbutton:library:1.4.1'
 
-
     //Android集成B站弹幕库Danmaku
     compile 'com.github.ctiao:DanmakuFlameMaster:0.8.3'
 
