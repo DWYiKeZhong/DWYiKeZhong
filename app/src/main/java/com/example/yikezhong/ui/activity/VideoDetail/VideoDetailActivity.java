@@ -1,6 +1,7 @@
 package com.example.yikezhong.ui.activity.VideoDetail;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.JetPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,7 +28,9 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
 
     private JZVideoPlayerStandard jzVideoPlayerStandard;
     private TextView title,time;
-    private ImageView videodetailback;
+    private ImageView videodetailback,iv2,iv3;
+    private int flag=1;
+    private int flga=1;
 
     @Override
     public int getContentLayout() {
@@ -49,6 +52,8 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
         title=findViewById(R.id.tittle);
         time=findViewById(R.id.time);
         videodetailback=findViewById(R.id.video_detail_back);
+        iv2=findViewById(R.id.iv2);
+        iv3=findViewById(R.id.iv3);
         Intent intent=getIntent();
         String wid=intent.getStringExtra("wid");
         mPresenter.getVideoDetail("100",wid);
@@ -56,6 +61,30 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        iv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flag==1){
+                    iv2.setImageDrawable(getResources().getDrawable(R.drawable.raw_1499933215));
+                    flag=2;
+                }else {
+                    iv2.setImageDrawable(getResources().getDrawable(R.drawable.raw_1499933216));
+                    flag=1;
+                }
+            }
+        });
+        iv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flga==1){
+                    iv3.setImageDrawable(getResources().getDrawable(R.drawable.raw_14999332161));
+                    flga=2;
+                }else {
+                    iv3.setImageDrawable(getResources().getDrawable(R.drawable.raw_1499933217));
+                    flga=1;
+                }
             }
         });
     }
