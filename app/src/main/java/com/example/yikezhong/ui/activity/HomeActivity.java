@@ -1,5 +1,6 @@
 package com.example.yikezhong.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.yikezhong.R;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.TuiJian_Fragment;
@@ -49,6 +52,8 @@ public class HomeActivity extends AppCompatActivity {
     RadioButton rb2;
     @BindView(R.id.rg)
     RadioGroup rg;
+    @BindView(R.id.home_top_rl)
+    RelativeLayout homeTopRl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +122,12 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
 
+        homeTopRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,OtherActivity.class));
+            }
+        });
     }
 
     @OnClick({R.id.main_menu, R.id.fabiao, R.id.text_view})

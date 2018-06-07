@@ -23,9 +23,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.HomeActivity" />
-        <activity android:name=".ui.activity.VideoDetail.VideoDetailActivity"
+        <activity
+            android:name=".ui.activity.VideoDetail.VideoDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.OtherActivity" />
+        <activity android:name=".ui.activity.login.LoginActivity"></activity>
     </application>
 
 </manifest>
