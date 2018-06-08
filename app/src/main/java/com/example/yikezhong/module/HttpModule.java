@@ -17,6 +17,8 @@ import com.example.yikezhong.net.Tui_LunBoApi;
 import com.example.yikezhong.net.Tui_LunBoApiService;
 import com.example.yikezhong.net.Tui_ReMenApi;
 import com.example.yikezhong.net.Tui_ReMenApiService;
+import com.example.yikezhong.net.UpdateHeaderApi;
+import com.example.yikezhong.net.UpdateHeaderApiService;
 import com.example.yikezhong.net.VideoDetailApi;
 import com.example.yikezhong.net.VideoDetailApiService;
 import com.example.yikezhong.ui.utils.MyInterceptor;
@@ -155,5 +157,15 @@ public class HttpModule {
         return RegisterApi.getRegisterApi(service7);
     }
 
-
+    @Provides    //上传头像
+    UpdateHeaderApi provideUpdateHeaderApi(OkHttpClient.Builder builder) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        UpdateHeaderApiService updateHeaderApiService = retrofit.create(UpdateHeaderApiService.class);
+        return UpdateHeaderApi.getUpdateHeaderApi(updateHeaderApiService);
+    }
 }

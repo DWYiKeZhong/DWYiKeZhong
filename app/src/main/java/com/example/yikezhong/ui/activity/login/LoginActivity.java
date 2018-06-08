@@ -18,6 +18,8 @@ import com.example.yikezhong.ui.activity.login.contract.LoginContract;
 import com.example.yikezhong.ui.activity.login.presenter.LoginPresenter;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+import com.example.yikezhong.ui.shared.SharedUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,6 +56,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void getLoginSuccess(LoginBean loginBean) {
         Toast.makeText(LoginActivity.this,loginBean.getMsg().toString(),Toast.LENGTH_SHORT).show();
         if ("登录成功".equals(loginBean.getMsg().toString())){
+            SharedPreferencesUtils.setParam(LoginActivity.this,"token",loginBean.getData().getToken());
+            SharedPreferencesUtils.setParam(LoginActivity.this,"uid",loginBean.getData().getUid());
+            SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getNickname());
+            SharedPreferencesUtils.setParam(LoginActivity.this,"iocn",loginBean.getData().getIcon());
             finish();
             OtherActivity.instance.finish();
         }
