@@ -13,6 +13,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
+import com.example.yikezhong.R;
+import com.example.yikezhong.bean.HotBean;
+import java.util.ArrayList;
+import java.util.List;
 import butterknife.ButterKnife;
 
 /**
@@ -24,12 +28,16 @@ public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.DuanViewHolder
     private List<DuanBean.DataBean> list;
 
     public DuanAdapter(Context context, List<DuanBean.DataBean> list) {
+    private List<HotBean.DataBean> list;
+
+    public DuanAdapter(Context context, List<HotBean.DataBean> list) {
         this.context = context;
         this.list = list;
     }
 
     //添加数据的方法
     public void addData(List<DuanBean.DataBean> data) {
+    public void addData(List<HotBean.DataBean> data) {
         if (this.list == null) {
             this.list = new ArrayList<>();
         }
@@ -75,6 +83,7 @@ public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.DuanViewHolder
         TextView time;
         @BindView(R.id.biaoti)
         TextView content;
+
 
         public DuanViewHolder(View view) {
             super(view);
