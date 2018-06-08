@@ -55,11 +55,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void getLoginSuccess(LoginBean loginBean) {
         Toast.makeText(LoginActivity.this,loginBean.getMsg().toString(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this,loginBean.getMsg().toString(),Toast.LENGTH_SHORT).show();
         if ("登录成功".equals(loginBean.getMsg().toString())){
-            SharedPreferencesUtils.setParam(LoginActivity.this,"token",loginBean.getData().getToken());
-            SharedPreferencesUtils.setParam(LoginActivity.this,"uid",loginBean.getData().getUid());
-            SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getNickname());
-            SharedPreferencesUtils.setParam(LoginActivity.this,"iocn",loginBean.getData().getIcon());
+            SharedPreferencesUtils.setParam(LoginActivity.this,"token",loginBean.getData().getToken()+"");
+            SharedPreferencesUtils.setParam(LoginActivity.this,"uid",loginBean.getData().getUid()+"");
+            SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getNickname()+"");
+            SharedPreferencesUtils.setParam(LoginActivity.this,"iocn",loginBean.getData().getIcon()+"");
             finish();
             OtherActivity.instance.finish();
         }

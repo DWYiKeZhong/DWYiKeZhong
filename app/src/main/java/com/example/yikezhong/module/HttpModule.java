@@ -159,13 +159,14 @@ public class HttpModule {
 
     @Provides    //上传头像
     UpdateHeaderApi provideUpdateHeaderApi(OkHttpClient.Builder builder) {
-        Retrofit retrofit = new Retrofit.Builder()
+        UpdateHeaderApiService service8 = new Retrofit.Builder()
                 .baseUrl(Api.BASEURL)
+                .client(builder.build())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(builder.build())
-                .build();
-        UpdateHeaderApiService updateHeaderApiService = retrofit.create(UpdateHeaderApiService.class);
-        return UpdateHeaderApi.getUpdateHeaderApi(updateHeaderApiService);
+                .build()
+                .create(UpdateHeaderApiService.class);
+        return UpdateHeaderApi.getUpdateHeaderApi(service8);
     }
+
 }

@@ -35,5 +35,11 @@ public interface Tui_GuanApiService {
             @Field("token") String token,
             @Field("uid") String uid
     );
-
+    @FormUrlEncoded
+    @POST("quarter/addFavorite")
+    Observable<GuanBean> getCollection(
+            @Field("token") String token,
+            @Field("uid") String uid,
+            @Field("wid") String followId
+    );
 }

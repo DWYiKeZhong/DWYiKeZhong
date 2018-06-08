@@ -1,6 +1,7 @@
 package com.example.yikezhong.ui.tuijian_fragment.adapter;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,8 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.yikezhong.R;
+import com.example.yikezhong.bean.GuanBean;
+import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.custom.HeartLayout;
+import com.example.yikezhong.net.Tui_GuanApi;
+import com.example.yikezhong.net.Tui_GuanApiService;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
@@ -26,11 +32,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import master.flame.danmaku.danmaku.model.BaseDanmaku;
 import master.flame.danmaku.danmaku.model.IDanmakus;
 import master.flame.danmaku.danmaku.model.android.DanmakuContext;
@@ -43,9 +57,33 @@ import master.flame.danmaku.ui.widget.DanmakuView;
  * 推荐 热门
  * 弹幕 学习：https://blog.csdn.net/u013366008/article/details/77160557
  */
-public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHolder> {
+public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHolder>{
     private Context context;
     private List<HotBean.DataBean> list;
+    private int flga=1;
+    private  String followid;
+    private  String followid1;
+    Tui_GuanApiService service=new Tui_GuanApiService() {
+        @Override
+        public Observable<GuanBean> getGuan(String token, String uid, String followId) {
+            return null;
+        }
+
+        @Override
+        public Observable<GuanListBean> getGuanList(String token, String uid) {
+            return null;
+        }
+
+        @Override
+        public Observable<GuanBean> getCollection(String token, String uid, String followId) {
+            return null;
+        }
+    };
+    private Tui_GuanApi tui_guanApi=Tui_GuanApi.getGuanApi(service);
+    @Inject
+    public ReMenAdapter(Tui_GuanApi tui_guanApi) {
+        this.tui_guanApi = tui_guanApi;
+    }
 
     public ReMenAdapter(Context context, List<HotBean.DataBean> list) {
         this.context = context;
@@ -96,6 +134,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
     public int getItemCount() {
         return list == null ? 0 : list.size();
     }
+
 
     class ReMenViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.headImage)
@@ -189,12 +228,41 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                     if (flag == false){
                         flag = true;
                         collection.setImageResource(R.drawable.star_kong);
-                        Toast.makeText(context, "取消收藏", Toast.LENGTH_SHORT).show();
                     }else {
                         flag = false;
                         collection.setImageResource(R.drawable.star_shi);
-                        Toast.makeText(context, "已收藏", Toast.LENGTH_SHORT).show();
                     }
+                    String token= (String) SharedPreferencesUtils.getParam(context,"token","");
+                    String uid= (String) SharedPreferencesUtils.getParam(context,"uid","");
+                    for (int i = 0; i <list.size() ; i++) {
+                        followid= list.get(i).getWid()+"";
+                    }
+
+                    tui_guanApi.getCollection(token, uid, followid)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new Observer<GuanBean>() {
+                                @Override
+                                public void onSubscribe(Disposable d) {
+
+                                }
+
+                                @Override
+
+                                public void onNext(GuanBean guanBean) {
+                                    Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+
+                                }
+
+                                @Override
+                                public void onComplete() {
+
+                                }
+                            });
                     break;
 
                 case R.id.close:   //隐藏弹幕
@@ -230,7 +298,36 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                     break;
 
                 case R.id.talk_item_floating_love:        //点击关注
-                    Toast.makeText(context, "关注", Toast.LENGTH_SHORT).show();
+                    String token1= (String) SharedPreferencesUtils.getParam(context,"token","");
+                    String uid1= (String) SharedPreferencesUtils.getParam(context,"uid","");
+                    for (int i = 0; i <list.size() ; i++) {
+                        followid1= list.get(i).getWid()+"";
+                    }
+                    tui_guanApi.getGuan(token1, uid1, followid1)
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribeOn(Schedulers.io())
+                                        .subscribe(new Observer<GuanBean>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+
+                                    }
+
+                                    @Override
+
+                                    public void onNext(GuanBean guanBean) {
+                                        Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+
+                                    }
+
+                                @Override
+                                public void onComplete() {
+
+                                }
+                            });
                     break;
 
                 case R.id.talk_item_floating_talk:        //点击谈论，显示输入框，输入内容
