@@ -20,11 +20,11 @@ public class LunBoDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunbodetail);
         ButterKnife.bind(this);
-
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
 
         //加载
+
         webView.loadUrl(url);
 
         //设置webView页面

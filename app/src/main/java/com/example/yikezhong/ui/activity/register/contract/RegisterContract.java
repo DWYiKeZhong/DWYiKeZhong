@@ -14,7 +14,7 @@ public interface RegisterContract {
         void getRegisterSuccess(RegisterBean registerBean);
     }
 
-    interface Presenter extends BaseContract.BasePresenter<LoginContract.View>{
+    interface Presenter extends BaseContract.BasePresenter<View>{
         void getRegister(String mobile,String password);
     }
 }

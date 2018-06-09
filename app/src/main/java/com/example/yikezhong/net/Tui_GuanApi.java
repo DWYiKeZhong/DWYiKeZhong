@@ -31,4 +31,7 @@ public class Tui_GuanApi {
         return service.getGuanList(token,uid);
     }
 
+    public Observable<GuanBean> getCollection(String token, String uid, String followId){
+        return service.getCollection(token,uid,followId);
+    }
 }
