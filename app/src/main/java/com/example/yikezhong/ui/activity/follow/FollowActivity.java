@@ -42,6 +42,7 @@ public class FollowActivity extends BaseActivity<TuiJianPresenter> implements Tu
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        //获取uid
         String uid = (String) SharedPreferencesUtils.getParam(FollowActivity.this, "uid", "");
         String token = (String) SharedPreferencesUtils.getParam(FollowActivity.this, "token", "");
         if (uid != null && token != null) {
