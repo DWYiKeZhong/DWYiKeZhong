@@ -35,11 +35,20 @@ public interface Tui_GuanApiService {
             @Field("token") String token,
             @Field("uid") String uid
     );
+
+    /**
+     * 收藏作品    https://www.zhaoapi.cn/quarter/addFavorite?source=android&appVersion=101&token=E3E7D261D59EC38EDDD000DB09CA42D4&uid=12761&wid=12213
+     * @param token
+     * @param uid
+     * @param wid
+     * @return
+     */
     @FormUrlEncoded
     @POST("quarter/addFavorite")
     Observable<GuanBean> getCollection(
             @Field("token") String token,
             @Field("uid") String uid,
-            @Field("wid") String followId
+            @Field("wid") String wid
     );
+
 }

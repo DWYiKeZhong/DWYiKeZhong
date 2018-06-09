@@ -2,7 +2,6 @@ package com.example.yikezhong.ui.tuijian_fragment.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -62,9 +61,9 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
     private Context context;
     private List<HotBean.DataBean> list;
     private int flga=1;
-    private  String followid;
+    private  String wid;
     private  String followid1;
-    Tui_GuanApiService service=new Tui_GuanApiService() {
+    Tui_GuanApiService service = new Tui_GuanApiService() {
         @Override
         public Observable<GuanBean> getGuan(String token, String uid, String followId) {
             return null;
@@ -76,7 +75,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         }
 
         @Override
-        public Observable<GuanBean> getCollection(String token, String uid, String followId) {
+        public Observable<GuanBean> getCollection(String token, String uid, String wid) {
             return null;
         }
     };
@@ -242,43 +241,43 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                 case R.id.collection:   //点击收藏
                     if (flag == false) {
                         flag = true;
-                        collection.setImageResource(R.drawable.star_kong);
-                        Toast.makeText(context, "取消收藏", Toast.LENGTH_SHORT).show();
+                        collection.setImageResource(R.drawable.star_shi);
+                        String token= (String) SharedPreferencesUtils.getParam(context,"token","");
+                        String uid= (String) SharedPreferencesUtils.getParam(context,"uid","");
+                        for (int i = 0; i <list.size() ; i++) {
+                            wid= list.get(i).getWid()+"";
+                        }
+
+                        tui_guanApi.getCollection(token, uid, wid)
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribeOn(Schedulers.io())
+                                .subscribe(new Observer<GuanBean>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+
+                                    }
+
+                                    @Override
+
+                                    public void onNext(GuanBean guanBean) {
+                                        Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+
+                                    }
+                                });
                     }else {
                         flag = false;
-                        collection.setImageResource(R.drawable.star_shi);
-                    }
-                    String token= (String) SharedPreferencesUtils.getParam(context,"token","");
-                    String uid= (String) SharedPreferencesUtils.getParam(context,"uid","");
-                    for (int i = 0; i <list.size() ; i++) {
-                        followid= list.get(i).getWid()+"";
+                        collection.setImageResource(R.drawable.star_kong);
                     }
 
-                    tui_guanApi.getCollection(token, uid, followid)
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe(new Observer<GuanBean>() {
-                                @Override
-                                public void onSubscribe(Disposable d) {
-
-                                }
-
-                                @Override
-
-                                public void onNext(GuanBean guanBean) {
-                                    Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-
-                                }
-
-                                @Override
-                                public void onComplete() {
-
-                                }
-                            });
                     break;
 
                 case R.id.close:   //隐藏弹幕

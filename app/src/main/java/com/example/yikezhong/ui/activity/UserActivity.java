@@ -25,8 +25,6 @@ public class UserActivity extends AppCompatActivity {
     CircleImageView headImageUser;
     @BindView(R.id.zuopin)
     TextView zuopin;
-    @BindView(R.id.guanzhu_user)
-    TextView guanzhuUser;
     @BindView(R.id.btn_guanzhu_user)
     Button btnGuanzhuUser;
     @BindView(R.id.zanText)
@@ -62,8 +60,7 @@ public class UserActivity extends AppCompatActivity {
                 break;
 
             case R.id.btn_guanzhu_user:
-                Toast.makeText(UserActivity.this, " 关注 + 1", Toast.LENGTH_SHORT).show();
-                guanzhuUser.setText("667");
+                btnGuanzhuUser.setText("已关注");
                 break;
 
             case R.id.zan:
