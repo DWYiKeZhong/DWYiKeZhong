@@ -38,4 +38,9 @@
         <attr name="bezierFactor" format="integer" />
         <attr name="anim_duration" format="integer" />
     </declare-styleable>
+
+    <!--倾斜字体 TextView-->
+    <declare-styleable name="RotateTextView">
+        <attr name="degree" format="dimension" />
+    </declare-styleable>
 </resources>

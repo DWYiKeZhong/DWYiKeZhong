@@ -11,77 +11,79 @@
         android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:padding="6dp"
-            fresco:roundAsCircle="true"
             android:id="@+id/headImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
             android:layout_alignParentLeft="true"
-            fresco:placeholderImage="@drawable/app_default"
-            fresco:placeholderImageScaleType="fitCenter"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
             fresco:actualImageScaleType="fitCenter"
             fresco:failureImage="@drawable/load_error_image"
-            fresco:failureImageScaleType="fitCenter" />
+            fresco:failureImageScaleType="fitCenter"
+            fresco:placeholderImage="@drawable/app_default"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:roundAsCircle="true" />
 
         <LinearLayout
-            android:layout_marginLeft="20dp"
-            android:layout_alignBottom="@+id/headImage"
-            android:layout_toRightOf="@+id/headImage"
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/headImage"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/headImage"
+            android:orientation="vertical">
+
             <TextView
-                android:text="name"
                 android:id="@+id/name"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="#8d99d9"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="6dp"
-                android:layout_width="wrap_content"
-                android:gravity="center_vertical"/>
-            <TextView
-                android:text="time"
-                android:id="@+id/time"
-                android:textSize="13sp"
-                android:textStyle="bold"
                 android:layout_weight="1"
-                android:textColor="#807979"
-                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:text="name"
+                android:textColor="#8d99d9"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
-                android:gravity="center_vertical"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="time"
+                android:textColor="#807979"
+                android:textSize="13sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:layout_alignParentRight="true"
             android:id="@+id/talk_item_floating"
-            android:layout_marginTop="20dp"
             android:layout_width="10dp"
             android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
             app:fab_addButtonSize="mini"
             app:fab_expandDirection="left">
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/talk_item_floating_love"
-                app:fab_icon="@drawable/raw_1499933216"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fab_icon="@drawable/raw_1499933216"
                 app:fab_size="mini" />
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/talk_item_floating_talk"
-                app:fab_icon="@drawable/raw_1499933789"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fab_icon="@drawable/raw_1499933789"
                 app:fab_size="mini" />
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/talk_item_floating_fenxiang"
-                app:fab_icon="@drawable/raw_1499995160"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fab_icon="@drawable/raw_1499995160"
                 app:fab_size="mini" />
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
@@ -105,8 +107,10 @@
 
         <cn.jzvd.JZVideoPlayerStandard
             android:id="@+id/videoPlayer"
-            android:layout_width="match_parent"
-            android:layout_height="320dp"/>
+            android:layout_height="320dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_width="match_parent" />
 
         <LinearLayout
             android:layout_marginTop="40dp"
@@ -171,16 +175,49 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/lin"
+        android:layout_height="56dp"
+        android:layout_marginLeft="12dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent">
+        <TextView
+            android:textSize="15sp"
+            android:text="骑猪上高速："
+            android:textColor="#2bb6f6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:textSize="15sp"
+            android:textColor="#adadad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="这个妹子我认识，活在硬盘中..."/>
+
+        <com.example.yikezhong.custom.RotateTextView
+            app:degree="10dp"
+            android:text="神评！"
+            android:id="@+id/text"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textColor="#a99e9e"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/operation_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:visibility="gone"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/videoplayer">
+        android:layout_alignParentBottom="true" >
         <EditText
             android:id="@+id/edit_text"
-            android:hint="请输入评论内容"
+            android:hint="请弹出你的神评"
             android:layout_width="369dp"
             android:layout_height="match_parent"
             android:imeOptions="flagNoExtractUi"

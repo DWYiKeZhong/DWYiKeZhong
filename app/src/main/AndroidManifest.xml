@@ -30,7 +30,8 @@
         <activity android:name=".ui.activity.OtherActivity" />
         <activity android:name=".ui.activity.login.LoginActivity" />
         <activity android:name=".ui.activity.register.RegisterActivity" />
-        <activity android:name=".ui.activity.LunBoDetailActivity"></activity>
+        <activity android:name=".ui.activity.LunBoDetailActivity" />
+        <activity android:name=".ui.activity.UserActivity"></activity>
     </application>
 
 </manifest>
