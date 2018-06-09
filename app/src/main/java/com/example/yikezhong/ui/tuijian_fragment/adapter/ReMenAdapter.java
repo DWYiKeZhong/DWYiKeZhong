@@ -68,7 +68,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         public Observable<GuanBean> getGuan(String token, String uid, String followId) {
             return null;
         }
-
+        //11111
         @Override
         public Observable<GuanListBean> getGuanList(String token, String uid) {
             return null;
