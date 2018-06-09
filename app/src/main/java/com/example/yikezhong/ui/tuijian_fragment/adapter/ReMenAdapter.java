@@ -1,6 +1,7 @@
 package com.example.yikezhong.ui.tuijian_fragment.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -21,6 +22,8 @@ import com.example.yikezhong.bean.GuanBean;
 import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.custom.HeartLayout;
+import com.example.yikezhong.custom.RotateTextView;
+import com.example.yikezhong.ui.activity.UserActivity;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
@@ -32,9 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
 import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -122,12 +123,24 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
             holder.name.setText(list.get(position).getUser().getNickname());
         }
         holder.time.setText(list.get(position).getCreateTime());
+
+        //点击用户头像跳转至用户页面
         holder.headImage.setImageURI(list.get(position).getUser().getIcon());
+        holder.headImage.setImageURI(list.get(position).getUser().getIcon());
+        holder.headImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, UserActivity.class));
+            }
+        });
 
         //普通页面播放视频，显示视频标题
         holder.videoPlayer.setUp(list.get(position).getVideoUrl(), JZVideoPlayer.SCREEN_WINDOW_NORMAL);
         //为播放视频设置封面图
         Glide.with(context).load(list.get(position).getCover()).into(holder.videoPlayer.thumbImageView);
+
+        //设置倾斜字体显示 神评
+        holder.text.setDegrees(28);
     }
 
     @Override
@@ -137,6 +150,8 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
 
 
     class ReMenViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.text)                       //设置倾斜字体
+        RotateTextView text;
         @BindView(R.id.headImage)
         SimpleDraweeView headImage;                //头像
         @BindView(R.id.name)
@@ -221,11 +236,11 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
             };
         }
 
-        @OnClick({R.id.collection,R.id.close, R.id.open, R.id.send, R.id.send_good, R.id.talk_item_floating_love, R.id.talk_item_floating_talk, R.id.talk_item_floating_fenxiang})
+        @OnClick({R.id.collection, R.id.close, R.id.open, R.id.send, R.id.send_good, R.id.talk_item_floating_love, R.id.talk_item_floating_talk, R.id.talk_item_floating_fenxiang})
         public void onViewClicked(View view) {
             switch (view.getId()) {
                 case R.id.collection:   //点击收藏
-                    if (flag == false){
+                    if (flag == false) {
                         flag = true;
                         collection.setImageResource(R.drawable.star_kong);
                         String token= (String) SharedPreferencesUtils.getParam(context,"token","");
@@ -298,6 +313,8 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                     break;
 
                 case R.id.talk_item_floating_love:        //点击关注
+                    Toast.makeText(context, "关注", Toast.LENGTH_SHORT).show();
+
                     String token1= (String) SharedPreferencesUtils.getParam(context,"token","");
                     String uid1= (String) SharedPreferencesUtils.getParam(context,"uid","");
                     for (int i = 0; i <list.size() ; i++) {
