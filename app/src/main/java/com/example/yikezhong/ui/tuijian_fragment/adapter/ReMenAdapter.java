@@ -35,9 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
 import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -125,7 +123,16 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
             holder.name.setText(list.get(position).getUser().getNickname());
         }
         holder.time.setText(list.get(position).getCreateTime());
+
+        //点击用户头像跳转至用户页面
         holder.headImage.setImageURI(list.get(position).getUser().getIcon());
+        holder.headImage.setImageURI(list.get(position).getUser().getIcon());
+        holder.headImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, UserActivity.class));
+            }
+        });
 
         //普通页面播放视频，显示视频标题
         holder.videoPlayer.setUp(list.get(position).getVideoUrl(), JZVideoPlayer.SCREEN_WINDOW_NORMAL);
@@ -237,7 +244,6 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                         flag = true;
                         collection.setImageResource(R.drawable.star_kong);
                         Toast.makeText(context, "取消收藏", Toast.LENGTH_SHORT).show();
-                    } else {
                     }else {
                         flag = false;
                         collection.setImageResource(R.drawable.star_shi);
