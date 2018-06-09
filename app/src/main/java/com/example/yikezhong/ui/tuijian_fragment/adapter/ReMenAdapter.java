@@ -228,41 +228,41 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                     if (flag == false){
                         flag = true;
                         collection.setImageResource(R.drawable.star_kong);
+                        String token= (String) SharedPreferencesUtils.getParam(context,"token","");
+                        String uid= (String) SharedPreferencesUtils.getParam(context,"uid","");
+                        for (int i = 0; i <list.size() ; i++) {
+                            followid= list.get(i).getWid()+"";
+                        }
+
+                        tui_guanApi.getCollection(token, uid, followid)
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribeOn(Schedulers.io())
+                                .subscribe(new Observer<GuanBean>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+
+                                    }
+
+                                    @Override
+
+                                    public void onNext(GuanBean guanBean) {
+                                        Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+
+                                    }
+                                });
                     }else {
                         flag = false;
                         collection.setImageResource(R.drawable.star_shi);
                     }
-                    String token= (String) SharedPreferencesUtils.getParam(context,"token","");
-                    String uid= (String) SharedPreferencesUtils.getParam(context,"uid","");
-                    for (int i = 0; i <list.size() ; i++) {
-                        followid= list.get(i).getWid()+"";
-                    }
-
-                    tui_guanApi.getCollection(token, uid, followid)
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe(new Observer<GuanBean>() {
-                                @Override
-                                public void onSubscribe(Disposable d) {
-
-                                }
-
-                                @Override
-
-                                public void onNext(GuanBean guanBean) {
-                                    Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-
-                                }
-
-                                @Override
-                                public void onComplete() {
-
-                                }
-                            });
                     break;
 
                 case R.id.close:   //隐藏弹幕

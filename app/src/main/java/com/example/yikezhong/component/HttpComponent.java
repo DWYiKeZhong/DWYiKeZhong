@@ -3,6 +3,7 @@ package com.example.yikezhong.component;
 import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
+import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.login.LoginActivity;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
@@ -34,4 +35,6 @@ public interface HttpComponent {
     void inject(RegisterActivity registerActivity);
 
     void inject(HomeActivity homeActivity);
+
+    void inject(FollowActivity followActivity);
 }
