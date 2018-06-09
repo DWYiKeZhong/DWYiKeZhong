@@ -2,7 +2,6 @@ package com.example.yikezhong.ui.tuijian_fragment.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -62,9 +61,9 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
     private Context context;
     private List<HotBean.DataBean> list;
     private int flga=1;
-    private  String followid;
+    private  String wid;
     private  String followid1;
-    Tui_GuanApiService service=new Tui_GuanApiService() {
+    Tui_GuanApiService service = new Tui_GuanApiService() {
         @Override
         public Observable<GuanBean> getGuan(String token, String uid, String followId) {
             return null;
@@ -76,7 +75,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         }
 
         @Override
-        public Observable<GuanBean> getCollection(String token, String uid, String followId) {
+        public Observable<GuanBean> getCollection(String token, String uid, String wid) {
             return null;
         }
     };
@@ -242,14 +241,14 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                 case R.id.collection:   //点击收藏
                     if (flag == false) {
                         flag = true;
-                        collection.setImageResource(R.drawable.star_kong);
+                        collection.setImageResource(R.drawable.star_shi);
                         String token= (String) SharedPreferencesUtils.getParam(context,"token","");
                         String uid= (String) SharedPreferencesUtils.getParam(context,"uid","");
                         for (int i = 0; i <list.size() ; i++) {
-                            followid= list.get(i).getWid()+"";
+                            wid= list.get(i).getWid()+"";
                         }
 
-                        tui_guanApi.getCollection(token, uid, followid)
+                        tui_guanApi.getCollection(token, uid, wid)
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeOn(Schedulers.io())
                                 .subscribe(new Observer<GuanBean>() {
@@ -276,8 +275,9 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                                 });
                     }else {
                         flag = false;
-                        collection.setImageResource(R.drawable.star_shi);
+                        collection.setImageResource(R.drawable.star_kong);
                     }
+
                     break;
 
                 case R.id.close:   //隐藏弹幕

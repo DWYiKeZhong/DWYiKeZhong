@@ -139,7 +139,6 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:id="@+id/guanzhu_user"
                     android:textColor="#868786"
                     android:textSize="11sp"
                     android:text="666"/>
@@ -159,6 +158,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_guanzhu_user"
                 android:textColor="#04a9f4"
+                android:textSize="21sp"
                 android:text="+ 关注"/>
         </LinearLayout>
 
