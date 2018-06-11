@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="88dp"
-            android:background="#0098fe"
+            android:background="#05a9f4"
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -242,14 +242,15 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/yl"
+                    android:src="@drawable/sun"
                     android:id="@+id/yl"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"/>
                 <TextView
+                    android:id="@+id/mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="夜间模式"
+                    android:text="日间模式"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/yl"
                     android:textSize="15sp"

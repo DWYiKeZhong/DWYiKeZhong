@@ -38,9 +38,9 @@ import java.util.List;
 public class Tui_Hot_Fragment extends BaseFragment<TuiJianPresenter> implements TuiJianContract.View {
     int page = 1;
     private Banner banner;
-    private Handler handler = new Handler();
     private ReMenAdapter adapter;
     private RecyclerView recyclerView;
+    private Handler handler = new Handler();
     private SmartRefreshLayout tuijian_smart;
 
     @Override

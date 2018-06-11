@@ -24,7 +24,6 @@ public interface TuiJianContract {
     interface Presenter extends BaseContract.BasePresenter<View>{
         void getLunBoP();
         void getReMenP(String token,String page);
-        void getGuanP(String token,String uid,String followId);
         void getGuanListP(String token,String uid);
     }
 }

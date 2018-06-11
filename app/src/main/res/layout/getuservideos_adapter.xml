@@ -56,36 +56,12 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:id="@+id/talk_item_floating"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            app:fab_addButtonSize="mini"
-            app:fab_expandDirection="left">
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/talk_item_floating_love"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_icon="@drawable/raw_1499933216"
-                app:fab_size="mini" />
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/talk_item_floating_talk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_icon="@drawable/raw_1499933789"
-                app:fab_size="mini" />
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/talk_item_floating_fenxiang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_icon="@drawable/raw_1499995160"
-                app:fab_size="mini" />
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        <com.example.yikezhong.custom.CustomDuan
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
 
@@ -113,27 +89,18 @@
             android:layout_width="match_parent" />
 
         <LinearLayout
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:orientation="vertical"
-            android:layout_marginRight="3dp"
+            android:layout_marginRight="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true">
-
-            <ImageView
-                android:padding="5dp"
-                android:layout_width="60dp"
-                android:id="@+id/collection"
-                android:layout_height="60dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginLeft="25dp"
-                android:src="@drawable/star_kong"   />
 
             <TextView
                 android:id="@+id/close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:padding="5dp"
                 android:text="关闭弹幕"
                 android:textColor="#ffffff" />
@@ -142,7 +109,7 @@
                 android:id="@+id/open"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:padding="5dp"
                 android:text="打开弹幕"
                 android:textColor="#ffffff" />
@@ -151,7 +118,7 @@
                 android:id="@+id/send_good"
                 android:src="@drawable/song"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="25dp"
                 android:layout_width="wrap_content"  />
 
@@ -208,26 +175,5 @@
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/operation_layout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:visibility="gone"
-        android:gravity="center"
-        android:layout_alignParentBottom="true" >
-        <EditText
-            android:id="@+id/edit_text"
-            android:hint="请弹出你的神评"
-            android:layout_width="369dp"
-            android:layout_height="match_parent"
-            android:imeOptions="flagNoExtractUi"/>
-
-        <Button
-            android:text="发送"
-            android:id="@+id/send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_styles"/>
-    </LinearLayout>
 
 </LinearLayout>
