@@ -9,22 +9,11 @@
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/bigImage"
-                android:scaleType="fitXY"
-                android:src="@drawable/raw_1500002643"
-                android:layout_width="match_parent"
-                android:layout_height="218dp" />
 
-            <com.jcodecraeer.xrecyclerview.XRecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
-        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
     </ScrollView>
 

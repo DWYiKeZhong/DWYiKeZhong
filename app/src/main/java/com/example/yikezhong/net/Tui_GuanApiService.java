@@ -14,7 +14,7 @@ import retrofit2.http.POST;
 public interface Tui_GuanApiService {
 
     /**
-     * 推荐 关注用户 数据 https://www.zhaoapi.cn/quarter/follow?source=android&appVersion=101&token=E3E7D261D59EC38EDDD000DB09CA42D4&uid=12761&followId=123
+     * 推荐 关注用户 数据 https://www.zhaoapi.cn/quarter/follow?source=android&appVersion=101&token=46FB809A1FFEE06DEDED783742F363CA&uid=4416&followId=123
      * @return
      */
     @FormUrlEncoded
@@ -26,7 +26,7 @@ public interface Tui_GuanApiService {
     );
 
     /**
-     * 推荐 获取关注用户列表 数据 https://www.zhaoapi.cn/quarter/getFollowUsers?source=android&appVersion=101&token=E3E7D261D59EC38EDDD000DB09CA42D4&uid=12761
+     * 推荐 获取关注用户列表 数据 https://www.zhaoapi.cn/quarter/getFollowUsers?source=android&appVersion=101&token=46FB809A1FFEE06DEDED783742F363CA&uid=4416
      * @return
      */
     @FormUrlEncoded
@@ -37,7 +37,7 @@ public interface Tui_GuanApiService {
     );
 
     /**
-     * 收藏作品    https://www.zhaoapi.cn/quarter/addFavorite?source=android&appVersion=101&token=E3E7D261D59EC38EDDD000DB09CA42D4&uid=12761&wid=12213
+     * 收藏作品    https://www.zhaoapi.cn/quarter/addFavorite?source=android&appVersion=101&token=46FB809A1FFEE06DEDED783742F363CA&uid=12761&wid=4416
      * @param token
      * @param uid
      * @param wid

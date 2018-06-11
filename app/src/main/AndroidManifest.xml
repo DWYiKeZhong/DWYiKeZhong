@@ -22,7 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.HomeActivity" />
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.VideoDetail.VideoDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -31,7 +34,10 @@
         <activity android:name=".ui.activity.login.LoginActivity" />
         <activity android:name=".ui.activity.register.RegisterActivity" />
         <activity android:name=".ui.activity.LunBoDetailActivity" />
-        <activity android:name=".ui.activity.UserActivity"></activity>
+        <activity android:name=".ui.activity.UserActivity" />
+        <activity android:name=".ui.activity.FaBuActivity" />
+        <activity android:name=".ui.activity.FaBiaoDuznZiActivity" />
+        <activity android:name=".ui.activity.TakePhotoActivity"></activity>
     </application>
 
 </manifest>

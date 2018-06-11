@@ -92,36 +92,6 @@ public class TuiJianPresenter  extends BasePresenter<TuiJianContract.View> imple
     }
 
     @Override
-    public void getGuanP(String token, String uid, String followId) {
-        guanApi.getGuan(token, uid, followId)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<GuanBean>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(GuanBean guanBean) {
-                        if (mView != null){
-                            mView.getGuanSuccess(guanBean);
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
-
-    @Override
     public void getGuanListP(String token, String uid) {
         guanApi.getGuanList(token, uid)
                 .observeOn(AndroidSchedulers.mainThread())

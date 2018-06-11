@@ -3,6 +3,10 @@ package com.example.yikezhong.module;
 import com.example.yikezhong.net.Api;
 import com.example.yikezhong.net.DuanApi;
 import com.example.yikezhong.net.DuanApiService;
+import com.example.yikezhong.net.FaBiaoDuanApi;
+import com.example.yikezhong.net.FaBiaoDuanApiService;
+import com.example.yikezhong.net.GetUserVideosApi;
+import com.example.yikezhong.net.GetUserVideosApiService;
 import com.example.yikezhong.net.HotVideoApi;
 import com.example.yikezhong.net.HotVideoApiService;
 import com.example.yikezhong.net.LoginApi;
@@ -167,6 +171,30 @@ public class HttpModule {
                 .build()
                 .create(UpdateHeaderApiService.class);
         return UpdateHeaderApi.getUpdateHeaderApi(service8);
+    }
+
+    @Provides    //获取某个用户的视频作品集
+    GetUserVideosApi provideGetUserVideosApi(OkHttpClient.Builder builder) {
+        GetUserVideosApiService service9 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(GetUserVideosApiService.class);
+        return GetUserVideosApi.getGetUserVideosApi(service9);
+    }
+
+    @Provides    //发布段子内容
+    FaBiaoDuanApi provideFaBiaoDuanApi(OkHttpClient.Builder builder) {
+        FaBiaoDuanApiService service10 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(FaBiaoDuanApiService.class);
+        return FaBiaoDuanApi.getFaBiaoDuanApi(service10);
     }
 
 }
