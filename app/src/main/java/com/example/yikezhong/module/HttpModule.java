@@ -114,6 +114,8 @@ public class HttpModule {
         return NearbyApi.getNearbyApi(service4);
     }
 
+
+
     @Provides     // 段子
     DuanApi provideDuanApi(OkHttpClient.Builder builder) {
         DuanApiService service4 = new Retrofit.Builder()
