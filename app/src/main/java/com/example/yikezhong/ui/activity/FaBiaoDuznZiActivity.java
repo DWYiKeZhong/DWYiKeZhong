@@ -64,6 +64,8 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.qx_text:
+                Toast.makeText(FaBiaoDuznZiActivity.this,"取消！",Toast.LENGTH_SHORT).show();
+
                 break;
 
             case R.id.fabiaoText:       //发表段子内容  "4416"      "46FB809A1FFEE06DEDED783742F363CA"

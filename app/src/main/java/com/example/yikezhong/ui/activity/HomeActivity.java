@@ -92,7 +92,6 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
 
-
         imgPath = getExternalCacheDir() + File.separator + "header.jpg";
         Drawable drawableFirst = getResources().getDrawable(R.drawable.raw_1499947056);
         drawableFirst.setBounds(0, 0, 50, 50);
