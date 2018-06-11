@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.tuijian_fragment.adapter;
+package com.example.yikezhong.ui.activity.Collection.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,26 +15,30 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.example.yikezhong.R;
+import com.example.yikezhong.bean.CollectionBean;
 import com.example.yikezhong.bean.GuanBean;
 import com.example.yikezhong.bean.GuanListBean;
-import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.custom.HeartLayout;
 import com.example.yikezhong.custom.RotateTextView;
-import com.example.yikezhong.ui.activity.UserActivity;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
+import com.example.yikezhong.ui.activity.UserActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
 import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -53,13 +57,12 @@ import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
 import master.flame.danmaku.ui.widget.DanmakuView;
 
 /**
- * Created   by   Dewey .
- * 推荐 热门
- * 弹幕 学习：https://blog.csdn.net/u013366008/article/details/77160557
+ * Created by lenovo on 2018/6/11.
  */
-public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHolder>{
+
+public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ReMenViewHolder>{
     private Context context;
-    private List<HotBean.DataBean> list;
+    private List<CollectionBean.DataBean> list;
     private int flga=1;
     private  String wid;
     private  String followid1;
@@ -82,17 +85,16 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
     };
     private Tui_GuanApi tui_guanApi=Tui_GuanApi.getGuanApi(service);
     @Inject
-    public ReMenAdapter(Tui_GuanApi tui_guanApi) {
+    public CollectionAdapter(Tui_GuanApi tui_guanApi) {
         this.tui_guanApi = tui_guanApi;
     }
 
-    public ReMenAdapter(Context context, List<HotBean.DataBean> list) {
+    public CollectionAdapter(Context context) {
         this.context = context;
-        this.list = list;
     }
 
     //添加数据的方法
-    public void addData(List<HotBean.DataBean> data) {
+    public void addData(List<CollectionBean.DataBean> data) {
         if (this.list == null) {
             this.list = new ArrayList<>();
         }
@@ -151,7 +153,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
 
     class ReMenViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.text)                       //设置倾斜字体
-        RotateTextView text;
+         RotateTextView text;
         @BindView(R.id.headImage)
         SimpleDraweeView headImage;                //头像
         @BindView(R.id.name)
@@ -322,24 +324,24 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
                         followid1= list.get(i).getWid()+"";
                     }
                     tui_guanApi.getGuan(token1, uid1, followid1)
-                                        .observeOn(AndroidSchedulers.mainThread())
-                                        .subscribeOn(Schedulers.io())
-                                        .subscribe(new Observer<GuanBean>() {
-                                    @Override
-                                    public void onSubscribe(Disposable d) {
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new Observer<GuanBean>() {
+                                @Override
+                                public void onSubscribe(Disposable d) {
 
-                                    }
+                                }
 
-                                    @Override
+                                @Override
 
-                                    public void onNext(GuanBean guanBean) {
-                                        Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
-                                    }
+                                public void onNext(GuanBean guanBean) {
+                                    Toast.makeText(context, guanBean.getMsg().toString(), Toast.LENGTH_SHORT).show();
+                                }
 
-                                    @Override
-                                    public void onError(Throwable e) {
+                                @Override
+                                public void onError(Throwable e) {
 
-                                    }
+                                }
 
                                 @Override
                                 public void onComplete() {
@@ -407,3 +409,4 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
 
     }
 }
+

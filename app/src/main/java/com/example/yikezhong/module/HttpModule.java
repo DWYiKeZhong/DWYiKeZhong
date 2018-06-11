@@ -1,6 +1,8 @@
 package com.example.yikezhong.module;
 
 import com.example.yikezhong.net.Api;
+import com.example.yikezhong.net.CollectionApi;
+import com.example.yikezhong.net.CollectionApiService;
 import com.example.yikezhong.net.DuanApi;
 import com.example.yikezhong.net.DuanApiService;
 import com.example.yikezhong.net.HotVideoApi;
@@ -169,4 +171,15 @@ public class HttpModule {
         return UpdateHeaderApi.getUpdateHeaderApi(service8);
     }
 
+    @Provides    //收藏列表
+    CollectionApi provideCollectionApi(OkHttpClient.Builder builder) {
+        CollectionApiService service9 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(CollectionApiService.class);
+        return CollectionApi.getCollectionApi(service9);
+    }
 }

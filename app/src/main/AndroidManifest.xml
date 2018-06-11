@@ -31,8 +31,9 @@
         <activity android:name=".ui.activity.login.LoginActivity" />
         <activity android:name=".ui.activity.register.RegisterActivity" />
         <activity android:name=".ui.activity.LunBoDetailActivity" />
-        <activity android:name=".ui.activity.UserActivity"></activity>
-        <activity android:name=".ui.activity.follow.FollowActivity"></activity>
+        <activity android:name=".ui.activity.UserActivity" />
+        <activity android:name=".ui.activity.follow.FollowActivity" />
+        <activity android:name=".ui.activity.Collection.CollectionActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.yikezhong.component;
 
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.Collection.CollectionActivity;
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
@@ -37,4 +38,6 @@ public interface HttpComponent {
     void inject(HomeActivity homeActivity);
 
     void inject(FollowActivity followActivity);
+
+    void inject(CollectionActivity collectionActivity);
 }
