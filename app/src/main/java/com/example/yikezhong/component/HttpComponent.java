@@ -5,6 +5,7 @@ import com.example.yikezhong.ui.activity.FaBiaoDuznZiActivity;
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.UserActivity;
 import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
+import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.login.LoginActivity;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
@@ -40,4 +41,6 @@ public interface HttpComponent {
     void inject(UserActivity userActivity);
 
     void inject(FaBiaoDuznZiActivity faBiaoDuznZiActivity);
+
+    void inject(FollowActivity followActivity);
 }

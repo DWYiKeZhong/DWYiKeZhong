@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
+import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.presenter.UpdatePresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
@@ -75,6 +76,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
     RelativeLayout homeTopRl;
     @BindView(R.id.left_main_menu)
     CircleImageView leftMainMenu;
+    @BindView(R.id.home_follow_rl)
+    RelativeLayout homeFollowRl;
     private Bitmap mBitmap;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
@@ -82,6 +85,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
     private static final int CROP_SMALL_PICTURE = 2;
     private String imgPath;
     private long exitTime = 0;            //退出主程序时间
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +101,12 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
         drawableSearch.setBounds(0, 0, 50, 50);
         rb2.setCompoundDrawables(null, drawableSearch, null, null);
 
+        homeFollowRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, FollowActivity.class));
+            }
+        });
         //侧滑菜单的实现
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -226,13 +236,14 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
         return super.onKeyDown(keyCode, event);
     }
 
+
     /**
      * 显示修改图片的对话框
      */
     protected void showChoosePicDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
         builder.setTitle("添加图片");
-        String[] items = { "选择本地照片", "拍照" };
+        String[] items = {"选择本地照片", "拍照"};
         builder.setNegativeButton("取消", null);
         builder.setItems(items, new DialogInterface.OnClickListener() {
 
@@ -280,6 +291,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
             }
         }
     }
+
     /**
      * 裁剪图片方法实现
      */
@@ -302,6 +314,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
         intent.putExtra("return-data", true);
         startActivityForResult(intent, CROP_SMALL_PICTURE);
     }
+
     /**
      * 保存裁剪之后的图片数据
      */
@@ -312,7 +325,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
             //这里图片是方形的，可以用一个工具类处理成圆形（很多头像都是圆形，这种工
             // 具类网上很多不再详述）
             leftMainMenu.setImageBitmap(mBitmap);//显示图片
-          //  mPresenter.updateHeader("3834",imgPath,"68927D4A5729568EF66D5AC1787227E7");
+            //  mPresenter.updateHeader("3834",imgPath,"68927D4A5729568EF66D5AC1787227E7");
         }
     }
 

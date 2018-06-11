@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/follow_item_sdw"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/follow_item_name"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/follow_item_sdw"
+        android:layout_marginLeft="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/follow_item_detailname"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/follow_item_name"
+        android:layout_toRightOf="@id/follow_item_sdw"
+        android:layout_marginLeft="20dp" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/follow_item_iv"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/raw_1499943790"
+        android:layout_marginRight="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/follow_item_time"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/follow_item_iv"
+        android:layout_marginRight="20dp" />
+</RelativeLayout>
