@@ -9,7 +9,7 @@ import android.view.View;
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.NearbyBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
-import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
+import com.example.yikezhong.ui.activity.videodetail.VideoDetailActivity;
 import com.example.yikezhong.ui.base.BaseFragment;
 import com.example.yikezhong.ui.utils.LocationUtils;
 import com.example.yikezhong.ui.video_fragment.nearby_fragment.adapter.NearbyAdapter;

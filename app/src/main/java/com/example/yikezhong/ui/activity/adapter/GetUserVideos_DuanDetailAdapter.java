@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.yikezhong.R;
-import com.example.yikezhong.bean.GetUserVideosBean;
+import com.example.yikezhong.bean.GetUserVideos_DuanDetailBean;
 import com.example.yikezhong.custom.HeartLayout;
 import com.example.yikezhong.custom.RotateTextView;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -32,22 +32,22 @@ import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
 import master.flame.danmaku.ui.widget.DanmakuView;
 
 /**
- * 对应ID用户详情作品集页面 Adapter
+ * 对应ID用户详情作品集页面  段子详情 Adapter
  */
-public class GetUserVideosAdapter extends RecyclerView.Adapter<GetUserVideosAdapter.GetUserVideosViewHolder> {
+public class GetUserVideos_DuanDetailAdapter extends RecyclerView.Adapter<GetUserVideos_DuanDetailAdapter.GetUserVideosViewHolder> {
     private Context context;
     private String userName;
     private String image;
-    private List<GetUserVideosBean.DataBean>  list;
+    private List<GetUserVideos_DuanDetailBean.DataBean>  list;
 
-    public GetUserVideosAdapter(Context context, String userName,String image) {
+    public GetUserVideos_DuanDetailAdapter(Context context, String userName, String image) {
         this.context = context;
         this.userName = userName;
         this.image = image;
     }
 
     //添加数据的方法
-    public void addData(List<GetUserVideosBean.DataBean> data) {
+    public void addData(List<GetUserVideos_DuanDetailBean.DataBean> data) {
         if (this.list == null) {
             this.list = new ArrayList<>();
         }

@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.VideoDetail;
+package com.example.yikezhong.ui.activity.videodetail;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.VideoDetailBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
-import com.example.yikezhong.ui.activity.VideoDetail.contract.VideoDetailContract;
-import com.example.yikezhong.ui.activity.VideoDetail.presenter.VideoDetailPresenter;
+import com.example.yikezhong.ui.activity.videodetail.contract.VideoDetailContract;
+import com.example.yikezhong.ui.activity.videodetail.presenter.VideoDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 
 import cn.jzvd.JZVideoPlayerStandard;

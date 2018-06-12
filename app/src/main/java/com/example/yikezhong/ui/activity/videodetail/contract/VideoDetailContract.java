@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.VideoDetail.contract;
+package com.example.yikezhong.ui.activity.videodetail.contract;
 
 import com.example.yikezhong.bean.VideoDetailBean;
 import com.example.yikezhong.ui.base.BaseContract;

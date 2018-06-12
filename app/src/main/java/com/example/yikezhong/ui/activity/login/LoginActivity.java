@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.LoginBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
@@ -19,12 +18,11 @@ import com.example.yikezhong.ui.activity.login.presenter.LoginPresenter;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
-import com.example.yikezhong.ui.shared.SharedUtils;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+//登录页面布局
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
     @BindView(R.id.login_back)
     ImageView loginBack;
@@ -62,7 +60,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getNickname()+"");
             SharedPreferencesUtils.setParam(LoginActivity.this,"iocn",loginBean.getData().getIcon()+"");
             finish();
-            OtherActivity.instance.finish();
+            LoginActivity.this.finish();
         }
     }
 

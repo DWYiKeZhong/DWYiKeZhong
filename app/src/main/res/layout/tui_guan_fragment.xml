@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.scwang.smartrefresh.layout.SmartRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tuijian_smart"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:scrollbars="none"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+    <android.support.v4.view.ViewPager
+        android:visibility="gone"
+        android:id="@+id/xiaoren_weidenglu"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
 
-    </ScrollView>
-
-</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

@@ -3,10 +3,10 @@ package com.example.yikezhong.bean;
 import java.util.List;
 
 /**
- * 获取某个用户的视频作品集
+ * 获取某个用户的视频作品集  段子详情
  */
 
-public class GetUserVideosBean {
+public class GetUserVideos_DuanDetailBean {
 
     /**
      * msg : 获取作品列表成功

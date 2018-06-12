@@ -11,12 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.yikezhong.R;
-import com.example.yikezhong.bean.GetUserVideosBean;
+import com.example.yikezhong.bean.GetUserVideos_DuanDetailBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
-import com.example.yikezhong.ui.activity.adapter.GetUserVideosAdapter;
-import com.example.yikezhong.ui.activity.contract.GetUserVideosContract;
-import com.example.yikezhong.ui.activity.presenter.GetUserVideosPresenter;
+import com.example.yikezhong.ui.activity.adapter.GetUserVideos_DuanDetailAdapter;
+import com.example.yikezhong.ui.activity.contract.GetUserVideos_DuanDetailContract;
+import com.example.yikezhong.ui.activity.presenter.GetUserVideos_DuanDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.utils.DialogUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -26,8 +26,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-//对应ID用户详情作品集页面
-public class UserActivity extends BaseActivity<GetUserVideosPresenter> implements GetUserVideosContract.View {
+//对应ID用户详情作品集页面  也是段子详情页面
+public class UserVideos_DuanDetailActivity extends BaseActivity<GetUserVideos_DuanDetailPresenter> implements GetUserVideos_DuanDetailContract.View {
     @BindView(R.id.zuopin)
     TextView zuopin;
     @BindView(R.id.btn_guanzhu_user)
@@ -39,7 +39,7 @@ public class UserActivity extends BaseActivity<GetUserVideosPresenter> implement
     @BindView(R.id.headImage_User)
     SimpleDraweeView headImageUser;
     private Handler handler = new Handler();
-    private GetUserVideosAdapter adapter;
+    private GetUserVideos_DuanDetailAdapter adapter;
     int num = 17;
     int page = 1;
 
@@ -77,20 +77,20 @@ public class UserActivity extends BaseActivity<GetUserVideosPresenter> implement
         System.out.println("uid = " + uid+" name = "+name+" headImage = "+headImage);
 
         //添加参数,设置布局管理器以及数据适配器
-        List<GetUserVideosBean.DataBean> list = new ArrayList<>();
-        mPresenter.getUserVideosP(Integer.toString(uid), Integer.toString(page));
-        LinearLayoutManager manager = new LinearLayoutManager(UserActivity.this, LinearLayoutManager.VERTICAL, false);
+        List<GetUserVideos_DuanDetailBean.DataBean> list = new ArrayList<>();
+        mPresenter.getUserVideos_DuanDetailP(Integer.toString(uid), Integer.toString(page));
+        LinearLayoutManager manager = new LinearLayoutManager(UserVideos_DuanDetailActivity.this, LinearLayoutManager.VERTICAL, false);
         userXrecyclerView.setLayoutManager(manager);
-        userXrecyclerView.addItemDecoration(new DividerItemDecoration(UserActivity.this, DividerItemDecoration.VERTICAL));
-        adapter = new GetUserVideosAdapter(UserActivity.this,  name, headImage);
+        userXrecyclerView.addItemDecoration(new DividerItemDecoration(UserVideos_DuanDetailActivity.this, DividerItemDecoration.VERTICAL));
+        adapter = new GetUserVideos_DuanDetailAdapter(UserVideos_DuanDetailActivity.this,  name, headImage);
         userXrecyclerView.setAdapter(adapter);
 
         //网络加载慢时，提示
-        DialogUtil.showProgressDialog(UserActivity.this, "提示", "正在加载......");
+        DialogUtil.showProgressDialog(UserVideos_DuanDetailActivity.this, "提示", "正在加载......");
     }
 
     @Override
-    public void getUserVideosSuccess(GetUserVideosBean getUserVideosBean) {
+    public void getUserVideos_DuanDetailSuccess(GetUserVideos_DuanDetailBean getUserVideosBean) {
         if (adapter != null) {
             adapter.addData(getUserVideosBean.getData());
             zuopin.setText(getUserVideosBean.getData().size()+"");
@@ -110,11 +110,11 @@ public class UserActivity extends BaseActivity<GetUserVideosPresenter> implement
                 break;
 
             case R.id.share_user:
-                Toast.makeText(UserActivity.this, "分享", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserVideos_DuanDetailActivity.this, "分享", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.talk_user:
-                Toast.makeText(UserActivity.this, "评论", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserVideos_DuanDetailActivity.this, "评论", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.headImage_User:
@@ -125,7 +125,7 @@ public class UserActivity extends BaseActivity<GetUserVideosPresenter> implement
                 break;
 
             case R.id.zan:
-                Toast.makeText(UserActivity.this, " 赞 + 1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserVideos_DuanDetailActivity.this, " 赞 + 1", Toast.LENGTH_SHORT).show();
                 zanUser();
                 break;
 

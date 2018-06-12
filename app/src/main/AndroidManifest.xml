@@ -22,9 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.HomeActivity" />
         <activity
-            android:name=".ui.activity.VideoDetail.VideoDetailActivity"
+            android:name=".ui.activity.HomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.videodetail.VideoDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.UserVideos_DuanDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.OtherActivity" />
@@ -37,7 +44,9 @@
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
         <activity android:name=".ui.activity.UserActivity" />
+        <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
+        <activity android:name=".ui.activity.collection.CollectionActivity"></activity>
         <activity android:name=".ui.activity.Collection.CollectionActivity" />
         <activity android:name=".ui.activity.search.SearchActivity"></activity>
     </application>

@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
-import com.example.yikezhong.ui.activity.Collection.CollectionActivity;
+import com.example.yikezhong.ui.activity.collection.CollectionActivity;
 import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.presenter.UpdatePresenter;

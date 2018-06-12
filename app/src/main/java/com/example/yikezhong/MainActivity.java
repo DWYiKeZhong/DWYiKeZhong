@@ -8,7 +8,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import com.example.yikezhong.ui.activity.HomeActivity;
-import com.example.yikezhong.ui.shared.SharedUtils;
+import com.example.yikezhong.ui.shared.DaoHang_SharedUtils;
 import java.util.Timer;
 import java.util.TimerTask;
 import butterknife.BindView;
@@ -64,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //调用工具类判断保存的布尔值
-        boolean b = SharedUtils.getBooleanData(MainActivity.this, "flag", false);
+        boolean b = DaoHang_SharedUtils.getBooleanData(MainActivity.this, "flag", false);
 
         if (b) {    //已经进入过，现在是第二次，进入fragment页面
             handler.sendEmptyMessageDelayed(0, 0);
         } else {        //现在是第一次，进入导航页面
-            SharedUtils.savaBooleanData(MainActivity.this, "flag", true);
+            DaoHang_SharedUtils.savaBooleanData(MainActivity.this, "flag", true);
             TimeAppIntent();
         }
     }

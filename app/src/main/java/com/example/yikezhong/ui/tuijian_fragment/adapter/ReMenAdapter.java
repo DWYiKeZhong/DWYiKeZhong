@@ -22,7 +22,7 @@ import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.custom.HeartLayout;
 import com.example.yikezhong.custom.RotateTextView;
-import com.example.yikezhong.ui.activity.UserActivity;
+import com.example.yikezhong.ui.activity.UserVideos_DuanDetailActivity;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
@@ -129,7 +129,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
         holder.headImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, UserActivity.class);
+                Intent intent = new Intent(context, UserVideos_DuanDetailActivity.class);
                 intent.putExtra("uid",list.get(position).getUid());
                 intent.putExtra("headImage",list.get(position).getUser().getIcon());
                 intent.putExtra("name",list.get(position).getUser().getNickname());

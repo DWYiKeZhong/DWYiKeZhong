@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.Collection;
+package com.example.yikezhong.ui.activity.collection;
 
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,17 +10,13 @@ import android.widget.TextView;
 
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.CollectionBean;
-import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
-import com.example.yikezhong.ui.activity.Collection.adapter.CollectionAdapter;
-import com.example.yikezhong.ui.activity.Collection.contract.CollectionCotract;
-import com.example.yikezhong.ui.activity.Collection.presenter.CollectionPresenter;
+import com.example.yikezhong.ui.activity.collection.adapter.CollectionAdapter;
+import com.example.yikezhong.ui.activity.collection.contract.CollectionCotract;
+import com.example.yikezhong.ui.activity.collection.presenter.CollectionPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBEBEB"
-    tools:context="com.example.yikezhong.ui.activity.Collection.CollectionActivity">
+    tools:context="com.example.yikezhong.ui.activity.collection.CollectionActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
