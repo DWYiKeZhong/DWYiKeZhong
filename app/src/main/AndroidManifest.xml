@@ -45,6 +45,7 @@
         <activity android:name=".ui.activity.follow.FollowActivity" />
         <activity android:name=".ui.activity.collection.CollectionActivity" />
         <activity android:name=".ui.activity.FaBuSuccessActivity"></activity>
+        <activity android:name=".ui.activity.search.SearchActivity"></activity>
     </application>
 
 </manifest>

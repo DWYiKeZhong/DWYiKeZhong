@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.collection.adapter;
+package com.example.yikezhong.ui.activity.Collection.adapter;
 
 import android.content.Context;
 import android.content.Intent;

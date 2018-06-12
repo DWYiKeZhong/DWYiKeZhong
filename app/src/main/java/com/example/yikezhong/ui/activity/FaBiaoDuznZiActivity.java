@@ -72,6 +72,7 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
                 .inject(this);
     }
 
+
     @Override
     public void getFaBiaoDuanSuccess(FaBiaoDuanBean faBiaoDuanBean) {
         if (faBiaoDuanBean.getCode().equals("0")) {           //发表成功,跳转 成功分享
@@ -83,7 +84,6 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
             Toast.makeText(FaBiaoDuznZiActivity.this, faBiaoDuanBean.getMsg(), Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

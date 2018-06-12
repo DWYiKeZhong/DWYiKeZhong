@@ -9,10 +9,12 @@ import com.example.yikezhong.ui.activity.videodetail.VideoDetailActivity;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.login.LoginActivity;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
+import com.example.yikezhong.ui.activity.search.SearchActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.Tui_GuanContent_Fragment;
 import com.example.yikezhong.ui.video_fragment.HotVideo_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.Tui_Hot_Fragment;
+
 import com.example.yikezhong.ui.video_fragment.nearby_fragment.Nearby_Fragment;
 import dagger.Component;
 
@@ -46,4 +48,6 @@ public interface HttpComponent {
     void inject(FollowActivity followActivity);
 
     void inject(CollectionActivity collectionActivity);
+
+    void inject(SearchActivity searchActivity);
 }
