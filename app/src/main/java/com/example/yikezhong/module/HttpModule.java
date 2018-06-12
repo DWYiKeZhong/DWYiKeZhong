@@ -15,6 +15,8 @@ import com.example.yikezhong.net.LoginApi;
 import com.example.yikezhong.net.LoginApiService;
 import com.example.yikezhong.net.RegisterAPIService;
 import com.example.yikezhong.net.RegisterApi;
+import com.example.yikezhong.net.SearchApi;
+import com.example.yikezhong.net.SearchApiService;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
 import com.example.yikezhong.net.NearbyApi;
@@ -211,5 +213,17 @@ public class HttpModule {
                 .build()
                 .create(CollectionApiService.class);
         return CollectionApi.getCollectionApi(service9);
+    }
+
+    @Provides    //搜索好友
+    SearchApi provideSearchApi(OkHttpClient.Builder builder) {
+        SearchApiService service10 = new Retrofit.Builder()
+                .baseUrl(Api.BASEURL)
+                .client(builder.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(SearchApiService.class);
+        return SearchApi.getSearchApi(service10);
     }
 }

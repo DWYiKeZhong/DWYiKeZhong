@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="9.9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <RelativeLayout
+            android:background="#05a9f4"
+            android:layout_width="match_parent"
+            android:layout_height="88dp">
+
+            <TextView
+                android:text="取消"
+                android:textSize="20sp"
+                android:id="@+id/qx_text"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:textColor="#ffff"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发表文章"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:text="发表"
+                android:textSize="20sp"
+                android:textColor="#ffff"
+                android:id="@+id/fabiaoText"
+                android:layout_marginRight="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+        <EditText
+            android:id="@+id/duanzi_id"
+            android:background="@null"
+            android:hint="请输入内容，禁止输入色情暴力违反国家法律的内容，违者将以封号处理！"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:minLines="8"
+            android:maxLines="10"
+            android:scrollbars="vertical"    />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:id="@+id/add"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/raw_1500020546"
+                />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/di"
+        android:layout_weight="0.1"
+        android:layout_gravity=""
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"/>
+</LinearLayout>

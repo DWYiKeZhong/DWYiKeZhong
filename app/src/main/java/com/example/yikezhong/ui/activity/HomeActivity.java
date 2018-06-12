@@ -24,12 +24,14 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.ui.activity.Collection.CollectionActivity;
 import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.presenter.UpdatePresenter;
+import com.example.yikezhong.ui.activity.search.SearchActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
@@ -38,7 +40,9 @@ import com.example.yikezhong.ui.utils.net_util.NetUtils;
 import com.example.yikezhong.ui.video_fragment.Video_Fragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.kyleduo.switchbutton.SwitchButton;
+
 import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -46,7 +50,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 //Fragment页面分类显示
 public class HomeActivity extends BaseActivity<UpdatePresenter> implements
-        UpdateHeaderContract.View{
+        UpdateHeaderContract.View {
     @BindView(R.id.bottom_tab_bar)
     BottomTabBar bottomTabBar;
     @BindView(R.id.main_menu)
@@ -81,6 +85,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
     RelativeLayout homeFollowRl;
     @BindView(R.id.home_collection_rl)
     RelativeLayout homeCollectionRl;
+    @BindView(R.id.home_search_rl)
+    RelativeLayout homeSearchRl;
     private Bitmap mBitmap;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
@@ -165,7 +171,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
                     }
                 });
 
-        homeTopRl.setOnClickListener( new View.OnClickListener() {
+        homeTopRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, OtherActivity.class));
@@ -183,9 +189,15 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
                 startActivity(new Intent(HomeActivity.this, CollectionActivity.class));
             }
         });
+        homeSearchRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, SearchActivity.class));
+            }
+        });
     }
 
-    @OnClick({R.id.main_menu, R.id.fabiao, R.id.text_view,R.id.switchButton})
+    @OnClick({R.id.main_menu, R.id.fabiao, R.id.text_view, R.id.switchButton})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main_menu:    //点击头像，跳出侧滑菜单
@@ -196,10 +208,10 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
                 String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
                 String token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
-                if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0){
-                    Toast.makeText(HomeActivity.this,"请登录后再发表哦！",Toast.LENGTH_SHORT).show();
-                }else {
-                    startActivity(new Intent(HomeActivity.this,FaBuActivity.class));
+                if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
+                    Toast.makeText(HomeActivity.this, "请登录后再发表哦！", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(HomeActivity.this, FaBuActivity.class));
                 }
                 break;
 
@@ -211,10 +223,10 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
                 switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked){
+                        if (isChecked) {
                             mode.setText("夜间模式");
                             moon.setImageResource(R.drawable.moon);
-                        }else {
+                        } else {
                             mode.setText("日间模式");
                             moon.setImageResource(R.drawable.sun);
                         }
