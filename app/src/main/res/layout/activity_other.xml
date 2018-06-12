@@ -13,7 +13,7 @@
         android:id="@+id/other_back"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/raw_1500023215"
+        android:src="@drawable/back_white"
         />
     <ImageView
         android:layout_width="100dp"

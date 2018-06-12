@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yikezhong">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -42,7 +43,8 @@
         <activity android:name=".ui.activity.FaBiaoDuznZiActivity" />
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
-        <activity android:name=".ui.activity.collection.CollectionActivity"></activity>
+        <activity android:name=".ui.activity.collection.CollectionActivity" />
+        <activity android:name=".ui.activity.FaBuSuccessActivity"></activity>
     </application>
 
 </manifest>
