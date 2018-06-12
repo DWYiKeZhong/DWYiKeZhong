@@ -2,6 +2,7 @@ package com.example.yikezhong.component;
 
 import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.FaBiaoDuznZiActivity;
+import com.example.yikezhong.ui.activity.Collection.CollectionActivity;
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.UserVideos_DuanDetailActivity;
 import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
@@ -44,5 +45,5 @@ public interface HttpComponent {
 
     void inject(FollowActivity followActivity);
 
-
+    void inject(CollectionActivity collectionActivity);
 }

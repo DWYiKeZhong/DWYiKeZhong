@@ -42,6 +42,7 @@
         <activity android:name=".ui.activity.FaBiaoDuznZiActivity" />
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
+        <activity android:name=".ui.activity.Collection.CollectionActivity"></activity>
     </application>
 
 </manifest>

@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
+import com.example.yikezhong.ui.activity.Collection.CollectionActivity;
 import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.presenter.UpdatePresenter;
@@ -78,6 +79,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
     CircleImageView leftMainMenu;
     @BindView(R.id.home_follow_rl)
     RelativeLayout homeFollowRl;
+    @BindView(R.id.home_collection_rl)
+    RelativeLayout homeCollectionRl;
     private Bitmap mBitmap;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
@@ -162,7 +165,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
                     }
                 });
 
-        homeTopRl.setOnClickListener(new View.OnClickListener() {
+        homeTopRl.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, OtherActivity.class));
@@ -172,6 +175,12 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
             @Override
             public void onClick(View view) {
                 showChoosePicDialog();
+            }
+        });
+        homeCollectionRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, CollectionActivity.class));
             }
         });
     }
