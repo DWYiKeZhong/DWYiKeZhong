@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.SearchBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
@@ -16,12 +15,12 @@ import com.example.yikezhong.ui.activity.search.adapter.SearchAdapter;
 import com.example.yikezhong.ui.activity.search.contract.SearchContract;
 import com.example.yikezhong.ui.activity.search.presenter.SearchPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+//搜索钟友
 public class SearchActivity extends BaseActivity<SearchPresenter> implements SearchContract.View {
 
     @BindView(R.id.search_menu)
