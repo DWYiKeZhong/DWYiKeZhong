@@ -48,5 +48,6 @@ public interface HttpComponent {
 
     void inject(CollectionActivity collectionActivity);
 
+
     void inject(SearchActivity searchActivity);
 }
