@@ -5,8 +5,8 @@ import com.example.yikezhong.net.DuanApi;
 import com.example.yikezhong.net.DuanApiService;
 import com.example.yikezhong.net.FaBiaoDuanApi;
 import com.example.yikezhong.net.FaBiaoDuanApiService;
-import com.example.yikezhong.net.GetUserVideosApi;
-import com.example.yikezhong.net.GetUserVideosApiService;
+import com.example.yikezhong.net.GetUserVideos_DuanDetailApi;
+import com.example.yikezhong.net.GetUserVideos_DuanDetailApiService;
 import com.example.yikezhong.net.HotVideoApi;
 import com.example.yikezhong.net.HotVideoApiService;
 import com.example.yikezhong.net.LoginApi;
@@ -173,16 +173,16 @@ public class HttpModule {
         return UpdateHeaderApi.getUpdateHeaderApi(service8);
     }
 
-    @Provides    //获取某个用户的视频作品集
-    GetUserVideosApi provideGetUserVideosApi(OkHttpClient.Builder builder) {
-        GetUserVideosApiService service9 = new Retrofit.Builder()
+    @Provides    //获取某个用户的视频作品集  段子详情
+    GetUserVideos_DuanDetailApi provideGetUserVideos_DuanDetailApi(OkHttpClient.Builder builder) {
+        GetUserVideos_DuanDetailApiService service9 = new Retrofit.Builder()
                 .baseUrl(Api.BASEURL)
                 .client(builder.build())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(GetUserVideosApiService.class);
-        return GetUserVideosApi.getGetUserVideosApi(service9);
+                .create(GetUserVideos_DuanDetailApiService.class);
+        return GetUserVideos_DuanDetailApi.getGetUserVideos_DuanDetailApi(service9);
     }
 
     @Provides    //发布段子内容
@@ -196,5 +196,6 @@ public class HttpModule {
                 .create(FaBiaoDuanApiService.class);
         return FaBiaoDuanApi.getFaBiaoDuanApi(service10);
     }
+
 
 }

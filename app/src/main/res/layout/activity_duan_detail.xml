@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/timg"
+        android:layout_height="218dp">
+        <RelativeLayout
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_height="72dp">
+            <ImageView
+                android:id="@+id/back_user"
+                android:src="@drawable/back"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginLeft="18dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:textSize="23sp"
+                android:text="MC   跨足令"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/share_user"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="66dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/raw_1499995160"
+                android:layout_alignParentRight="true"/>
+            <ImageView
+                android:id="@+id/talk_user"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="18dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/raw_1499933789"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="99dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="99dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="88dp"
+                >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/headImage_User"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal"
+                    fresco:actualImageScaleType="fitCenter"
+                    fresco:failureImage="@drawable/raw_1500033586"
+                    fresco:failureImageScaleType="fitCenter"
+                    fresco:placeholderImage="@drawable/app_default"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:roundAsCircle="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="55dp"
+                    >
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="#22abed"
+                        android:textSize="15sp"
+                        android:text="作品"/>
+
+                    <TextView
+                        android:text="1"
+                        android:textColor="#05adfd"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="99dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="49dp">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="#868786"
+                    android:textSize="11sp"
+                    android:text="91181314"/>
+
+                <TextView
+                    android:text="粉丝"
+                    android:textSize="13sp"
+                    android:textColor="#868786"
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:text="   丨  "
+                    android:textSize="15sp"
+                    android:textColor="#868786"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#868786"
+                    android:textSize="11sp"
+                    android:text="666"/>
+
+                <TextView
+                    android:text="关注"
+                    android:textSize="13sp"
+                    android:textColor="#868786"
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+            <Button
+                android:background="@drawable/bottom_styless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_guanzhu_user"
+                android:textColor="#04a9f4"
+                android:textSize="21sp"
+                android:text="+ 关注"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="99dp"
+            android:layout_marginTop="3dp"
+            android:orientation="vertical"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/button_shape">
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/zan"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:text="16"
+                android:textSize="23sp"
+                android:id="@+id/zanText"
+                android:textColor="#b9b4b4"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/userXrecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

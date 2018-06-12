@@ -5,7 +5,7 @@ import android.content.SharedPreferences.Editor;
 /**
  * 在当前页面保存和获取数据，用于应用页面的进入
  */
-public class SharedUtils {
+public class DaoHang_SharedUtils {
     static SharedPreferences preferences;
     static String	File = "data";
 

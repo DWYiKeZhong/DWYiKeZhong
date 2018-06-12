@@ -3,26 +3,26 @@ package com.example.yikezhong.component;
 import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.FaBiaoDuznZiActivity;
 import com.example.yikezhong.ui.activity.HomeActivity;
-import com.example.yikezhong.ui.activity.UserActivity;
+import com.example.yikezhong.ui.activity.UserVideos_DuanDetailActivity;
 import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.login.LoginActivity;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
+import com.example.yikezhong.ui.tuijian_fragment.Tui_GuanContent_Fragment;
 import com.example.yikezhong.ui.video_fragment.HotVideo_Fragment;
-import com.example.yikezhong.ui.tuijian_fragment.Tui_Guan_Fragment;
 import com.example.yikezhong.ui.tuijian_fragment.Tui_Hot_Fragment;
 import com.example.yikezhong.ui.video_fragment.nearby_fragment.Nearby_Fragment;
 import dagger.Component;
 
 /**
- * Created   by   Dewey .
+ * 注入内容
  */
 @Component(modules = HttpModule.class)
 public interface HttpComponent {
     void inject(Tui_Hot_Fragment tui_hot_fragment);
 
-    void inject(Tui_Guan_Fragment tui_guan_fragment);
+    void inject(Tui_GuanContent_Fragment tui_guanContent_fragment);
 
     void inject(HotVideo_Fragment hotVideoFragment);
 
@@ -38,9 +38,11 @@ public interface HttpComponent {
 
     void inject(HomeActivity homeActivity);
 
-    void inject(UserActivity userActivity);
+    void inject(UserVideos_DuanDetailActivity userActivity);
 
     void inject(FaBiaoDuznZiActivity faBiaoDuznZiActivity);
 
     void inject(FollowActivity followActivity);
+
+
 }

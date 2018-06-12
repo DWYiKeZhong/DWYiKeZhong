@@ -71,7 +71,7 @@ public class GuanRecyclerViewAdapter extends RecyclerView.Adapter<GuanRecyclerVi
     @Override
     public void onBindViewHolder(@NonNull GuanRecyclerViewAdapter.GuanRecyclerViewViewHolder holder, final int position) {
         //设置参数数据
-        holder.title.setText("有艺术的人生和没有艺术的人生是断然不同的。拥抱艺术痛苦，胜过没有艺术的痛苦。但真正的艺术让你的生命多活了一次，让你在充满赝品的世界，没有成为赝品。");
+        holder.title.setText("人生在世大多不如意，但，别气馁，做自己喜欢的就好，坚持下去，你会看到希望。");
 
         if (list.get(position).getNickname() == null || list.get(position).getNickname().length() < 0) {
             holder.name.setText("匿名用户");
@@ -81,9 +81,8 @@ public class GuanRecyclerViewAdapter extends RecyclerView.Adapter<GuanRecyclerVi
         holder.time.setText(list.get(position).getCreatetime());
         holder.headImage.setImageURI(list.get(position).getIcon());
 
-
         //普通页面播放视频，显示视频标题
-        String videoUrl = "https://www.zhaoapi.cn/images/quarter/1517732837250video_tokyo_hot.mp4";
+        String videoUrl = "http://mp4.vjshi.com/2017-06-05/a1c3d042c08823e887565e0a87342df3.mp4";
         holder.videoPlayer.setUp(videoUrl, JZVideoPlayer.SCREEN_WINDOW_NORMAL);
 
         //为播放视频设置封面图
