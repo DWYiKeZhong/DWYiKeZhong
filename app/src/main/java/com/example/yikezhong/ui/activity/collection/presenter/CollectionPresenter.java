@@ -1,8 +1,8 @@
-package com.example.yikezhong.ui.activity.VideoDetail.presenter;
+package com.example.yikezhong.ui.activity.collection.presenter;
 
-import com.example.yikezhong.bean.VideoDetailBean;
-import com.example.yikezhong.net.VideoDetailApi;
-import com.example.yikezhong.ui.activity.VideoDetail.contract.VideoDetailContract;
+import com.example.yikezhong.bean.CollectionBean;
+import com.example.yikezhong.net.CollectionApi;
+import com.example.yikezhong.ui.activity.collection.contract.CollectionCotract;
 import com.example.yikezhong.ui.base.BasePresenter;
 
 import javax.inject.Inject;
@@ -13,32 +13,32 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Created by lenovo on 2018/6/6.
+ * Created by lenovo on 2018/6/11.
  */
 
-public class VideoDetailPresenter extends BasePresenter<VideoDetailContract.View> implements VideoDetailContract.Presenter{
-    private VideoDetailApi videoDetailApi;
+public class CollectionPresenter extends BasePresenter<CollectionCotract.View> implements CollectionCotract.Presenter{
+    private CollectionApi collectionApi;
 
     @Inject
-    public VideoDetailPresenter(VideoDetailApi videoDetailApi) {
-        this.videoDetailApi = videoDetailApi;
+    public CollectionPresenter(CollectionApi collectionApi) {
+        this.collectionApi = collectionApi;
     }
 
     @Override
-    public void getVideoDetail(String token, String wid) {
-        videoDetailApi.getReMen(token,wid)
+    public void getCollection(String uid,String token) {
+        collectionApi.getCollection(uid,token)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<VideoDetailBean>() {
+                .subscribe(new Observer<CollectionBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(VideoDetailBean videoDetailBean) {
+                    public void onNext(CollectionBean collectionBean) {
                         if (mView!=null){
-                            mView.getVideoDetailSuccess(videoDetailBean);
+                            mView.getCollectionSuccess(collectionBean);
                         }
                     }
 

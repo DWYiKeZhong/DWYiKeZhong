@@ -8,7 +8,7 @@ import android.view.View;
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.HotVideoBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
-import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
+import com.example.yikezhong.ui.activity.videodetail.VideoDetailActivity;
 import com.example.yikezhong.ui.base.BaseFragment;
 import com.example.yikezhong.ui.video_fragment.adapter.HotVideoAdapter;
 import com.example.yikezhong.ui.video_fragment.contract.HotVideoContract;

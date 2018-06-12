@@ -2,10 +2,10 @@ package com.example.yikezhong.component;
 
 import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.FaBiaoDuznZiActivity;
-import com.example.yikezhong.ui.activity.Collection.CollectionActivity;
+import com.example.yikezhong.ui.activity.collection.CollectionActivity;
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.UserVideos_DuanDetailActivity;
-import com.example.yikezhong.ui.activity.VideoDetail.VideoDetailActivity;
+import com.example.yikezhong.ui.activity.videodetail.VideoDetailActivity;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.login.LoginActivity;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;

@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.Collection.contract;
+package com.example.yikezhong.ui.activity.collection.contract;
 
 import com.example.yikezhong.bean.CollectionBean;
 import com.example.yikezhong.ui.base.BaseContract;

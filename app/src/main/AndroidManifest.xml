@@ -27,7 +27,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.VideoDetail.VideoDetailActivity"
+            android:name=".ui.activity.videodetail.VideoDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
@@ -42,7 +42,7 @@
         <activity android:name=".ui.activity.FaBiaoDuznZiActivity" />
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
-        <activity android:name=".ui.activity.Collection.CollectionActivity"></activity>
+        <activity android:name=".ui.activity.collection.CollectionActivity"></activity>
     </application>
 
 </manifest>

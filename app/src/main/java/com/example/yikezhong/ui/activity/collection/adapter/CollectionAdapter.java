@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.Collection.adapter;
+package com.example.yikezhong.ui.activity.collection.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.CollectionBean;
@@ -25,20 +24,17 @@ import com.example.yikezhong.custom.HeartLayout;
 import com.example.yikezhong.custom.RotateTextView;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
-import com.example.yikezhong.ui.activity.UserActivity;
+import com.example.yikezhong.ui.activity.UserVideos_DuanDetailActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
 import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -59,7 +55,6 @@ import master.flame.danmaku.ui.widget.DanmakuView;
 /**
  * Created by lenovo on 2018/6/11.
  */
-
 public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ReMenViewHolder>{
     private Context context;
     private List<CollectionBean.DataBean> list;
@@ -132,7 +127,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Re
         holder.headImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, UserActivity.class));
+                context.startActivity(new Intent(context, UserVideos_DuanDetailActivity.class));
             }
         });
 
