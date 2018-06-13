@@ -4,9 +4,7 @@ import com.example.yikezhong.bean.SearchBean;
 import com.example.yikezhong.net.SearchApi;
 import com.example.yikezhong.ui.activity.search.contract.SearchContract;
 import com.example.yikezhong.ui.base.BasePresenter;
-
 import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

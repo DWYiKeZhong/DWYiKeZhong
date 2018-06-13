@@ -4,9 +4,7 @@ import com.example.yikezhong.bean.VideoDetailBean;
 import com.example.yikezhong.net.VideoDetailApi;
 import com.example.yikezhong.ui.activity.videodetail.contract.VideoDetailContract;
 import com.example.yikezhong.ui.base.BasePresenter;
-
 import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

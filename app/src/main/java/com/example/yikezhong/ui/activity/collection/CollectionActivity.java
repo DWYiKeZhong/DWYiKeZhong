@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.CollectionBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
@@ -17,7 +16,6 @@ import com.example.yikezhong.ui.activity.collection.contract.CollectionCotract;
 import com.example.yikezhong.ui.activity.collection.presenter.CollectionPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

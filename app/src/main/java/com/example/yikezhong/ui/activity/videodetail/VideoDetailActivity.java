@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.VideoDetailBean;
@@ -14,7 +13,6 @@ import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.videodetail.contract.VideoDetailContract;
 import com.example.yikezhong.ui.activity.videodetail.presenter.VideoDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
-
 import cn.jzvd.JZVideoPlayerStandard;
 
 public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> implements VideoDetailContract.View {

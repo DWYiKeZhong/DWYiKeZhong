@@ -5,9 +5,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.GuanBean;
 import com.example.yikezhong.bean.GuanListBean;
@@ -20,7 +18,6 @@ import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.example.yikezhong.ui.tuijian_fragment.contract.TuiJianContract;
 import com.example.yikezhong.ui.tuijian_fragment.presenter.TuiJianPresenter;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -2,11 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yikezhong">
 
-    <uses-permission android:name="android.permission.CAMERA" />
+    <!--分享权限-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".app.MyApplication"
@@ -16,6 +23,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/SelfTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.activity.HomeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -44,8 +53,8 @@
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
         <activity android:name=".ui.activity.collection.CollectionActivity" />
-        <activity android:name=".ui.activity.FaBuSuccessActivity"></activity>
-        <activity android:name=".ui.activity.search.SearchActivity"></activity>
+        <activity android:name=".ui.activity.FaBuSuccessActivity" />
+        <activity android:name=".ui.activity.search.SearchActivity" />
     </application>
 
 </manifest>

@@ -24,7 +24,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.ui.activity.collection.CollectionActivity;

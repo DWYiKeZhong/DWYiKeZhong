@@ -5,7 +5,6 @@ import android.location.Location;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.NearbyBean;
 import com.example.yikezhong.component.DaggerHttpComponent;

@@ -4,9 +4,7 @@ import com.example.yikezhong.bean.CollectionBean;
 import com.example.yikezhong.net.CollectionApi;
 import com.example.yikezhong.ui.activity.collection.contract.CollectionCotract;
 import com.example.yikezhong.ui.base.BasePresenter;
-
 import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

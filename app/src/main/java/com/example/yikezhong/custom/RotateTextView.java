@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.Gravity;
+
 import com.example.yikezhong.R;
 
 /**

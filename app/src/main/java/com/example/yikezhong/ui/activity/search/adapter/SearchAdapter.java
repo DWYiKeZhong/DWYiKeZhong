@@ -6,19 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.SearchBean;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by lenovo on 2018/6/12.
  */
-
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     private Context context;
     private SearchBean bean;

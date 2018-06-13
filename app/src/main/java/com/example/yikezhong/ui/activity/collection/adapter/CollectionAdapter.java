@@ -1,4 +1,4 @@
-package com.example.yikezhong.ui.activity.Collection.adapter;
+package com.example.yikezhong.ui.activity.collection.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -55,7 +55,7 @@ import master.flame.danmaku.ui.widget.DanmakuView;
 /**
  * Created by lenovo on 2018/6/11.
  */
-public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ReMenViewHolder>{
+public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.CollectionViewHolder>{
     private Context context;
     private List<CollectionBean.DataBean> list;
     private int flga=1;
@@ -99,14 +99,14 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Re
 
     @NonNull
     @Override
-    public ReMenViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CollectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //添加布局视图
         View view = View.inflate(context, R.layout.remen_adapter, null);
-        return new ReMenViewHolder(view);
+        return new CollectionViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReMenViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CollectionViewHolder holder, int position) {
         //设置参数数据
         if (list.get(position).getWorkDesc() == null || list.get(position).getWorkDesc().length() < 0) {
             holder.title.setText("此用户暂无评论");
@@ -146,7 +146,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Re
     }
 
 
-    class ReMenViewHolder extends RecyclerView.ViewHolder {
+    class CollectionViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.text)                       //设置倾斜字体
          RotateTextView text;
         @BindView(R.id.headImage)
@@ -183,7 +183,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Re
         @BindView(R.id.heart_layout)
         HeartLayout heartLayout;                  //爱心布局
 
-        public ReMenViewHolder(View view) {
+        public CollectionViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
 

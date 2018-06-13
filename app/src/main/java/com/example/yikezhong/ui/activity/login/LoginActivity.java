@@ -12,7 +12,6 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.LoginBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
-import com.example.yikezhong.ui.activity.OtherActivity;
 import com.example.yikezhong.ui.activity.login.contract.LoginContract;
 import com.example.yikezhong.ui.activity.login.presenter.LoginPresenter;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;

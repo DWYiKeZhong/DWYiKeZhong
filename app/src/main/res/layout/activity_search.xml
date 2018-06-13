@@ -17,7 +17,7 @@
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/raw_1500023215"
+            android:src="@drawable/back_white"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true" />
 

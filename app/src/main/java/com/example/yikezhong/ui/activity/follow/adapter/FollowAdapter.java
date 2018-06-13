@@ -7,19 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.GuanListBean;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by lenovo on 2018/6/9.
  */
-
 public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.ViewHolder> {
     private Context context;
     private GuanListBean bean;
@@ -52,7 +49,7 @@ public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.ViewHolder
         return bean == null ? 0 : bean.getData().size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.follow_item_sdw)
         SimpleDraweeView followItemSdw;
         @BindView(R.id.follow_item_name)

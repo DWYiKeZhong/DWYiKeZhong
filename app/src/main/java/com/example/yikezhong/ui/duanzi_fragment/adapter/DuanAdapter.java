@@ -92,7 +92,7 @@ public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.DuanViewHolder
 
         public DuanViewHolder(View view) {
             super(view);
-            ButterKnife.bind(this, view);
+            ButterKnife.bind(this,view);
         }
     }
 

@@ -4,7 +4,7 @@ import android.app.Application;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
- * Fresco    的初始化全局配置类
+ * Fresco  友盟分享 的初始化全局配置类
  */
 public class MyApplication extends Application {
 
@@ -17,4 +17,5 @@ public class MyApplication extends Application {
 
 
     }
+
 }

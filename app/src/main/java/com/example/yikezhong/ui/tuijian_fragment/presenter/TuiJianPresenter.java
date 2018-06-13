@@ -1,6 +1,5 @@
 package com.example.yikezhong.ui.tuijian_fragment.presenter;
 
-import com.example.yikezhong.bean.GuanBean;
 import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.bean.HotLunBoBean;
