@@ -1,6 +1,8 @@
 package com.example.yikezhong.ui.activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,7 +32,7 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
     ImageView add;
     @BindView(R.id.imageView)
     ImageView imageView;
-
+    private  int curren;
     @Override
     public int getContentLayout() {
         return R.layout.activity_fabiao_duznzi;
@@ -58,6 +60,12 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        curren= (Integer)SharedPreferencesUtils.getParam(FaBiaoDuznZiActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     @OnClick({R.id.qx_text, R.id.fabiaoText, R.id.add})

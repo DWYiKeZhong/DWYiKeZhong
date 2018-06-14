@@ -1,7 +1,10 @@
 package com.example.yikezhong.ui.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -12,6 +15,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -25,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.yikezhong.MainActivity;
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.ui.activity.collection.CollectionActivity;
@@ -49,8 +54,7 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 //Fragment页面分类显示
-public class HomeActivity extends BaseActivity<UpdatePresenter> implements
-        UpdateHeaderContract.View {
+public class HomeActivity extends BaseActivity<UpdatePresenter> implements UpdateHeaderContract.View {
     @BindView(R.id.bottom_tab_bar)
     BottomTabBar bottomTabBar;
     @BindView(R.id.main_menu)
@@ -94,13 +98,28 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
     private static final int CROP_SMALL_PICTURE = 2;
     private String imgPath;
     private long exitTime = 0;            //退出主程序时间
-
-
+    private int theme = R.style.AppTheme;
+    private int currentNightMode;
+    private  int curren;
+    private int flag=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-
+        int flga= (Integer)SharedPreferencesUtils.getParam(HomeActivity.this,"flag",1);
+        curren= (Integer)SharedPreferencesUtils.getParam(HomeActivity.this,"position",0);
+        if (curren==Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        if (flga==1){
+            switchButton.setChecked(true);
+            flag=2;
+        }else {
+            switchButton.setChecked(false);
+            flag=1;
+        }
         imgPath = getExternalCacheDir() + File.separator + "header.jpg";
         Drawable drawableFirst = getResources().getDrawable(R.drawable.raw_1499947056);
         drawableFirst.setBounds(0, 0, 50, 50);
@@ -108,7 +127,6 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
         Drawable drawableSearch = getResources().getDrawable(R.drawable.raw_1499947157);
         drawableSearch.setBounds(0, 0, 50, 50);
         rb2.setCompoundDrawables(null, drawableSearch, null, null);
-
         homeFollowRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,7 +180,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
                         Log.i("TGA", "位置：" + position + "      选项卡：" + name);
 
                         if (position == 0) {
-                            mainText.setText("推荐");
+                            mainText.  setText("推荐");
                         } else if (position == 1) {
                             mainText.setText("段子");
                         } else if (position == 2) {
@@ -193,6 +211,27 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, SearchActivity.class));
+            }
+        });
+
+        switchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                if (currentNightMode == Configuration.UI_MODE_NIGHT_NO){
+                    switchButton.setChecked(true);
+                    SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
+                    flag=2;
+                }else {
+                    switchButton.setChecked(false);
+                    SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
+                    flag=1;
+                }
+                SharedPreferencesUtils.setParam(HomeActivity.this,"position",currentNightMode);
+                getDelegate().setLocalNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO
+                        ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+                // 同样需要调用recreate方法使之生效
+                recreate();
             }
         });
     }
@@ -368,4 +407,15 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements
 
         }
     }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("theme", theme);
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        theme = savedInstanceState.getInt("theme");
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.example.yikezhong.app;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatDelegate;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
@@ -14,7 +16,7 @@ public class MyApplication extends Application {
 
         //Fresco
         Fresco.initialize(this);
-
-
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_NO);
     }
 }

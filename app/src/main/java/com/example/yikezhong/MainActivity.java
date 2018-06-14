@@ -1,12 +1,15 @@
 package com.example.yikezhong;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.shared.DaoHang_SharedUtils;
 import java.util.Timer;
@@ -56,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-
+    public static MainActivity instans=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        instans=this;
         //调用工具类判断保存的布尔值
         boolean b = DaoHang_SharedUtils.getBooleanData(MainActivity.this, "flag", false);
 

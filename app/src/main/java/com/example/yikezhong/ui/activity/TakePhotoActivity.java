@@ -1,11 +1,13 @@
 package com.example.yikezhong.ui.activity;
 
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,8 @@ import android.widget.ImageView;
 import com.example.yikezhong.R;
 import com.example.yikezhong.custom.ColorView;
 import com.example.yikezhong.custom.GrayFilter;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,13 +38,18 @@ public class TakePhotoActivity extends AppCompatActivity {
             R.id.Edit6, R.id.Edit7, R.id.Edit8, R.id.Edit9, R.id.Edit10,
             R.id.Edit11, R.id.Edit12, R.id.Edit13, R.id.Edit14, R.id.Edit15,
             R.id.Edit16, R.id.Edit17, R.id.Edit18, R.id.Edit19, R.id.Edit20};
-
+    private  int curren;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_photo);
         ButterKnife.bind(this);
-
+        curren= (Integer) SharedPreferencesUtils.getParam(TakePhotoActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
         editTextArray = new EditText[20];
         colorArray = new float[20];
         for (int i = 0; i < 20; i++) {

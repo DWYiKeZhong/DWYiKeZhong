@@ -1,8 +1,10 @@
 package com.example.yikezhong.ui.activity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +20,7 @@ import com.example.yikezhong.ui.activity.adapter.GetUserVideos_DuanDetailAdapter
 import com.example.yikezhong.ui.activity.contract.GetUserVideos_DuanDetailContract;
 import com.example.yikezhong.ui.activity.presenter.GetUserVideos_DuanDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.example.yikezhong.ui.utils.DialogUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
@@ -42,7 +45,8 @@ public class UserVideos_DuanDetailActivity extends BaseActivity<GetUserVideos_Du
     private GetUserVideos_DuanDetailAdapter adapter;
     int num = 17;
     int page = 1;
-
+    public static UserVideos_DuanDetailActivity instans=null;
+    private int curren;
     @Override
     public int getContentLayout() {
         return R.layout.activity_user;
@@ -62,7 +66,13 @@ public class UserVideos_DuanDetailActivity extends BaseActivity<GetUserVideos_Du
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
-
+        instans=this;
+        curren= (Integer) SharedPreferencesUtils.getParam(UserVideos_DuanDetailActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
         initView();
     }
 

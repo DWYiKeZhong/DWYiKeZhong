@@ -1,6 +1,8 @@
 package com.example.yikezhong.ui.activity.search;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +14,12 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.SearchBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.search.adapter.SearchAdapter;
 import com.example.yikezhong.ui.activity.search.contract.SearchContract;
 import com.example.yikezhong.ui.activity.search.presenter.SearchPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,11 +36,17 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
     Button searchSearch;
     @BindView(R.id.search_rv)
     RecyclerView searchRv;
-
+    private  int curren;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        curren= (Integer) SharedPreferencesUtils.getParam(SearchActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     @Override

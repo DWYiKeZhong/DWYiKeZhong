@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBEBEB"
+    android:background="@color/backgroundColor"
     tools:context="com.example.yikezhong.ui.activity.follow.FollowActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:background="#0098fe"
+        android:background="@color/titlebackgroundColor"
         android:id="@+id/follow_rl"
         >
 
@@ -48,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/follow_rv"
+        android:background="@color/backgroundColor"
         android:layout_below="@id/follow_rl"
         android:layout_marginTop="20dp"></android.support.v7.widget.RecyclerView>
 </RelativeLayout>

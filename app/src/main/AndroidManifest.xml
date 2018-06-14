@@ -38,16 +38,11 @@
         <activity android:name=".ui.activity.login.LoginActivity" />
         <activity android:name=".ui.activity.register.RegisterActivity" />
         <activity android:name=".ui.activity.LunBoDetailActivity" />
-        <activity android:name=".ui.activity.UserActivity" />
         <activity android:name=".ui.activity.FaBuActivity" />
         <activity android:name=".ui.activity.FaBiaoDuznZiActivity" />
         <activity android:name=".ui.activity.TakePhotoActivity" />
         <activity android:name=".ui.activity.follow.FollowActivity" />
-        <activity android:name=".ui.activity.UserActivity" />
-        <activity android:name=".ui.activity.TakePhotoActivity" />
-        <activity android:name=".ui.activity.follow.FollowActivity" />
         <activity android:name=".ui.activity.collection.CollectionActivity"></activity>
-        <activity android:name=".ui.activity.Collection.CollectionActivity" />
         <activity android:name=".ui.activity.search.SearchActivity"></activity>
     </application>
 

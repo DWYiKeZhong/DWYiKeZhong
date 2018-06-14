@@ -1,4 +1,5 @@
-package com.example.yikezhong.ui.activity.Collection.adapter;
+package com.example.yikezhong.ui.activity.collection.adapter;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -148,7 +149,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Re
 
     class ReMenViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.text)                       //设置倾斜字体
-         RotateTextView text;
+                RotateTextView text;
         @BindView(R.id.headImage)
         SimpleDraweeView headImage;                //头像
         @BindView(R.id.name)
@@ -404,4 +405,3 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Re
 
     }
 }
-

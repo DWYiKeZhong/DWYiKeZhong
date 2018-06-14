@@ -1,21 +1,31 @@
 package com.example.yikezhong.ui.activity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import com.example.yikezhong.R;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //作品发布页面
 public class FaBuActivity extends AppCompatActivity {
-
+    private  int curren;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fabu);
         ButterKnife.bind(this);
+        curren= (Integer) SharedPreferencesUtils.getParam(FaBuActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
 

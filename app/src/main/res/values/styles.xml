@@ -1,11 +1,14 @@
 <resources>
-
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="mainBackground">@color/backgroundColor</item>
+        <item name="titleBackgroundColor">@color/titlebackgroundColor</item>
     </style>
+
 
     <style name="SwitchButtonStyle">
         <item name="android:paddingLeft">10dp</item>
@@ -13,4 +16,5 @@
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>
     </style>
+
 </resources>

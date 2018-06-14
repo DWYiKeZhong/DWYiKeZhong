@@ -97,4 +97,6 @@ dependencies {
 
     //FloatingActionButton浮动按钮动画效果
     compile 'com.getbase:floatingactionbutton:1.9.0'
+
+    compile 'com.android.support:appcompat-v7:24.2.1'
 }

@@ -13,14 +13,13 @@ public class DialogUtil {
 
             progressDialog = ProgressDialog.show(context, title,
                     message, true, false);
-
-        } else if (progressDialog.isShowing()) {
-            progressDialog.setTitle(title);
-            progressDialog.setMessage(message);
+                progressDialog.setTitle(title);
+                progressDialog.setMessage(message);
+                progressDialog.setCancelable(true);
+                progressDialog.show();
 
         }
-        progressDialog.setCancelable(true);
-        progressDialog.show();
+
     }
     public static void hideProgressDialog() {
         if (progressDialog != null && progressDialog.isShowing()) {
