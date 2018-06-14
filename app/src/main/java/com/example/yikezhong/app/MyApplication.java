@@ -43,6 +43,8 @@ public class MyApplication extends Application {
                          "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
                          "1fe6a20054bcef865eeb0991ee84525b");
 
+
+
         /**
          * 设置组件化的Log开关,默认情况下SDK运行调试日志关闭。需要用户手动打开。
          * 可通过UMConfigure.setLogEnabled(boolean)接口控制【友盟+】LOG的输出。
