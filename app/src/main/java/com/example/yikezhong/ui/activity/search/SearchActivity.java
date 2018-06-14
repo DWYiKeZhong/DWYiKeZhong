@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+//搜索钟友
 public class SearchActivity extends BaseActivity<SearchPresenter> implements SearchContract.View {
 
     @BindView(R.id.search_menu)

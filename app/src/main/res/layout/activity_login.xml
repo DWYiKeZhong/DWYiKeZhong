@@ -12,7 +12,7 @@
         android:id="@+id/login_back"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/raw_1500023215"
+        android:src="@drawable/back_white"
         />
     <TextView
         android:layout_width="wrap_content"

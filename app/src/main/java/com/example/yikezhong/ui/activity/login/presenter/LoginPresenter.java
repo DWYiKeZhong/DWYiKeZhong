@@ -4,9 +4,7 @@ import com.example.yikezhong.bean.LoginBean;
 import com.example.yikezhong.net.LoginApi;
 import com.example.yikezhong.ui.activity.login.contract.LoginContract;
 import com.example.yikezhong.ui.base.BasePresenter;
-
 import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -15,7 +13,6 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by lenovo on 2018/6/7.
  */
-
 public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter{
     private LoginApi loginApi;
 

@@ -3,13 +3,9 @@ package com.example.yikezhong.ui.activity.presenter;
 import com.example.yikezhong.bean.UpdateHeaderBean;
 import com.example.yikezhong.net.UpdateHeaderApi;
 import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
-import com.example.yikezhong.ui.base.BaseContract;
 import com.example.yikezhong.ui.base.BasePresenter;
-
 import java.io.File;
-
 import javax.inject.Inject;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;

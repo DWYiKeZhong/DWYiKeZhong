@@ -18,7 +18,7 @@
             android:layout_width="41dp"
             android:layout_height="41dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/raw_1500023215"
+            android:src="@drawable/back_white"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true" />
 
@@ -40,8 +40,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/search_search"
             android:id="@+id/search_name"/>
         <Button
+            android:background="@drawable/bottom_styless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/search_search"

@@ -7,16 +7,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.RegisterBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
-import com.example.yikezhong.ui.activity.login.LoginActivity;
 import com.example.yikezhong.ui.activity.register.contract.RegisterContract;
 import com.example.yikezhong.ui.activity.register.presenter.RegisterPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

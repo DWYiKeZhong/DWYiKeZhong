@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.shared.DaoHang_SharedUtils;
+import com.example.yikezhong.wxapi.MobActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 import butterknife.BindView;
@@ -39,8 +40,8 @@ import butterknife.ButterKnife;
  *
  *           佛祖保佑        永无BUG        事业家庭两丰收
  */
-//引导页
-public class MainActivity extends AppCompatActivity {
+//引导页  extends MobActivity
+public class MainActivity extends MobActivity {
     @BindView(R.id.time)
     TextView timetext;
     @SuppressLint("HandlerLeak")

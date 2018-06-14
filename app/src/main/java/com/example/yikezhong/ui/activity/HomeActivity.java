@@ -45,9 +45,8 @@ import com.example.yikezhong.ui.utils.net_util.NetUtils;
 import com.example.yikezhong.ui.video_fragment.Video_Fragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.kyleduo.switchbutton.SwitchButton;
-
+import com.umeng.analytics.MobclickAgent;
 import java.io.File;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -127,6 +126,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         Drawable drawableSearch = getResources().getDrawable(R.drawable.raw_1499947157);
         drawableSearch.setBounds(0, 0, 50, 50);
         rb2.setCompoundDrawables(null, drawableSearch, null, null);
+
         homeFollowRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,9 +170,9 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                 .setFontSize(15)                       //字体大小
                 .setTabPadding(4, 6, 10)//选项卡的间距
                 .setChangeColor(Color.BLUE, Color.DKGRAY)     //选项卡的选择颜色
-                .addTabItem("推荐", R.drawable.raw_1500083878, TuiJian_Fragment.class)
-                .addTabItem("段子", R.drawable.raw_1500085327, Duanzi_Fragment.class)
-                .addTabItem("视频", R.drawable.raw_1500083686, Video_Fragment.class)
+                .addTabItem("推荐", R.drawable.raw_1500085367,R.drawable.raw_1500083878, TuiJian_Fragment.class)
+                .addTabItem("段子", R.drawable.raw_1500085899,R.drawable.raw_1500085327, Duanzi_Fragment.class)
+                .addTabItem("视频", R.drawable.raw_1500086067,R.drawable.raw_1500083686, Video_Fragment.class)
                 .isShowDivider(true)    //是否包含分割线
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
@@ -406,6 +406,18 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
             toast("上传成功");
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
     @Override
     protected void onSaveInstanceState(Bundle outState) {

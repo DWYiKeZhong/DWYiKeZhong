@@ -6,11 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.bean.NearbyBean;
 import com.facebook.drawee.view.SimpleDraweeView;
-
 import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;

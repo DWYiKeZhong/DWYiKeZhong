@@ -21,7 +21,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     compile 'com.android.support:design:27.+'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -29,19 +29,18 @@ dependencies {
     //butterknife在Studio3.0版本上需使用以下8.8.1版本（下面2行代码都要加）
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // glide 较新版本
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
     compile 'com.jcodecraeer:xrecyclerview:1.5.9'
 
-    //较新
+    //较新  //（27版本中的高版本）
     compile 'com.android.support:recyclerview-v7:27.+'
-
-    //（27版本中的高版本）
 
     //图片加载框架
     compile 'com.youth.banner:banner:1.4.10'
-
-    //最新版本
-    implementation 'com.github.bumptech.glide:glide:4.7.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
     //较新版本
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
@@ -57,18 +56,14 @@ dependencies {
 
     //常用：由于Retrofit是基于OkHttp，所以还需要添加OkHttp库依赖
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-
     //较新版本
     compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
-
     //如果采用了 Gson 解析，需要在 Gradle加入retrofit2类库中的gson依赖
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 
     //较新版本
     compile 'org.greenrobot:eventbus:3.1.1'
-
-    //较新版本
 
     //BottomTabBar实现底部导航页：
     compile 'com.hjm:BottomTabBar:1.1.1'
@@ -97,6 +92,21 @@ dependencies {
 
     //FloatingActionButton浮动按钮动画效果
     compile 'com.getbase:floatingactionbutton:1.9.0'
+
+    //友盟第三方分享
+    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    implementation files('libs/umeng-debug-1.0.0.jar')
+    implementation files('libs/umeng-share-core-6.9.1.jar')
+    implementation files('libs/umeng-share-sina-full-6.9.1.jar')
+    implementation files('libs/umeng-share-wechat-full-6.9.1.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.1.jar')
+    implementation files('libs/umeng-sharetool-6.9.1.jar')
+    implementation files('libs/wechat-sdk-android-without-mta-5.1.4.jar')
+    implementation files('libs/weiboSDKCore.jar')
+    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
+    compile 'com.umeng.sdk:analytics:7.5.0'
+    compile 'com.umeng.sdk:common:1.5.1'
+    implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
 
     compile 'com.android.support:appcompat-v7:24.2.1'
 }

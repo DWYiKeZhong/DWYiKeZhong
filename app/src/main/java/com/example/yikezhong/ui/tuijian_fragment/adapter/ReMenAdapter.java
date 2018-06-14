@@ -1,5 +1,6 @@
 package com.example.yikezhong.ui.tuijian_fragment.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -22,13 +23,18 @@ import com.example.yikezhong.bean.GuanListBean;
 import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.custom.HeartLayout;
 import com.example.yikezhong.custom.RotateTextView;
+import com.example.yikezhong.ui.activity.FaBuSuccessActivity;
 import com.example.yikezhong.ui.activity.UserVideos_DuanDetailActivity;
 import com.example.yikezhong.net.Tui_GuanApi;
 import com.example.yikezhong.net.Tui_GuanApiService;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+import com.example.yikezhong.wxapi.ShareUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,9 +66,10 @@ import master.flame.danmaku.ui.widget.DanmakuView;
 public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHolder>{
     private Context context;
     private List<HotBean.DataBean> list;
-    private int flga=1;
+    private int flga = 1;
     private  String wid;
     private  String followid1;
+
     Tui_GuanApiService service = new Tui_GuanApiService() {
         @Override
         public Observable<GuanBean> getGuan(String token, String uid, String followId) {
@@ -361,6 +368,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.ReMenViewHol
 
                 case R.id.talk_item_floating_fenxiang:
                     Toast.makeText(context, "分享", Toast.LENGTH_SHORT).show();
+
                     break;
 
                 default:
