@@ -1,6 +1,8 @@
 package com.example.yikezhong.ui.activity.follow;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import com.example.yikezhong.bean.HotBean;
 import com.example.yikezhong.bean.HotLunBoBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.follow.adapter.FollowAdapter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
@@ -35,12 +38,19 @@ public class FollowActivity extends BaseActivity<TuiJianPresenter> implements Tu
     TextView followHot;
     @BindView(R.id.follow_rv)
     RecyclerView followRv;
-
+    private  int curren;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        curren= (Integer)SharedPreferencesUtils.getParam(FollowActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
         //获取uid
         String uid = (String) SharedPreferencesUtils.getParam(FollowActivity.this, "uid", "");
         String token = (String) SharedPreferencesUtils.getParam(FollowActivity.this, "token", "");

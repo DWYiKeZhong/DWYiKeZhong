@@ -148,7 +148,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Co
 
     class CollectionViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.text)                       //设置倾斜字体
-         RotateTextView text;
+                RotateTextView text;
         @BindView(R.id.headImage)
         SimpleDraweeView headImage;                //头像
         @BindView(R.id.name)
@@ -404,4 +404,3 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.Co
 
     }
 }
-

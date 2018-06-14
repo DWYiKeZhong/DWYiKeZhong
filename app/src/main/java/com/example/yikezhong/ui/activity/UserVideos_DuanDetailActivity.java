@@ -3,9 +3,11 @@ package com.example.yikezhong.ui.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +24,7 @@ import com.example.yikezhong.ui.activity.adapter.GetUserVideos_DuanDetailAdapter
 import com.example.yikezhong.ui.activity.contract.GetUserVideos_DuanDetailContract;
 import com.example.yikezhong.ui.activity.presenter.GetUserVideos_DuanDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.example.yikezhong.ui.utils.DialogUtil;
  import com.facebook.drawee.view.SimpleDraweeView;
 import com.umeng.analytics.MobclickAgent;
@@ -52,6 +55,8 @@ public class UserVideos_DuanDetailActivity extends BaseActivity<GetUserVideos_Du
     private GetUserVideos_DuanDetailAdapter adapter;
     int num = 17;
     int page = 1;
+    public static UserVideos_DuanDetailActivity instans=null;
+    private int curren;
     private String name;
 
     @Override
@@ -109,7 +114,13 @@ public class UserVideos_DuanDetailActivity extends BaseActivity<GetUserVideos_Du
             String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CALL_PHONE, Manifest.permission.READ_LOGS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SET_DEBUG_APP, Manifest.permission.SYSTEM_ALERT_WINDOW, Manifest.permission.GET_ACCOUNTS, Manifest.permission.WRITE_APN_SETTINGS};
             ActivityCompat.requestPermissions(this, mPermissionList, 123);
         }
-
+        instans=this;
+        curren= (Integer) SharedPreferencesUtils.getParam(UserVideos_DuanDetailActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
         initView();
     }
 

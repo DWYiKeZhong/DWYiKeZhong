@@ -43,5 +43,6 @@
     <declare-styleable name="RotateTextView">
         <attr name="degree" format="dimension" />
     </declare-styleable>
-
+    <attr name="mainBackground" format="color|reference"></attr>
+    <attr name="titleBackgroundColor" format="color|reference"></attr>
 </resources>

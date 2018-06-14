@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/backgroundColor"
     android:orientation="vertical">
 
     <LinearLayout
@@ -64,6 +65,7 @@
         android:id="@+id/colorlayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
         android:orientation="horizontal">
 
         <EditText
@@ -107,6 +109,7 @@
         android:id="@+id/colorlayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
         android:orientation="horizontal">
 
         <EditText
@@ -149,6 +152,7 @@
         android:id="@+id/colorlayout3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
         android:orientation="horizontal">
 
         <EditText
@@ -191,6 +195,7 @@
         android:id="@+id/colorlayout4"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
         android:orientation="horizontal">
 
         <EditText

@@ -129,6 +129,8 @@
         <activity android:name=".ui.activity.FaBuSuccessActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
         <activity android:name=".wxapi.WBShareActivity"></activity>
+        <activity android:name=".ui.activity.collection.CollectionActivity"></activity>
+        <activity android:name=".ui.activity.search.SearchActivity"></activity>
     </application>
 
 </manifest>

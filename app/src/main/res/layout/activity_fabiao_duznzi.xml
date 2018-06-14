@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/backgroundColor"
     android:layout_height="match_parent" >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="9.9"
         android:layout_width="match_parent"
+        android:background="@color/backgroundColor"
         android:layout_height="0dp">
         <RelativeLayout
-            android:background="#05a9f4"
+            android:background="@color/titlebackgroundColor"
             android:layout_width="match_parent"
             android:layout_height="88dp">
 
@@ -62,6 +64,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:background="@color/backgroundColor"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -83,6 +86,7 @@
         android:id="@+id/di"
         android:layout_weight="0.1"
         android:layout_gravity=""
+        android:background="@color/backgroundColor"
         android:layout_width="match_parent"
         android:layout_height="0.7dp"/>
 </LinearLayout>

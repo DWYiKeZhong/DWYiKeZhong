@@ -1,6 +1,8 @@
 package com.example.yikezhong.ui.activity.collection;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.CollectionBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.collection.adapter.CollectionAdapter;
 import com.example.yikezhong.ui.activity.collection.contract.CollectionCotract;
 import com.example.yikezhong.ui.activity.collection.presenter.CollectionPresenter;
@@ -23,6 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+//收藏
 public class CollectionActivity extends BaseActivity<CollectionPresenter> implements CollectionCotract.View {
 
     @BindView(R.id.collection_back)
@@ -36,12 +40,18 @@ public class CollectionActivity extends BaseActivity<CollectionPresenter> implem
     @BindView(R.id.follow_rv)
     RecyclerView followRv;
     private CollectionAdapter adapter;
-
+    private  int curren;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        curren= (Integer)SharedPreferencesUtils.getParam(CollectionActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
         mPresenter.getCollection((String) SharedPreferencesUtils.getParam(CollectionActivity.this,"uid",""),(String) SharedPreferencesUtils.getParam(CollectionActivity.this,"token",""));
         LinearLayoutManager manager = new LinearLayoutManager(CollectionActivity.this, LinearLayoutManager.VERTICAL, false);
         followRv.setLayoutManager(manager);

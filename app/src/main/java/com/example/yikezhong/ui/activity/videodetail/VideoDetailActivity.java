@@ -3,9 +3,11 @@ package com.example.yikezhong.ui.activity.videodetail;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,9 +17,12 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.VideoDetailBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.videodetail.contract.VideoDetailContract;
 import com.example.yikezhong.ui.activity.videodetail.presenter.VideoDetailPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
@@ -34,6 +39,7 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
     private ImageView videodetailback,iv2,iv3,iv4;
     private int flag=1;
     private int flga=1;
+    private  int curren;
     private String cover;
     private String workDesc;
 
@@ -97,6 +103,12 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
         videodetailback=findViewById(R.id.video_detail_back);
         iv2=findViewById(R.id.iv2);
         iv3=findViewById(R.id.iv3);
+        curren= (Integer) SharedPreferencesUtils.getParam(VideoDetailActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
         iv4=findViewById(R.id.iv4);
         Intent intent=getIntent();
         String wid=intent.getStringExtra("wid");

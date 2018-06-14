@@ -33,7 +33,7 @@ public class SharedPreferencesUtils {
 		else if("Integer".equals(type)){
 			editor.putInt(key, (Integer)object);
 		}
-		else if("Boolean".equals(type)){
+		else if("boolean".equals(type)){
 			editor.putBoolean(key, (Boolean)object);
 		}
 		else if("Float".equals(type)){
@@ -64,7 +64,7 @@ public class SharedPreferencesUtils {
 		else if("Integer".equals(type)){
 			return sp.getInt(key, (Integer)defaultObject);
 		}
-		else if("Boolean".equals(type)){
+		else if("boolean".equals(type)){
 			return sp.getBoolean(key, (Boolean)defaultObject);
 		}
 		else if("Float".equals(type)){

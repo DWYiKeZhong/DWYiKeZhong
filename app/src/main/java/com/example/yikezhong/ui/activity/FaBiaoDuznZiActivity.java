@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -16,6 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.Gravity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -61,6 +63,7 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
     protected static Uri tempUri;
     private String content;
 
+    private  int curren;
     @Override
     public int getContentLayout() {
         return R.layout.activity_fabiao_duznzi;
@@ -93,6 +96,12 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        curren= (Integer)SharedPreferencesUtils.getParam(FaBiaoDuznZiActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         //初始化 PopWindow
         initPopWindow1();

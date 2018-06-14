@@ -10,7 +10,7 @@ public class NearbyBean {
     /**
      * msg : 获取附近作品列表成功
      * code : 0
-     * data : [{"commentNum":5,"comments":[{"cid":50,"content":"亚麻得","createTime":"2017-12-15T14:52:37","jid":null,"mvp":null,"nickname":"\"刘恒\"","praiseNum":0,"uid":150,"wid":218},{"cid":67,"content":"pp","createTime":"2017-12-16T11:53:56","jid":null,"mvp":null,"nickname":"李灿灿","praiseNum":0,"uid":148,"wid":218},{"cid":94,"content":"yyy","createTime":"2017-12-18T14:39:58","jid":null,"mvp":null,"nickname":"beautiful","praiseNum":0,"uid":170,"wid":218},{"cid":103,"content":"傻不傻","createTime":"2017-12-18T15:38:56","jid":null,"mvp":null,"nickname":"linnnn","praiseNum":0,"uid":114,"wid":218},{"cid":126,"content":"\u2026","createTime":"2017-12-18T20:54:59","jid":null,"mvp":null,"nickname":"小五","praiseNum":0,"uid":313,"wid":218}],"cover":"https://www.zhaoapi.cn/images/quarter/1513248624521cover.jpg","createTime":"2017-12-17T19:20:44","favoriteNum":0,"latitude":"101","localUri":null,"longitude":"102","playNum":16,"praiseNum":5,"uid":154,"user":{"age":null,"fans":"null","follow":false,"icon":"https://www.zhaoapi.cn/images/15136653175981513592154181.jpg","nickname":"笑出腹肌的男人","praiseNum":"null"},"videoUrl":"https://www.zhaoapi.cn/images/quarter/1513248624521PictureSelector_20171214_184937.mp4","wid":218,"workDesc":"111"}]
+     * data : [{"commentNum":5,"comments":[{"cid":50,"content":"亚麻得","createTime":"2017-12-15T14:52:37","jid":null,"mvp":null,"nickname":"\"刘恒\"","praiseNum":0,"uid":150,"wid":218},{"cid":67,"content":"pp","createTime":"2017-12-16T11:53:56","jid":null,"mvp":null,"nickname":"李灿灿","praiseNum":0,"uid":148,"wid":218},{"cid":94,"content":"yyy","createTime":"2017-12-18T14:39:58","jid":null,"mvp":null,"nickname":"beautiful","praiseNum":0,"uid":170,"wid":218},{"cid":103,"content":"傻不傻","createTime":"2017-12-18T15:38:56","jid":null,"mvp":null,"nickname":"linnnn","praiseNum":0,"uid":114,"wid":218},{"cid":126,"content":"\u2026","createTime":"2017-12-18T20:54:59","jid":null,"mvp":null,"nickname":"小五","praiseNum":0,"uid":313,"wid":218}],"cover":"https://www.zhaoapi.cn/images/quarter/1513248624521cover.jpg","createTime":"2017-12-17T19:20:44","favoriteNum":0,"latitude":"101","localUri":null,"longitude":"102","playNum":16,"praiseNum":5,"uid":154,"User":{"age":null,"fans":"null","follow":false,"icon":"https://www.zhaoapi.cn/images/15136653175981513592154181.jpg","nickname":"笑出腹肌的男人","praiseNum":"null"},"videoUrl":"https://www.zhaoapi.cn/images/quarter/1513248624521PictureSelector_20171214_184937.mp4","wid":218,"workDesc":"111"}]
      */
 
     private String msg;
@@ -54,7 +54,7 @@ public class NearbyBean {
          * playNum : 16
          * praiseNum : 5
          * uid : 154
-         * user : {"age":null,"fans":"null","follow":false,"icon":"https://www.zhaoapi.cn/images/15136653175981513592154181.jpg","nickname":"笑出腹肌的男人","praiseNum":"null"}
+         * User : {"age":null,"fans":"null","follow":false,"icon":"https://www.zhaoapi.cn/images/15136653175981513592154181.jpg","nickname":"笑出腹肌的男人","praiseNum":"null"}
          * videoUrl : https://www.zhaoapi.cn/images/quarter/1513248624521PictureSelector_20171214_184937.mp4
          * wid : 218
          * workDesc : 111

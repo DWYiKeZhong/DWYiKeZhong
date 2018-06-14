@@ -1,4 +1,7 @@
 package com.example.yikezhong.ui.activity;
+
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,6 +17,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +32,8 @@ import android.widget.ImageView;
 import com.example.yikezhong.R;
 import com.example.yikezhong.custom.ColorView;
 import com.example.yikezhong.custom.GrayFilter;
+import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+
 import com.example.yikezhong.ui.utils.ImageUtils;
 import com.example.yikezhong.wxapi.MobActivity;
 
@@ -58,11 +65,18 @@ public class TakePhotoActivity extends MobActivity {
     private static final int CROP_SMALL_PICTURE = 2;
     protected static Uri tempUri;
 
+    private  int curren;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_photo);
         ButterKnife.bind(this);
+        curren= (Integer) SharedPreferencesUtils.getParam(TakePhotoActivity.this,"position",0);
+        if (curren== Configuration.UI_MODE_NIGHT_NO){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         //设置输入内容
         editTextArray = new EditText[20];
@@ -117,7 +131,7 @@ public class TakePhotoActivity extends MobActivity {
                 break;
 
             default:
-                break;
+                    break;
         }
     }
 
