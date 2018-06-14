@@ -45,6 +45,7 @@ public class FollowActivity extends BaseActivity<TuiJianPresenter> implements Tu
         curren= (Integer)SharedPreferencesUtils.getParam(FollowActivity.this,"position",0);
         if (curren== Configuration.UI_MODE_NIGHT_NO){
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
         }else {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
