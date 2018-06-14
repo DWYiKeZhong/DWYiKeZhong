@@ -59,12 +59,14 @@
             android:layout_width="0dp"
             android:layout_height="50dp" />
         <ImageView
+            android:id="@+id/qZoneShare"
             android:layout_marginTop="30dp"
             android:src="@drawable/raw_1500022686"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="50dp" />
         <ImageView
+            android:id="@+id/vFriendsShare"
             android:layout_marginTop="30dp"
             android:src="@drawable/raw_1500022317"
             android:layout_weight="1"

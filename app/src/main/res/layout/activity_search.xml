@@ -39,8 +39,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/search_search"
             android:id="@+id/search_name"/>
         <Button
+            android:background="@drawable/bottom_styless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/search_search"

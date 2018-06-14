@@ -18,7 +18,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     compile 'com.android.support:design:27.+'
     implementation 'com.android.support.constraint:constraint-layout:1.1.1'
@@ -53,19 +53,17 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.7'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
     //常用：由于Retrofit是基于OkHttp，所以还需要添加OkHttp库依赖
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-
     //较新版本
     compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
-
     //如果采用了 Gson 解析，需要在 Gradle加入retrofit2类库中的gson依赖
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 
     //较新版本
     compile 'org.greenrobot:eventbus:3.1.1'
-
 
     //BottomTabBar实现底部导航页：
     compile 'com.hjm:BottomTabBar:1.1.1'
@@ -95,4 +93,18 @@ dependencies {
     //FloatingActionButton浮动按钮动画效果
     compile 'com.getbase:floatingactionbutton:1.9.0'
 
+    //友盟第三方分享
+    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    implementation files('libs/umeng-debug-1.0.0.jar')
+    implementation files('libs/umeng-share-core-6.9.1.jar')
+    implementation files('libs/umeng-share-sina-full-6.9.1.jar')
+    implementation files('libs/umeng-share-wechat-full-6.9.1.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.1.jar')
+    implementation files('libs/umeng-sharetool-6.9.1.jar')
+    implementation files('libs/wechat-sdk-android-without-mta-5.1.4.jar')
+    implementation files('libs/weiboSDKCore.jar')
+    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
+    compile 'com.umeng.sdk:analytics:7.5.0'
+    compile 'com.umeng.sdk:common:1.5.1'
+    implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
 }
