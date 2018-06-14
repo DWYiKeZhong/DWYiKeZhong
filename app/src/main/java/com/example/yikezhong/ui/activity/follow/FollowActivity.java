@@ -18,6 +18,8 @@ import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.example.yikezhong.ui.tuijian_fragment.contract.TuiJianContract;
 import com.example.yikezhong.ui.tuijian_fragment.presenter.TuiJianPresenter;
+import com.umeng.analytics.MobclickAgent;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -95,5 +97,17 @@ public class FollowActivity extends BaseActivity<TuiJianPresenter> implements Tu
             case R.id.follow_hot:
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

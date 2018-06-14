@@ -1,5 +1,43 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+//在使用到Mob产品的module下面的build.gradle文件里面添加引用 在MobSDK的扩展中注册SMSSDK的相关信息
+MobSDK {
+    appKey "2666bd818db97"
+    appSecret "be5c86f64f0180acfbc4939076b58761"
+
+    //第三方短信验证
+    SMSSDK {}
+
+    //第三方登录
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+
+            Wechat {//微信
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+            }
+            QQ {//QQ
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+            }
+
+        }
+    }
+
+}
+
+//配置gradle让APP自动签名
 android {
+    signingConfigs {
+        DWYiKeZhong {
+            keyAlias 'key'
+            keyPassword '123456'
+            storeFile file('D:/Studio_AppKeyName/DWYiKeZhong.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.yikezhong"
@@ -33,7 +71,6 @@ dependencies {
     // glide 较新版本
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-
     compile 'com.jcodecraeer:xrecyclerview:1.5.9'
 
     //较新  //（27版本中的高版本）
@@ -56,9 +93,11 @@ dependencies {
 
     //常用：由于Retrofit是基于OkHttp，所以还需要添加OkHttp库依赖
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
     //较新版本
     compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
+
     //如果采用了 Gson 解析，需要在 Gradle加入retrofit2类库中的gson依赖
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 

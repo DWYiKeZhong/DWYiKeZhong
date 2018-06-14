@@ -17,6 +17,8 @@ import com.example.yikezhong.ui.activity.login.presenter.LoginPresenter;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+import com.umeng.analytics.MobclickAgent;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -86,5 +88,17 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.login_forget:
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

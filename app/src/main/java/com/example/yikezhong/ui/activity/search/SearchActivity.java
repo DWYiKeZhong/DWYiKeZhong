@@ -15,6 +15,8 @@ import com.example.yikezhong.ui.activity.search.adapter.SearchAdapter;
 import com.example.yikezhong.ui.activity.search.contract.SearchContract;
 import com.example.yikezhong.ui.activity.search.presenter.SearchPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.umeng.analytics.MobclickAgent;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -70,5 +72,17 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
                 mPresenter.getSearch(searchName.getText().toString());
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }
