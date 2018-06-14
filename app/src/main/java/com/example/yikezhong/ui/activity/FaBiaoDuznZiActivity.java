@@ -32,6 +32,7 @@ import com.example.yikezhong.ui.activity.presenter.FaBiaoDuanPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.example.yikezhong.ui.utils.ImageUtils;
+import com.umeng.analytics.MobclickAgent;
 import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +59,7 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
     protected static Uri tempUri;
+    private String content;
 
     @Override
     public int getContentLayout() {
@@ -77,7 +79,9 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
     public void getFaBiaoDuanSuccess(FaBiaoDuanBean faBiaoDuanBean) {
         if (faBiaoDuanBean.getCode().equals("0")) {           //发表成功,跳转 成功分享
             Toast.makeText(FaBiaoDuznZiActivity.this, faBiaoDuanBean.getMsg(), Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(FaBiaoDuznZiActivity.this,FaBuSuccessActivity.class));
+            Intent intent = new Intent(FaBiaoDuznZiActivity.this, FaBuSuccessActivity.class);
+            intent.putExtra("content",content);
+            startActivity(intent);
             finish();
         }
         else if (faBiaoDuanBean.getCode().equals("1")) {     //发表失败
@@ -153,7 +157,7 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
                 break;
 
             case R.id.fabiaoText:       //发表段子内容  "4416"      "46FB809A1FFEE06DEDED783742F363CA"
-                String content = duanziId.getText().toString();
+                content = duanziId.getText().toString();
                 String uid = (String) SharedPreferencesUtils.getParam(FaBiaoDuznZiActivity.this, "uid", "");
                 String token = (String) SharedPreferencesUtils.getParam(FaBiaoDuznZiActivity.this, "token", "");
 
@@ -331,5 +335,17 @@ public class FaBiaoDuznZiActivity extends BaseActivity<FaBiaoDuanPresenter> impl
             // 没有获取 到权限，从新请求，或者关闭app
             Toast.makeText(this, "需要存储权限", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }
