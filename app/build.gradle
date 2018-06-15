@@ -146,6 +146,7 @@ dependencies {
     compile 'com.umeng.sdk:analytics:7.5.0'
     compile 'com.umeng.sdk:common:1.5.1'
     implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
-
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.alibaba:fastjson:1.1.56.android'
+    implementation files('libs/Sunflower.jar')
+    implementation files('libs/Msc.jar')
 }

@@ -24,4 +24,12 @@
         android:layout_marginLeft="10dp"
         android:layout_gravity="center_vertical" />
 
+    <Button
+        android:text="关注"
+        android:id="@+id/guanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bottom_styless"/>
+
 </LinearLayout>

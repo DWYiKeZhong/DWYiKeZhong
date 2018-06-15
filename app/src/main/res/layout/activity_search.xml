@@ -13,14 +13,25 @@
         android:id="@+id/search_rl"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/search_menu"
-            android:layout_width="41dp"
-            android:layout_height="41dp"
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/back_white"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/back_text"
+            android:layout_toRightOf="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="返回"
+            android:textColor="#fff"
+            android:textSize="23sp" />
 
         <TextView
             android:id="@+id/search_text"
@@ -30,26 +41,51 @@
             android:layout_centerVertical="true"
             android:text="搜索好友"
             android:textColor="#fff"
-            android:textSize="25dp" />,
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/query_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="手机联系人"
+            android:textColor="#fff"
+            android:textSize="23dp" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="58dp"
         android:id="@+id/search_search_rl"
         android:layout_below="@id/search_rl">
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/search_search"
-            android:id="@+id/search_name"/>
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="58dp"
+            android:id="@+id/search_name"
+            android:hint="请输入ID或者钟友名"
+            android:layout_centerVertical="true"
+            android:background="@drawable/editsharp"
+            android:layout_alignBottom="@+id/search_search"/>
+        <TextView
+            android:onClick="start"
+            android:layout_toRightOf="@+id/search_name"
+            android:background="@drawable/yuyin"
+            android:layout_gravity="center"
+            android:id="@+id/start_start"
+            android:layout_width="58dp"
+            android:layout_height="58dp" />
         <Button
             android:background="@drawable/bottom_styless"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/search_search"
             android:text="搜索"
             android:layout_alignParentRight="true"/>
-    </RelativeLayout>
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
