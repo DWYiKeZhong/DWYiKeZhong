@@ -5,12 +5,9 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.ui.utils.FileCacheUtils;
-
 import java.io.File;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
