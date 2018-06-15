@@ -1,7 +1,5 @@
 package com.example.yikezhong.ui.activity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -29,7 +27,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.yikezhong.MainActivity;
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.ui.activity.collection.CollectionActivity;
@@ -37,6 +34,7 @@ import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.presenter.UpdatePresenter;
 import com.example.yikezhong.ui.activity.search.SearchActivity;
+import com.example.yikezhong.ui.activity.setup.SetupActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
@@ -46,7 +44,9 @@ import com.example.yikezhong.ui.video_fragment.Video_Fragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.kyleduo.switchbutton.SwitchButton;
 import com.umeng.analytics.MobclickAgent;
+
 import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -74,8 +74,6 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
     LinearLayout left;
     @BindView(R.id.rb1)
     RadioButton rb1;
-    @BindView(R.id.rb2)
-    RadioButton rb2;
     @BindView(R.id.rg)
     RadioGroup rg;
     @BindView(R.id.switchButton)
@@ -90,6 +88,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
     RelativeLayout homeCollectionRl;
     @BindView(R.id.home_search_rl)
     RelativeLayout homeSearchRl;
+    @BindView(R.id.rb2)
+    RadioButton rb2;
     private Bitmap mBitmap;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
@@ -99,25 +99,26 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
     private long exitTime = 0;            //退出主程序时间
     private int theme = R.style.AppTheme;
     private int currentNightMode;
-    private  int curren;
-    private int flag=1;
+    private int curren;
+    private int flag = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        int flga= (Integer)SharedPreferencesUtils.getParam(HomeActivity.this,"flag",1);
-        curren= (Integer)SharedPreferencesUtils.getParam(HomeActivity.this,"position",0);
-        if (curren==Configuration.UI_MODE_NIGHT_NO){
+        int flga = (Integer) SharedPreferencesUtils.getParam(HomeActivity.this, "flag", 1);
+        curren = (Integer) SharedPreferencesUtils.getParam(HomeActivity.this, "position", 0);
+        if (curren == Configuration.UI_MODE_NIGHT_NO) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }else {
+        } else {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-        if (flga==1){
+        if (flga == 1) {
             switchButton.setChecked(true);
-            flag=2;
-        }else {
+            flag = 2;
+        } else {
             switchButton.setChecked(false);
-            flag=1;
+            flag = 1;
         }
         imgPath = getExternalCacheDir() + File.separator + "header.jpg";
         Drawable drawableFirst = getResources().getDrawable(R.drawable.raw_1499947056);
@@ -170,9 +171,9 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                 .setFontSize(15)                       //字体大小
                 .setTabPadding(4, 6, 10)//选项卡的间距
                 .setChangeColor(Color.BLUE, Color.DKGRAY)     //选项卡的选择颜色
-                .addTabItem("推荐", R.drawable.raw_1500085367,R.drawable.raw_1500083878, TuiJian_Fragment.class)
-                .addTabItem("段子", R.drawable.raw_1500085899,R.drawable.raw_1500085327, Duanzi_Fragment.class)
-                .addTabItem("视频", R.drawable.raw_1500086067,R.drawable.raw_1500083686, Video_Fragment.class)
+                .addTabItem("推荐", R.drawable.raw_1500085367, R.drawable.raw_1500083878, TuiJian_Fragment.class)
+                .addTabItem("段子", R.drawable.raw_1500085899, R.drawable.raw_1500085327, Duanzi_Fragment.class)
+                .addTabItem("视频", R.drawable.raw_1500086067, R.drawable.raw_1500083686, Video_Fragment.class)
                 .isShowDivider(true)    //是否包含分割线
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
@@ -180,7 +181,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                         Log.i("TGA", "位置：" + position + "      选项卡：" + name);
 
                         if (position == 0) {
-                            mainText.  setText("推荐");
+                            mainText.setText("推荐");
                         } else if (position == 1) {
                             mainText.setText("段子");
                         } else if (position == 2) {
@@ -213,21 +214,27 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                 startActivity(new Intent(HomeActivity.this, SearchActivity.class));
             }
         });
+        rb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, SetupActivity.class));
+            }
+        });
 
         switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-                if (currentNightMode == Configuration.UI_MODE_NIGHT_NO){
+                if (currentNightMode == Configuration.UI_MODE_NIGHT_NO) {
                     switchButton.setChecked(true);
-                    SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
-                    flag=2;
-                }else {
+                    SharedPreferencesUtils.setParam(HomeActivity.this, "flag", flag);
+                    flag = 2;
+                } else {
                     switchButton.setChecked(false);
-                    SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
-                    flag=1;
+                    SharedPreferencesUtils.setParam(HomeActivity.this, "flag", flag);
+                    flag = 1;
                 }
-                SharedPreferencesUtils.setParam(HomeActivity.this,"position",currentNightMode);
+                SharedPreferencesUtils.setParam(HomeActivity.this, "position", currentNightMode);
                 getDelegate().setLocalNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO
                         ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
                 // 同样需要调用recreate方法使之生效
@@ -419,11 +426,13 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         super.onPause();
         MobclickAgent.onPause(this);
     }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("theme", theme);
     }
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);

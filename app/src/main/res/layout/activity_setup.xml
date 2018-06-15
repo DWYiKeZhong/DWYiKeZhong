@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context="com.example.yikezhong.ui.activity.setup.SetupActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:background="@color/titlebackgroundColor"
+        android:id="@+id/setup_title"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/main_menu"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/raw_1500019926"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="设置"
+            android:textColor="#fff"
+            android:textSize="25dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/setup_clear"
+        android:layout_below="@id/setup_title">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清除缓存"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0kb"
+            android:layout_alignParentRight="true"
+            android:id="@+id/setup_num"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</RelativeLayout>
