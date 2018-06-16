@@ -4,12 +4,13 @@ import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.mob.MobSDK;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
 /**
- * Fresco  友盟分享 的初始化全局配置类
+ * Fresco  Mob登录 友盟分享 的初始化全局配置类
  */
 public class MyApplication extends Application {
     {
@@ -28,6 +29,7 @@ public class MyApplication extends Application {
         AppCompatDelegate.setDefaultNightMode(
                 AppCompatDelegate.MODE_NIGHT_NO);
 
+        MobSDK.init(this);
 
         UMShareAPI.get(this);
         /**

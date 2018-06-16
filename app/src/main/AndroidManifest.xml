@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.yikezhong">
 
     <!-- 分享权限 -->
@@ -70,7 +71,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <!-- QQ -->
+        <!-- QQ 分享及登录 tencent1106974740  自己的APP_ID -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -80,6 +81,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1106974740" />
 
                 <data android:scheme="tencent100424468" />
             </intent-filter>
@@ -113,8 +115,15 @@
             android:name=".ui.activity.UserVideos_DuanDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.OtherActivity" />
-        <activity android:name=".ui.activity.login.LoginActivity" />
+
+       <!-- 对应 Activity 第三方QQ登录并获取QQ用户信息-->
+        <activity android:name=".ui.activity.OtherActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.login.LoginActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ui.activity.register.RegisterActivity" />
         <activity android:name=".ui.activity.LunBoDetailActivity" />
         <activity android:name=".ui.activity.FaBuActivity" />
@@ -124,7 +133,7 @@
         <activity android:name=".ui.activity.collection.CollectionActivity" />
         <activity android:name=".ui.activity.FaBuSuccessActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
-        <activity android:name=".wxapi.WBShareActivity" />
+        <activity android:name=".wxapi.WBShareActivity"></activity>
         <activity android:name=".ui.activity.collection.CollectionActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
         <activity android:name=".ui.activity.setup.SetupActivity"></activity>

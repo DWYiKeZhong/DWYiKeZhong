@@ -35,13 +35,15 @@ import com.example.yikezhong.custom.GrayFilter;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 
 import com.example.yikezhong.ui.utils.ImageUtils;
+import com.example.yikezhong.wxapi.MobActivity;
+
 import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //自己做的本地图片滤镜效果+拍照
-public class TakePhotoActivity extends AppCompatActivity {
+public class TakePhotoActivity extends MobActivity {
     @BindView(R.id.myColorView)
     ColorView myColorView;
     @BindView(R.id.image)

@@ -14,6 +14,8 @@ import com.example.yikezhong.module.HttpModule;
 import com.example.yikezhong.ui.activity.register.contract.RegisterContract;
 import com.example.yikezhong.ui.activity.register.presenter.RegisterPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
+import com.umeng.analytics.MobclickAgent;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -71,5 +73,17 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
                 mPresenter.getRegister(registerName.getText().toString(),registerPaw.getText().toString());
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

@@ -7,11 +7,13 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.example.yikezhong.R;
+import com.example.yikezhong.wxapi.MobActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 //轮播图详情页
-public class LunBoDetailActivity extends AppCompatActivity {
+public class LunBoDetailActivity extends MobActivity {
     @BindView(R.id.webView)
     WebView webView;
 

@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -26,7 +25,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.yikezhong.R;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.ui.activity.collection.CollectionActivity;
@@ -44,9 +42,7 @@ import com.example.yikezhong.ui.video_fragment.Video_Fragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.kyleduo.switchbutton.SwitchButton;
 import com.umeng.analytics.MobclickAgent;
-
 import java.io.File;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -99,8 +95,10 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
     private long exitTime = 0;            //退出主程序时间
     private int theme = R.style.AppTheme;
     private int currentNightMode;
-    private int curren;
-    private int flag = 1;
+    private  int curren;
+    private int flag=1;
+    private String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+    private String token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +129,12 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         homeFollowRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, FollowActivity.class));
+
+                if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
+                    Toast.makeText(HomeActivity.this, "请登录后再来进行关注哦！", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(HomeActivity.this, FollowActivity.class));
+                }
             }
         });
         //侧滑菜单的实现
@@ -181,7 +184,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                         Log.i("TGA", "位置：" + position + "      选项卡：" + name);
 
                         if (position == 0) {
-                            mainText.setText("推荐");
+                            mainText.  setText("推荐");
                         } else if (position == 1) {
                             mainText.setText("段子");
                         } else if (position == 2) {
@@ -205,13 +208,24 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         homeCollectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, CollectionActivity.class));
+
+                if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
+                    Toast.makeText(HomeActivity.this, "请登录后再来查看收藏哦！", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(HomeActivity.this, CollectionActivity.class));
+                }
             }
         });
         homeSearchRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, SearchActivity.class));
+
+                if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
+                    Toast.makeText(HomeActivity.this, "请登录后再来搜索哦！", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(HomeActivity.this, SearchActivity.class));
+                }
+
             }
         });
         rb2.setOnClickListener(new View.OnClickListener() {
@@ -223,16 +237,20 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
 
         switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {       //点击切换 日/夜间模式
                 currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-                if (currentNightMode == Configuration.UI_MODE_NIGHT_NO) {
+                if (currentNightMode == Configuration.UI_MODE_NIGHT_NO){
                     switchButton.setChecked(true);
-                    SharedPreferencesUtils.setParam(HomeActivity.this, "flag", flag);
-                    flag = 2;
-                } else {
+//                    mode.setText("夜间模式");
+//                    moon.setImageResource(R.drawable.moon);
+                    SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
+                    flag=2;
+                }else {
                     switchButton.setChecked(false);
-                    SharedPreferencesUtils.setParam(HomeActivity.this, "flag", flag);
-                    flag = 1;
+                    mode.setText("日间模式");
+                    moon.setImageResource(R.drawable.sun);
+                    SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
+                    flag=1;
                 }
                 SharedPreferencesUtils.setParam(HomeActivity.this, "position", currentNightMode);
                 getDelegate().setLocalNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO
@@ -243,7 +261,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         });
     }
 
-    @OnClick({R.id.main_menu, R.id.fabiao, R.id.text_view, R.id.switchButton})
+    @OnClick({R.id.main_menu, R.id.fabiao, R.id.text_view})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main_menu:    //点击头像，跳出侧滑菜单
@@ -251,8 +269,6 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                 break;
 
             case R.id.fabiao:      //发表创作
-                String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
-                String token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
                 if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
                     Toast.makeText(HomeActivity.this, "请登录后再发表哦！", Toast.LENGTH_SHORT).show();
@@ -263,21 +279,6 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
 
             case R.id.text_view:   //点击链接网络
                 NetUtils.showNoNetWorkDlg(HomeActivity.this);
-                break;
-
-            case R.id.switchButton:   //点击切换 日/夜间模式
-                switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked) {
-                            mode.setText("夜间模式");
-                            moon.setImageResource(R.drawable.moon);
-                        } else {
-                            mode.setText("日间模式");
-                            moon.setImageResource(R.drawable.sun);
-                        }
-                    }
-                });
                 break;
 
             default:

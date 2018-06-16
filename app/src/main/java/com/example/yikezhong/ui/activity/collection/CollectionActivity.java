@@ -19,6 +19,8 @@ import com.example.yikezhong.ui.activity.collection.contract.CollectionCotract;
 import com.example.yikezhong.ui.activity.collection.presenter.CollectionPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
+import com.umeng.analytics.MobclickAgent;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -88,5 +90,17 @@ public class CollectionActivity extends BaseActivity<CollectionPresenter> implem
             case R.id.collection_hot:
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }
