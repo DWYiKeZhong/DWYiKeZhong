@@ -86,7 +86,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
     RelativeLayout homeFollowRl;
     @BindView(R.id.home_collection_rl)
     RelativeLayout homeCollectionRl;
-    @BindView(R.id.home_search_rl)
+   @BindView(R.id.home_search_rl)
     RelativeLayout homeSearchRl;
     @BindView(R.id.rb2)
     RadioButton rb2;
@@ -114,7 +114,7 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
         if (flga == 1) {
-            switchButton.setChecked(true);
+                        switchButton.setChecked(true);
             flag = 2;
         } else {
             switchButton.setChecked(false);
