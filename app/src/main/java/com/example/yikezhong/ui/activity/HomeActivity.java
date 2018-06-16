@@ -97,8 +97,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
     private int currentNightMode;
     private  int curren;
     private int flag=1;
-    private String uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
-    private String token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
+    private String uid;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +129,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         homeFollowRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+                token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
                 if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
                     Toast.makeText(HomeActivity.this, "请登录后再来进行关注哦！", Toast.LENGTH_SHORT).show();
@@ -208,6 +210,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         homeCollectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+                token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
                 if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
                     Toast.makeText(HomeActivity.this, "请登录后再来查看收藏哦！", Toast.LENGTH_SHORT).show();
@@ -219,6 +223,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
         homeSearchRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+                token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
                 if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
                     Toast.makeText(HomeActivity.this, "请登录后再来搜索哦！", Toast.LENGTH_SHORT).show();
@@ -241,8 +247,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                 currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
                 if (currentNightMode == Configuration.UI_MODE_NIGHT_NO){
                     switchButton.setChecked(true);
-//                    mode.setText("夜间模式");
-//                    moon.setImageResource(R.drawable.moon);
+                    mode.setText("夜间模式");
+                    moon.setImageResource(R.drawable.moon);
                     SharedPreferencesUtils.setParam(HomeActivity.this,"flag",flag);
                     flag=2;
                 }else {
@@ -269,6 +275,8 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
                 break;
 
             case R.id.fabiao:      //发表创作
+                uid = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "uid", "");
+                token = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "token", "");
 
                 if (uid == null || token == null || uid.length() <= 0 || token.length() <= 0) {
                     Toast.makeText(HomeActivity.this, "请登录后再发表哦！", Toast.LENGTH_SHORT).show();

@@ -28,16 +28,9 @@ MobSDK {
 
 }
 
-//配置gradle让APP自动签名
+
 android {
-    signingConfigs {
-        DWYiKeZhong {
-            keyAlias 'key'
-            keyPassword '123456'
-            storeFile file('D:/Studio_AppKeyName/DWYiKeZhong.jks')
-            storePassword '123456'
-        }
-    }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.yikezhong"
@@ -146,7 +139,8 @@ dependencies {
     compile 'com.umeng.sdk:analytics:7.5.0'
     compile 'com.umeng.sdk:common:1.5.1'
     implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
-    compile 'com.alibaba:fastjson:1.1.56.android'
     implementation files('libs/Sunflower.jar')
     implementation files('libs/Msc.jar')
+
+    compile 'com.android.support:multidex:1.0.0'
 }

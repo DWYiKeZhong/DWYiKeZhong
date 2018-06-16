@@ -81,7 +81,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.guanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "关注", Toast.LENGTH_SHORT).show();
 
                 String token = (String) SharedPreferencesUtils.getParam(context,"token","");
                 String uid = (String) SharedPreferencesUtils.getParam(context,"uid","");

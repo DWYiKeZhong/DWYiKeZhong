@@ -28,7 +28,7 @@ import com.example.yikezhong.ui.activity.search.presenter.SearchPresenter;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.example.yikezhong.ui.utils.DialogUtil;
-import com.example.yikezhong.ui.utils.JsonParser;
+import com.example.yikezhong.xunfei_util.JsonParser;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.RecognizerListener;
@@ -278,7 +278,6 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
                 Environment.getExternalStorageDirectory() + "/msc/iat.wav");
 
     }
-
 
 
     @Override

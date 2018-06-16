@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
     <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/size_8"
         android:layout_gravity="center_vertical"
         fresco:actualImageScaleType="focusCrop"
         fresco:placeholderImageScaleType="fitCenter"
@@ -21,7 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/search__item_name"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/size_15"
+        android:layout_toRightOf="@+id/search_sdv"
+        android:layout_centerVertical="true"
         android:layout_gravity="center_vertical" />
 
     <Button
@@ -30,6 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/size_8"
         android:background="@drawable/bottom_styless"/>
 
-</LinearLayout>
+</RelativeLayout>
