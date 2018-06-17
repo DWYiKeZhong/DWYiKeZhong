@@ -138,7 +138,7 @@
         <activity android:name=".wxapi.WBShareActivity"></activity>
         <activity android:name=".ui.activity.collection.CollectionActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
-        <activity android:name=".ui.activity.setup.SetupActivity"></activity>
+        <activity android:name=".ui.activity.setting.SettingActivity"></activity>
     </application>
 
 </manifest>

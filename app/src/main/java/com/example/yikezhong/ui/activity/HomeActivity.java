@@ -32,7 +32,7 @@ import com.example.yikezhong.ui.activity.contract.UpdateHeaderContract;
 import com.example.yikezhong.ui.activity.follow.FollowActivity;
 import com.example.yikezhong.ui.activity.presenter.UpdatePresenter;
 import com.example.yikezhong.ui.activity.search.SearchActivity;
-import com.example.yikezhong.ui.activity.setup.SetupActivity;
+import com.example.yikezhong.ui.activity.setting.SettingActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.duanzi_fragment.Duanzi_Fragment;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
@@ -234,10 +234,12 @@ public class HomeActivity extends BaseActivity<UpdatePresenter> implements Updat
 
             }
         });
+
+        //跳转设置
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, SetupActivity.class));
+                startActivity(new Intent(HomeActivity.this, SettingActivity.class));
             }
         });
 

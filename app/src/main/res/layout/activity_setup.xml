@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.example.yikezhong.ui.activity.setup.SetupActivity">
+    tools:context="com.example.yikezhong.ui.activity.setting.SettingActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
@@ -15,12 +16,22 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/main_menu"
-            android:layout_width="41dp"
-            android:layout_height="41dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/raw_1500019926"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="@dimen/size_10"
+            android:src="@drawable/back_white"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/main_menu"
+            android:layout_centerVertical="true"
+            android:text="返回"
+            android:textColor="#fff"
+            android:textSize="23dp" />
 
         <TextView
             android:id="@+id/main_text"
@@ -32,22 +43,98 @@
             android:textColor="#fff"
             android:textSize="25dp" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <LinearLayout
+        android:layout_below="@+id/setup_title"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/setup_clear"
-        android:layout_below="@id/setup_title">
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="清除缓存"
-            android:layout_centerVertical="true"/>
+            android:paddingLeft="@dimen/size_10"
+            android:background="#ffff"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="检查更新"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d4d4d4"
+            />
         <TextView
-            android:layout_width="wrap_content"
+            android:paddingLeft="@dimen/size_10"
+            android:background="#ffff"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="意见反馈"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d4d4d4"
+            />
+
+        <RelativeLayout
+            android:layout_below="@+id/setup_title"
+            android:layout_width="match_parent"
+            android:layout_height="38dp" >
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/size_10"
+                android:layout_width="wrap_content"
+                android:id="@+id/setup_clear"
+                android:layout_height="38dp"
+                android:background="#ffff"
+                android:textSize="25dp"
+                android:text="清除缓存"
+                />
+            <TextView
+                android:text="0.00 B"
+                android:textSize="20dp"
+                android:background="#ffff"
+                android:id="@+id/setup_num"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingRight="@dimen/size_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d4d4d4"
+            />
+        <TextView
+            android:paddingLeft="@dimen/size_10"
+            android:background="#ffff"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="关于一刻钟"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d4d4d4"
+            />
+        <Button
+            android:id="@+id/exit_btn"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_styles"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:text="0kb"
-            android:layout_alignParentRight="true"
-            android:id="@+id/setup_num"
-            android:layout_centerVertical="true"/>
-    </RelativeLayout>
+            android:text="退出登录"
+            android:layout_marginTop="@dimen/size_30"
+            android:textColor="#ffff"
+            android:textSize="30dp"
+            />
+    </LinearLayout>
 </RelativeLayout>

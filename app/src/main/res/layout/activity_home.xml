@@ -117,7 +117,7 @@
                 android:layout_below="@id/left_main_menu"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="20dp"
-                android:text="编辑个性签名"
+                android:text="人生像一场没有尽头的旅行"
                 android:textColor="#ffffff"
                 android:textSize="15sp"/>
         </RelativeLayout>

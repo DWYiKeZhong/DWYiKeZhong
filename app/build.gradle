@@ -141,6 +141,5 @@ dependencies {
     implementation files('libs/umeng-share-QQ-simplify-6.9.1.jar')
     implementation files('libs/Sunflower.jar')
     implementation files('libs/Msc.jar')
-
     compile 'com.android.support:multidex:1.0.0'
 }

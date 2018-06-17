@@ -73,7 +73,7 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
     private SharedPreferences sharedPreferences;
 
     //用hashmap存储听写结果
-    private HashMap<String, String> hashMap = new LinkedHashMap<String, String>();
+    private HashMap<String, String> hashMap = new LinkedHashMap<>();
 
     //引擎类型（云端或本地）
     private String mEngineType = null;
@@ -108,7 +108,7 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
     private void initDate() {
         //初始化sdk 将自己申请的appid放到下面
         //此句代码应该放在application中的，这里为了方便就直接放代码中了
-        SpeechUtility.createUtility(this, "5b227bc1");
+        SpeechUtility.createUtility(this, "appid=5adff6ad");
         speechRecognizer = SpeechRecognizer.createRecognizer(this, initListener);
         recognizerDialog = new RecognizerDialog(this, initListener);
         sharedPreferences = getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
