@@ -91,7 +91,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/raw_1499936862"
+                android:src="@drawable/raw_1500033586"
                 android:layout_centerVertical="true" />
             <TextView
                 android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/left_main_menu"
                 android:layout_marginLeft="20dp"
-                android:text="椰汁奶茶"
+                android:text="请登录"
                 android:textColor="#ffffff"
                 android:textSize="20sp"/>
             <ImageView
@@ -113,7 +113,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/write_name"
                 android:layout_below="@id/left_main_menu"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="20dp"

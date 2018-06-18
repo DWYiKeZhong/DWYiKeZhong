@@ -1,8 +1,9 @@
 package com.example.yikezhong.app;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
-
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.mob.MobSDK;
 import com.umeng.commonsdk.UMConfigure;
@@ -11,8 +12,12 @@ import com.umeng.socialize.UMShareAPI;
 
 /**
  * Fresco  Mob登录 友盟分享 的初始化全局配置类
+ * 注意：如果你的项目使用了继承 Application 的类，那么你需要在这个类中重写 attachBaseContext() 方法并调用 MultiDex.install(this) 来启用 multidex ，
+ * AndroidManifest里的application中的name对应的值改为你这个自定义的类。
  */
-public class MyApplication extends Application {
+public class MyApplication extends  Application {
+    private static Context context;
+
     {
 
         PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
@@ -21,8 +26,16 @@ public class MyApplication extends Application {
     }
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
+
+        context = getApplicationContext();
 
         //Fresco
         Fresco.initialize(this);
@@ -53,5 +66,9 @@ public class MyApplication extends Application {
          * 参数: boolean 默认为false，如需查看LOG设置为true
          */
         UMConfigure.setLogEnabled(true);
+    }
+
+    public static Context getAppContext() {
+        return context;
     }
 }

@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:name=".app.MyApplication"
@@ -48,12 +48,12 @@
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"
@@ -83,8 +83,8 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent1106974740" />
 
+                <data android:scheme="tencent1106974740" />
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
@@ -118,14 +118,15 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
 
-       <!-- 对应 Activity 第三方QQ登录并获取QQ用户信息-->
-        <activity android:name=".ui.activity.OtherActivity"
+        <!-- 对应 Activity 第三方QQ登录并获取QQ用户信息 -->
+        <activity
+            android:name=".ui.activity.OtherActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.login.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.register.RegisterActivity" />
         <activity android:name=".ui.activity.LunBoDetailActivity" />
         <activity android:name=".ui.activity.FaBuActivity" />
@@ -135,10 +136,12 @@
         <activity android:name=".ui.activity.collection.CollectionActivity" />
         <activity android:name=".ui.activity.FaBuSuccessActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
-        <activity android:name=".wxapi.WBShareActivity"></activity>
+        <activity android:name=".wxapi.WBShareActivity" />
         <activity android:name=".ui.activity.collection.CollectionActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
-        <activity android:name=".ui.activity.setting.SettingActivity"></activity>
+        <activity android:name=".ui.activity.setting.SettingActivity" />
+        <activity android:name=".ui.activity.UserNameActivity" />
+        <activity android:name=".ui.activity.upload.UpLoadActivity"></activity>
     </application>
 
 </manifest>

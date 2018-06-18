@@ -12,13 +12,13 @@ import com.example.yikezhong.R;
 import com.example.yikezhong.bean.LoginBean;
 import com.example.yikezhong.component.DaggerHttpComponent;
 import com.example.yikezhong.module.HttpModule;
+import com.example.yikezhong.ui.activity.HomeActivity;
 import com.example.yikezhong.ui.activity.login.contract.LoginContract;
 import com.example.yikezhong.ui.activity.login.presenter.LoginPresenter;
 import com.example.yikezhong.ui.activity.register.RegisterActivity;
 import com.example.yikezhong.ui.base.BaseActivity;
 import com.example.yikezhong.ui.shared.SharedPreferencesUtils;
 import com.umeng.analytics.MobclickAgent;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -60,8 +60,29 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             SharedPreferencesUtils.setParam(LoginActivity.this,"uid",loginBean.getData().getUid()+"");
             SharedPreferencesUtils.setParam(LoginActivity.this,"name",loginBean.getData().getNickname()+"");
             SharedPreferencesUtils.setParam(LoginActivity.this,"iocn",loginBean.getData().getIcon()+"");
+
+            //保存登陆
+            SharedPreferencesUtils.putBoolean("isLogin", true);
+            //存uid
+            SharedPreferencesUtils.saveString("uid", String.valueOf(loginBean.getData().getUid()));
+            //存手机号
+            SharedPreferencesUtils.saveString("mobile", loginBean.getData().getMobile());
+            //存密码
+            SharedPreferencesUtils.saveString("password",loginBean.getData().getPassword() );
+            //存name
+            SharedPreferencesUtils.saveString("name", loginBean.getData().getUsername());
+            //存token
+            SharedPreferencesUtils.saveString("token",loginBean.getData().getToken());
+            //存网名
+            SharedPreferencesUtils.saveString("nickname", (String) loginBean.getData().getNickname());
+            SharedPreferencesUtils.saveString("icon",loginBean.getData().getIcon()+"");
+
+            //返回首页
+            Intent intent=new Intent(this, HomeActivity.class);
+            startActivity(intent);
             finish();
-            LoginActivity.this.finish();
+        }else if(loginBean.getCode().equals("1")){
+            Toast.makeText(this, loginBean.getMsg(),Toast.LENGTH_SHORT).show();
         }
     }
 

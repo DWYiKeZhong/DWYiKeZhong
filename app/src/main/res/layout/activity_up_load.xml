@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#05a9f4" >
+        <ImageView
+            android:id="@+id/fanhui"
+            android:src="@drawable/back_white"
+            android:layout_alignParentLeft="true"
+            android:layout_width="@dimen/size_35"
+            android:layout_height="@dimen/size_35"
+            android:layout_marginTop="@dimen/size_16"
+            android:layout_marginLeft="@dimen/size_15"/>
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_marginTop="12dp"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:text="编辑个人资料"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/updata_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/touxiang"
+            android:layout_marginLeft="@dimen/size_16"/>
+
+        <TextView
+            android:textSize="20dp"
+            android:text="更换头像"
+            android:layout_marginRight="@dimen/size_3"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+        <EditText
+            android:layout_marginLeft="@dimen/size_16"
+            android:id="@+id/edit_nickname"
+            android:layout_width="200dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:textSize="20dp"
+            android:text="更换昵称"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size_3"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="100dp">
+        <Button
+            android:gravity="center"
+            android:text="完成编辑"
+            android:id="@+id/overBtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_styless"/>
+    </LinearLayout>
+
+</LinearLayout>
