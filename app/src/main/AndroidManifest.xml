@@ -137,8 +137,10 @@
         <activity android:name=".ui.activity.FaBuSuccessActivity" />
         <activity android:name=".ui.activity.search.SearchActivity" />
         <activity android:name=".wxapi.WBShareActivity" />
-        <activity android:name=".ui.activity.collection.CollectionActivity" />
-        <activity android:name=".ui.activity.search.SearchActivity" />
+        <activity android:name=".ui.activity.collection.CollectionActivity"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".ui.activity.search.SearchActivity"
+            tools:ignore="DuplicateActivity" />
         <activity android:name=".ui.activity.setting.SettingActivity" />
         <activity android:name=".ui.activity.UserNameActivity" />
         <activity android:name=".ui.activity.upload.UpLoadActivity"></activity>
