@@ -32,10 +32,10 @@ MobSDK {
 android {
     //配置gradle让APP自动签名
     signingConfigs {
-        DWYiKZhong {
-            keyAlias 'key'
+        DW {
+            keyAlias 'yikezhong'
             keyPassword '123456'
-            storeFile file('D:/Studio_AppKeyName/DWYiKeZhong.jks')
+            storeFile file('D:/Studio_AppKeyName/YiKeZhong.jks')
             storePassword '123456'
         }
     }
