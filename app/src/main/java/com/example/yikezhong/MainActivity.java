@@ -40,7 +40,7 @@ import butterknife.ButterKnife;
  *
  *           佛祖保佑        永无BUG        事业家庭两丰收
  */
-//引导页  extends MobActivity
+//引导页倒计时跳转  extends MobActivity
 public class MainActivity extends MobActivity {
     @BindView(R.id.time)
     TextView timetext;
