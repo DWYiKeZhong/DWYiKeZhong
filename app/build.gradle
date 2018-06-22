@@ -31,14 +31,7 @@ MobSDK {
 
 android {
     //配置gradle让APP自动签名
-    signingConfigs {
-        DW {
-            keyAlias 'yikezhong'
-            keyPassword '123456'
-            storeFile file('D:/Studio_AppKeyName/YiKeZhong.jks')
-            storePassword '123456'
-        }
-    }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.yikezhong"
@@ -52,7 +45,9 @@ android {
     buildTypes {
         release {
             //在build.gradle中minifyEnabled的值是false，把值改成true，打出来的APK包就会混淆,在proguard-rules.pro 选定混淆配置文件
-            minifyEnabled true     //混淆
+            //shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
